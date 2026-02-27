@@ -1,0 +1,504 @@
+"use client";
+import Link from "next/link";
+
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+
+import { transmissaoProducts, controleProducts, pneumaticoProducts, Product } from "@/data/componentesProducts";
+import { ProductModal } from "@/components/ProductModal";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { ArrowRight, MessageCircle, Download, ChevronLeft, Cog, Gauge, Wind, Settings } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { ChevronRight } from "lucide-react";
+import { FadeIn, StaggerChildren, StaggerItem } from "@/components/FadeIn";
+const Componentes = () => {
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Carrossel de Transmissão
+  const [activeTransmissaoSlide, setActiveTransmissaoSlide] = useState(0);
+  const [isTransmissaoAutoPlaying, setIsTransmissaoAutoPlaying] = useState(true);
+
+  // Carrossel de Controle
+  const [activeControleSlide, setActiveControleSlide] = useState(0);
+  const [isControleAutoPlaying, setIsControleAutoPlaying] = useState(true);
+
+  // Carrossel de Pneumático
+  const [activePneumaticoSlide, setActivePneumaticoSlide] = useState(0);
+  const [isPneumaticoAutoPlaying, setIsPneumaticoAutoPlaying] = useState(true);
+  const openProductModal = (product: Product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+  const closeProductModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
+
+  // Auto-play do carrossel de Transmissão
+  useEffect(() => {
+    if (!isTransmissaoAutoPlaying) return;
+    const interval = setInterval(() => {
+      setActiveTransmissaoSlide(prev => prev === transmissaoProducts.length - 1 ? 0 : prev + 1);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isTransmissaoAutoPlaying]);
+
+  // Auto-play do carrossel de Controle
+  useEffect(() => {
+    if (!isControleAutoPlaying) return;
+    const interval = setInterval(() => {
+      setActiveControleSlide(prev => prev === controleProducts.length - 1 ? 0 : prev + 1);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isControleAutoPlaying]);
+
+  // Auto-play do carrossel de Pneumático
+  useEffect(() => {
+    if (!isPneumaticoAutoPlaying) return;
+    const interval = setInterval(() => {
+      setActivePneumaticoSlide(prev => prev === pneumaticoProducts.length - 1 ? 0 : prev + 1);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isPneumaticoAutoPlaying]);
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          const offset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      }, 100);
+    }
+  }, []);
+  const scrollToSection = (id: string) => {
+    const element = document.querySelector(id);
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+  return <div className="min-h-screen bg-background">
+      <Navigation />
+
+      {/* HERO SECTION */}
+      <section className="relative h-[80vh] flex items-center justify-center" style={{
+        backgroundImage: "url('https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653702/Firefly_Industrial_packaging_machine_components_and_parts_display_stainless_steel_mechanical_890444_r1bqyj.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed"
+      }}>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80" />
+
+        <div className="relative z-10 px-4 max-w-5xl mx-auto w-full container">
+          <Breadcrumb className="mb-6">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="text-white/80 hover:text-white">Início</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator className="text-white/60" />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/solucoes" className="text-white/80 hover:text-white">Equipamentos</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator className="text-white/60" />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="text-white">Componentes</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+
+          <FadeIn variant="up" delay={0.1}><h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Componentes e peças para Máquinas de Empacotamento</h1></FadeIn>
+
+          <FadeIn variant="up" delay={0.3}><p className="text-xl text-white/90 max-w-3xl leading-relaxed mb-10">Atendemos também componentes e peças para todos os tipos de máquinas de empacotamento</p></FadeIn>
+
+          <FadeIn variant="up" delay={0.5}><div className="flex flex-col sm:flex-row gap-4">
+            <Button size="lg" className="bg-white text-foreground hover:bg-white/90 px-8 py-6 text-lg font-semibold shadow-xl" onClick={() => scrollToSection("#section-transmissao")}>
+              Ver Componentes
+            </Button>
+            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg" asChild>
+              <Link href="/contato">Falar com Especialista</Link>
+            </Button>
+          </div></FadeIn>
+        </div>
+      </section>
+
+      {/* O QUE SÃO COMPONENTES */}
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-white to-muted">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <FadeIn variant="left">
+              <Badge className="bg-slate-50 text-slate-700 px-4 py-2 text-sm font-medium mb-6">Sobre os Componentes</Badge>
+
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">Somos especializados em Importação de componentes para máquinas de empacotamento e fornecimento de peças e acessórios  </h2>
+
+              <p className="text-lg text-muted-foreground leading-relaxed mb-4" style={{
+              lineHeight: "1.8"
+            }}>Atuamos no desenvolvimento de soluções inteligentes e baixo custo para toda a indústria que utiliza máquinas de empacotamento, temos parceiro pelo mundo onde podemos fazer o desenvolvimento de peças e componentes de máquina com qualidade superior e custo acessível. </p>
+
+              <p className="text-lg text-muted-foreground leading-relaxed" style={{
+              lineHeight: "1.8"
+            }}>
+            </p>
+            </FadeIn>
+
+            <FadeIn variant="right" delay={0.2}>
+              <div className="bg-card rounded-2xl shadow-xl p-8 border border-border">
+                <h3 className="text-2xl font-bold text-foreground mb-8">Categorias de Componentes</h3>
+
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
+                      <Cog className="w-6 h-6 text-slate-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Transmissão</h4>
+                      <p className="text-sm text-muted-foreground">Correias, polias, rolamentos, eixos e buchas</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
+                      <Gauge className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Controle</h4>
+                      <p className="text-sm text-muted-foreground">Sensores, encoders, controladores e inversores</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-12 h-12 rounded-xl bg-cyan-100 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-200 transition-colors">
+                      <Wind className="w-6 h-6 text-cyan-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Pneumático</h4>
+                      <p className="text-sm text-muted-foreground">Cilindros, válvulas, filtros e conexões</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-200 transition-colors">
+                      <Settings className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Compatibilidade</h4>
+                      <p className="text-sm text-muted-foreground">Bosch, IMA, Ulma, TNA, Ishida e outras</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* COMPONENTES DE TRANSMISSÃO */}
+      <section id="section-transmissao" className="py-20 lg:py-28 bg-white scroll-mt-20">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 lg:hidden">Transmissão</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed mb-8 lg:hidden">
+            Correias dentadas, polias, rolamentos, eixos e buchas de alta qualidade para sistemas de transmissão.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[50%_50%] gap-8 lg:gap-12 items-start">
+            <div className="space-y-6 order-1">
+              <div className="hidden lg:block space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">Transmissão</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Correias dentadas, polias, rolamentos, eixos e buchas de alta qualidade para sistemas de transmissão.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                {transmissaoProducts.slice(0, 6).map((product, index) => <div key={product.id} onMouseEnter={() => {
+                setActiveTransmissaoSlide(index);
+                setIsTransmissaoAutoPlaying(false);
+              }} onMouseLeave={() => setIsTransmissaoAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activeTransmissaoSlide === index ? "bg-slate-100 text-slate-700" : "hover:bg-slate-50 text-base")}>
+                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activeTransmissaoSlide === index ? "text-slate-700" : "text-base")} />
+                    <h3 className="font-semibold text-base">{product.name}</h3>
+                  </div>)}
+              </div>
+            </div>
+
+            <div className="lg:sticky lg:top-24 h-fit order-2">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-muted to-muted/50 shadow-2xl">
+                <AnimatePresence>
+                  <motion.div key={activeTransmissaoSlide} initial={{
+                  opacity: 0
+                }} animate={{
+                  opacity: 1
+                }} exit={{
+                  opacity: 0
+                }} transition={{
+                  duration: 0.6
+                }} className="absolute inset-0 flex flex-col">
+                    <div className="flex-1 relative">
+                      <img src={transmissaoProducts[activeTransmissaoSlide].images[0]} alt={transmissaoProducts[activeTransmissaoSlide].name} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    </div>
+
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
+                      <h3 className="text-2xl md:text-3xl font-bold">
+                        {transmissaoProducts[activeTransmissaoSlide].name}
+                      </h3>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                <button onClick={() => setActiveTransmissaoSlide(prev => prev === 0 ? transmissaoProducts.length - 1 : prev - 1)} className="hidden lg:block absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/90 p-2 rounded-full shadow-md transition-all" aria-label="Produto anterior">
+                  <ChevronLeft className="w-5 h-5 text-gray-800" />
+                </button>
+
+                <button onClick={() => setActiveTransmissaoSlide(prev => prev === transmissaoProducts.length - 1 ? 0 : prev + 1)} className="hidden lg:block absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/90 p-2 rounded-full shadow-md transition-all" aria-label="Próximo produto">
+                  <ChevronRight className="w-5 h-5 text-gray-800" />
+                </button>
+
+                <div className="absolute top-6 right-6 flex gap-2">
+                  {transmissaoProducts.slice(0, 6).map((_, index) => <div key={index} className={cn("h-1 rounded-full transition-all duration-300", activeTransmissaoSlide === index ? "w-8 bg-white" : "w-4 bg-white/40")}></div>)}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COMPONENTES DE CONTROLE */}
+      <section id="section-controle" className="py-20 lg:py-28 bg-gradient-to-b from-gray-50 to-white scroll-mt-20">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 lg:hidden">Controle</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed mb-8 lg:hidden">
+            Sensores, encoders, controladores de temperatura e inversores de frequência para automação e controle.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[50%_50%] gap-8 lg:gap-12 items-start">
+            <div className="lg:sticky lg:top-24 h-fit order-3 lg:order-1">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-muted to-muted/50 shadow-2xl">
+                <AnimatePresence>
+                  <motion.div key={activeControleSlide} initial={{
+                  opacity: 0
+                }} animate={{
+                  opacity: 1
+                }} exit={{
+                  opacity: 0
+                }} transition={{
+                  duration: 0.6
+                }} className="absolute inset-0 flex flex-col">
+                    <div className="flex-1 relative">
+                      <img src={controleProducts[activeControleSlide].images[0]} alt={controleProducts[activeControleSlide].name} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    </div>
+
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
+                      <h3 className="text-2xl md:text-3xl font-bold">
+                        {controleProducts[activeControleSlide].name}
+                      </h3>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                <button onClick={() => setActiveControleSlide(prev => prev === 0 ? controleProducts.length - 1 : prev - 1)} className="hidden lg:block absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/90 p-2 rounded-full shadow-md transition-all" aria-label="Produto anterior">
+                  <ChevronLeft className="w-5 h-5 text-gray-800" />
+                </button>
+
+                <button onClick={() => setActiveControleSlide(prev => prev === controleProducts.length - 1 ? 0 : prev + 1)} className="hidden lg:block absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/90 p-2 rounded-full shadow-md transition-all" aria-label="Próximo produto">
+                  <ChevronRight className="w-5 h-5 text-gray-800" />
+                </button>
+
+                <div className="absolute top-6 right-6 flex gap-2">
+                  {controleProducts.map((_, index) => <div key={index} className={cn("h-1 rounded-full transition-all duration-300", activeControleSlide === index ? "w-8 bg-white" : "w-4 bg-white/40")}></div>)}
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-6 order-2">
+              <div className="hidden lg:block space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">Controle</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Sensores, encoders, controladores de temperatura e inversores de frequência para automação e controle.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                {controleProducts.map((product, index) => <div key={product.id} onMouseEnter={() => {
+                setActiveControleSlide(index);
+                setIsControleAutoPlaying(false);
+              }} onMouseLeave={() => setIsControleAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activeControleSlide === index ? "bg-slate-100 text-slate-700" : "hover:bg-slate-50 text-base")}>
+                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activeControleSlide === index ? "text-slate-700" : "text-base")} />
+                    <h3 className="font-semibold text-base">{product.name}</h3>
+                  </div>)}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COMPONENTES PNEUMÁTICOS */}
+      <section id="section-pneumatico" className="py-20 lg:py-28 bg-white scroll-mt-20">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 lg:hidden">Pneumático</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed mb-8 lg:hidden">
+            Cilindros, válvulas solenóide, filtros reguladores e conexões para sistemas pneumáticos.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[50%_50%] gap-8 lg:gap-12 items-start">
+            <div className="space-y-6 order-1">
+              <div className="hidden lg:block space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">Pneumático</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Cilindros, válvulas solenóide, filtros reguladores e conexões para sistemas pneumáticos.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                {pneumaticoProducts.map((product, index) => <div key={product.id} onMouseEnter={() => {
+                setActivePneumaticoSlide(index);
+                setIsPneumaticoAutoPlaying(false);
+              }} onMouseLeave={() => setIsPneumaticoAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activePneumaticoSlide === index ? "bg-slate-100 text-slate-700" : "hover:bg-slate-50 text-base")}>
+                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activePneumaticoSlide === index ? "text-slate-700" : "text-base")} />
+                    <h3 className="font-semibold text-base">{product.name}</h3>
+                  </div>)}
+              </div>
+            </div>
+
+            <div className="lg:sticky lg:top-24 h-fit order-2">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-muted to-muted/50 shadow-2xl">
+                <AnimatePresence>
+                  <motion.div key={activePneumaticoSlide} initial={{
+                  opacity: 0
+                }} animate={{
+                  opacity: 1
+                }} exit={{
+                  opacity: 0
+                }} transition={{
+                  duration: 0.6
+                }} className="absolute inset-0 flex flex-col">
+                    <div className="flex-1 relative">
+                      <img src={pneumaticoProducts[activePneumaticoSlide].images[0]} alt={pneumaticoProducts[activePneumaticoSlide].name} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    </div>
+
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
+                      <h3 className="text-2xl md:text-3xl font-bold">
+                        {pneumaticoProducts[activePneumaticoSlide].name}
+                      </h3>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                <button onClick={() => setActivePneumaticoSlide(prev => prev === 0 ? pneumaticoProducts.length - 1 : prev - 1)} className="hidden lg:block absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/90 p-2 rounded-full shadow-md transition-all" aria-label="Produto anterior">
+                  <ChevronLeft className="w-5 h-5 text-gray-800" />
+                </button>
+
+                <button onClick={() => setActivePneumaticoSlide(prev => prev === pneumaticoProducts.length - 1 ? 0 : prev + 1)} className="hidden lg:block absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/90 p-2 rounded-full shadow-md transition-all" aria-label="Próximo produto">
+                  <ChevronRight className="w-5 h-5 text-gray-800" />
+                </button>
+
+                <div className="absolute top-6 right-6 flex gap-2">
+                  {pneumaticoProducts.map((_, index) => <div key={index} className={cn("h-1 rounded-full transition-all duration-300", activePneumaticoSlide === index ? "w-8 bg-white" : "w-4 bg-white/40")}></div>)}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA FINAL + NAVEGAÇÃO RELACIONADA */}
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-white to-muted">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="bg-gradient-to-br from-slate-700 to-slate-900 rounded-3xl p-12 lg:p-16 text-center text-white mb-20 animate-fade-in">
+            <div className="max-w-2xl mx-auto">
+              <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-6">
+                <MessageCircle className="w-8 h-8 text-white" />
+              </div>
+
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Precisa de um Componente Específico?</h2>
+
+              <p className="text-xl text-slate-100 mb-8">
+                Nossa equipe técnica pode ajudar a identificar a peça correta para sua máquina, 
+                mesmo que não esteja em nosso catálogo.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-50 px-8 py-6 text-lg" asChild>
+                  <Link href="/contato">Falar com Especialista</Link>
+                </Button>
+                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
+                  <Download className="mr-2" />
+                  Baixar Catálogo PDF
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t-2 border-border pt-16 animate-fade-in">
+            <h3 className="text-3xl font-bold text-center text-foreground mb-12">
+              Veja Soluções por Tipo de Máquina
+            </h3>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <Link href="/flow-pack" className="group relative h-72 rounded-2xl overflow-hidden cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&h=600&fit=crop" alt="Flow Pack" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <Badge className="bg-white/20 text-white mb-3">Flow Pack</Badge>
+                  <h4 className="text-2xl font-bold mb-2">Máquinas Flow Pack</h4>
+                  <Button variant="outline" size="sm" className="border-white text-white hover:bg-white hover:text-gray-900">
+                    Ver Soluções <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </div>
+              </Link>
+
+              <Link href="/vffs" className="group relative h-72 rounded-2xl overflow-hidden cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop" alt="Verticais" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <Badge className="bg-white/20 text-white mb-3">Verticais</Badge>
+                  <h4 className="text-2xl font-bold mb-2">Máquinas Verticais</h4>
+                  <Button variant="outline" size="sm" className="border-white text-white hover:bg-white hover:text-gray-900">
+                    Ver Soluções <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </div>
+              </Link>
+
+              <Link href="/sache" className="group relative h-72 rounded-2xl overflow-hidden cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=600&fit=crop" alt="Sachê" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <Badge className="bg-white/20 text-white mb-3">Sachê</Badge>
+                  <h4 className="text-2xl font-bold mb-2">Máquinas de Sachê</h4>
+                  <Button variant="outline" size="sm" className="border-white text-white hover:bg-white hover:text-gray-900">
+                    Ver Soluções <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+
+      {isModalOpen && selectedProduct && <ProductModal product={selectedProduct} isOpen={isModalOpen} onClose={closeProductModal} />}
+    </div>;
+};
+export default Componentes;

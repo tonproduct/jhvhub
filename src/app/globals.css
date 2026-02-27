@@ -13,6 +13,32 @@
 /* ── Scroll behavior ── */
 html { scroll-behavior: smooth; }
 
+/* ── JHV Brand overrides (red primary) ── */
+:root {
+  --primary: hsl(0, 72%, 51%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --accent-foreground: hsl(0, 72%, 51%);
+  --ring: hsl(0, 72%, 51%);
+  --radius: 0.75rem;
+
+  /* Hero background */
+  --hero-bg: 235 35% 7.5%;
+
+  /* Blue palette (used in FlowPack, VFFS pages) */
+  --blue-50: hsl(219, 100%, 97%);
+  --blue-100: hsl(214, 95%, 93%);
+  --blue-600: hsl(217, 91%, 60%);
+  --blue-700: hsl(221, 83%, 53%);
+  --blue-800: hsl(224, 76%, 48%);
+  --blue-900: hsl(224, 64%, 33%);
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, hsl(0, 72%, 51%), hsl(220, 70%, 50%));
+  --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.08);
+  --shadow-medium: 0 4px 16px -4px hsl(0 0% 0% / 0.12);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* ── Tailwind theme bridge ── */
 @custom-variant dark (&:is(.dark *));
 
