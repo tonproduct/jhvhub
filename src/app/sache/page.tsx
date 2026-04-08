@@ -102,13 +102,13 @@ const Sache = () => {
       <Navigation />
 
       {/* HERO SECTION */}
-      <section className="relative h-[80vh] flex items-center justify-center" style={{
+      <section className="relative h-[58vh] flex items-center justify-center" style={{
         backgroundImage: "url('https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_Complete_sachet_packaging_machine_full_side_view_showing_height_stainless_steel_mul_182693_uevfys.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed"
       }}>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
 
         <div className="relative z-10 px-4 max-w-5xl mx-auto w-full container">
           <Breadcrumb className="mb-6">
@@ -139,7 +139,7 @@ const Sache = () => {
             <Button size="lg" className="bg-white text-foreground hover:bg-white/90 px-8 py-6 text-lg font-semibold shadow-xl" onClick={() => scrollToSection("#section-selagem")}>
               Ver Soluções
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg" asChild>
+            <Button size="lg" variant="outline" className="border border-white/60 text-white/80 hover:bg-white/10 hover:text-white px-8 py-5 text-base" asChild>
               <Link href="/contato">Falar com Especialista</Link>
             </Button>
           </div></FadeIn>
@@ -423,7 +423,7 @@ const Sache = () => {
                 <Button size="lg" className="bg-white text-amber-900 hover:bg-amber-50 px-8 py-6 text-lg" asChild>
                   <Link href="/contato">Falar com Especialista</Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
+                <Button size="lg" variant="outline" className="border border-white/60 text-white/80 hover:bg-white/10 hover:text-white px-8 py-5 text-base">
                   <Download className="mr-2" />
                   Baixar Catálogo PDF
                 </Button>

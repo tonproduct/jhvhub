@@ -98,13 +98,13 @@ const FlowPack = () => {
       <Navigation />
 
       {/* HERO SECTION */}
-      <section className="relative h-[80vh] flex items-center justify-center" style={{
+      <section className="relative h-[58vh] flex items-center justify-center" style={{
         backgroundImage: "url('https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_Complete_horizontal_flow_pack_packaging_machine_full_side_view_stainless_steel_HFFS_89014_bijmno.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed"
       }}>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
         <div className="relative z-10 px-4 max-w-5xl mx-auto w-full container">
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
@@ -125,7 +125,7 @@ const FlowPack = () => {
           <FadeIn variant="up" delay={0.5}>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-white text-foreground hover:bg-white/90 px-8 py-6 text-lg font-semibold shadow-xl" onClick={() => scrollToSection("#section-selagem")}>Ver Soluções</Button>
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg" asChild>
+              <Button size="lg" variant="outline" className="border border-white/60 text-white/80 hover:bg-white/10 hover:text-white px-8 py-5 text-base" asChild>
                 <Link href="/contato">Falar com Especialista</Link>
               </Button>
             </div>
@@ -262,7 +262,7 @@ const FlowPack = () => {
                 <p className="text-xl text-blue-100 mb-8">Nossa equipe técnica analisa sua operação e recomenda os componentes ideais para maximizar performance e reduzir custos.</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50 px-8 py-6 text-lg" asChild><Link href="/contato">Falar com Especialista</Link></Button>
-                  <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg"><Download className="mr-2" />Baixar Catálogo PDF</Button>
+                  <Button size="lg" variant="outline" className="border border-white/60 text-white/80 hover:bg-white/10 hover:text-white px-8 py-5 text-base"><Download className="mr-2" />Baixar Catálogo PDF</Button>
                 </div>
               </div>
             </div>
