@@ -39,14 +39,18 @@ const Componentes = () => {
     setSelectedProduct(null);
   };
 
-  // Auto-play do carrossel de Transmissão
+  // Auto-play do carrossel de Transmissão (3 imagens fixas)
+  const transmissaoImages = [
+    '/produtos/flow-pack/CONECTOR ROTATIVO.JPEG',
+    '/produtos/flow-pack/MORDENTE 2.JPEG',
+    '/produtos/flow-pack/MORDENTE COM RESISTENCIA E TERMOPAR.JPEG',
+  ];
   useEffect(() => {
-    if (!isTransmissaoAutoPlaying) return;
     const interval = setInterval(() => {
-      setActiveTransmissaoSlide(prev => prev === transmissaoProducts.length - 1 ? 0 : prev + 1);
-    }, 5000);
+      setActiveTransmissaoSlide(prev => prev === transmissaoImages.length - 1 ? 0 : prev + 1);
+    }, 4000);
     return () => clearInterval(interval);
-  }, [isTransmissaoAutoPlaying]);
+  }, []);
 
   // Auto-play do carrossel de Controle
   useEffect(() => {
@@ -230,12 +234,9 @@ const Componentes = () => {
               </div>
 
               <div className="space-y-3">
-                {transmissaoProducts.slice(0, 6).map((product, index) => <div key={product.id} onMouseEnter={() => {
-                setActiveTransmissaoSlide(index);
-                setIsTransmissaoAutoPlaying(false);
-              }} onMouseLeave={() => setIsTransmissaoAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activeTransmissaoSlide === index ? "bg-slate-100 text-slate-700" : "hover:bg-slate-50 text-base")}>
-                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activeTransmissaoSlide === index ? "text-slate-700" : "text-base")} />
-                    <h3 className="font-semibold text-base">{product.name}</h3>
+                {transmissaoProducts.slice(0, 6).map((product) => <div key={product.id} className="group py-3 px-4 rounded-lg flex items-center gap-3 hover:bg-slate-50 transition-all duration-300 cursor-default">
+                    <ChevronRight className="w-5 h-5 flex-shrink-0 text-muted-foreground group-hover:text-slate-700 transition-colors" />
+                    <h3 className="font-semibold text-base group-hover:text-slate-700 transition-colors">{product.name}</h3>
                   </div>)}
               </div>
             </div>
@@ -243,38 +244,13 @@ const Componentes = () => {
             <div className="lg:sticky lg:top-24 h-fit order-2">
               <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-muted to-muted/50 shadow-2xl">
                 <AnimatePresence>
-                  <motion.div key={activeTransmissaoSlide} initial={{
-                  opacity: 0
-                }} animate={{
-                  opacity: 1
-                }} exit={{
-                  opacity: 0
-                }} transition={{
-                  duration: 0.6
-                }} className="absolute inset-0 flex flex-col">
-                    <div className="flex-1 relative">
-                      <img src={transmissaoProducts[activeTransmissaoSlide].images[0]} alt={transmissaoProducts[activeTransmissaoSlide].name} className="w-full h-full object-cover" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                    </div>
-
-                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
-                      <h3 className="text-2xl md:text-3xl font-bold">
-                        {transmissaoProducts[activeTransmissaoSlide].name}
-                      </h3>
-                    </div>
+                  <motion.div key={activeTransmissaoSlide} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }} className="absolute inset-0">
+                    <img src={transmissaoImages[activeTransmissaoSlide]} alt="Transmissão" className="w-full h-full object-cover" />
                   </motion.div>
                 </AnimatePresence>
 
-                <button onClick={() => setActiveTransmissaoSlide(prev => prev === 0 ? transmissaoProducts.length - 1 : prev - 1)} className="hidden lg:block absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/90 p-2 rounded-full shadow-md transition-all" aria-label="Produto anterior">
-                  <ChevronLeft className="w-5 h-5 text-gray-800" />
-                </button>
-
-                <button onClick={() => setActiveTransmissaoSlide(prev => prev === transmissaoProducts.length - 1 ? 0 : prev + 1)} className="hidden lg:block absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/90 p-2 rounded-full shadow-md transition-all" aria-label="Próximo produto">
-                  <ChevronRight className="w-5 h-5 text-gray-800" />
-                </button>
-
                 <div className="absolute top-6 right-6 flex gap-2">
-                  {transmissaoProducts.slice(0, 6).map((_, index) => <div key={index} className={cn("h-1 rounded-full transition-all duration-300", activeTransmissaoSlide === index ? "w-8 bg-white" : "w-4 bg-white/40")}></div>)}
+                  {transmissaoImages.map((_, index) => <div key={index} className={cn("h-1 rounded-full transition-all duration-300", activeTransmissaoSlide === index ? "w-8 bg-white" : "w-4 bg-white/40")}></div>)}
                 </div>
               </div>
             </div>
@@ -302,12 +278,9 @@ const Componentes = () => {
                   opacity: 0
                 }} transition={{
                   duration: 0.6
-                }} className="absolute inset-0 flex flex-col">
-                    <div className="flex-1 relative">
-                      <img src={controleProducts[activeControleSlide].images[0]} alt={controleProducts[activeControleSlide].name} className="w-full h-full object-cover" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                    </div>
-
+                }} className="absolute inset-0">
+                    <img src={controleProducts[activeControleSlide].images[0]} alt={controleProducts[activeControleSlide].name} className="w-full h-full object-cover object-center" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
                       <h3 className="text-2xl md:text-3xl font-bold">
                         {controleProducts[activeControleSlide].name}
@@ -468,7 +441,7 @@ const Componentes = () => {
                 </div>
               </Link>
 
-              <Link href="/vffs" className="group relative h-72 rounded-2xl overflow-hidden cursor-pointer">
+              <Link href="/verticais" className="group relative h-72 rounded-2xl overflow-hidden cursor-pointer">
                 <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop" alt="Verticais" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">

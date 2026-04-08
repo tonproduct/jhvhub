@@ -21,8 +21,10 @@ const FlowPack = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeSealingSlide, setActiveSealingSlide] = useState(0);
   const [isSealingAutoPlaying, setIsSealingAutoPlaying] = useState(true);
+  const [sealingImageIndex, setSealingImageIndex] = useState(0);
   const [activeCuttingSlide, setActiveCuttingSlide] = useState(0);
   const [isCuttingAutoPlaying, setIsCuttingAutoPlaying] = useState(true);
+  const [cuttingImageIndex, setCuttingImageIndex] = useState(0);
 
   const openProductModal = (product: Product) => {
     setSelectedProduct(product);
@@ -42,12 +44,30 @@ const FlowPack = () => {
   }, [isSealingAutoPlaying]);
 
   useEffect(() => {
+    if (isSealingAutoPlaying) { setSealingImageIndex(0); return; }
+    const imgs = flowPackSealingProducts[activeSealingSlide]?.images ?? [];
+    if (imgs.length <= 1) { setSealingImageIndex(0); return; }
+    setSealingImageIndex(0);
+    const t = setInterval(() => setSealingImageIndex(p => (p + 1) % imgs.length), 1800);
+    return () => clearInterval(t);
+  }, [isSealingAutoPlaying, activeSealingSlide]);
+
+  useEffect(() => {
     if (!isCuttingAutoPlaying) return;
     const interval = setInterval(() => {
       setActiveCuttingSlide(prev => prev === flowPackCuttingProducts.length - 1 ? 0 : prev + 1);
     }, 5000);
     return () => clearInterval(interval);
   }, [isCuttingAutoPlaying]);
+
+  useEffect(() => {
+    if (isCuttingAutoPlaying) { setCuttingImageIndex(0); return; }
+    const imgs = flowPackCuttingProducts[activeCuttingSlide]?.images ?? [];
+    if (imgs.length <= 1) { setCuttingImageIndex(0); return; }
+    setCuttingImageIndex(0);
+    const t = setInterval(() => setCuttingImageIndex(p => (p + 1) % imgs.length), 1800);
+    return () => clearInterval(t);
+  }, [isCuttingAutoPlaying, activeCuttingSlide]);
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -166,7 +186,7 @@ const FlowPack = () => {
                 <AnimatePresence>
                   <motion.div key={activeSealingSlide} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }} className="absolute inset-0 flex flex-col">
                     <div className="flex-1 relative">
-                      <img src={flowPackSealingProducts[activeSealingSlide % flowPackSealingProducts.length]?.images[0]} alt={flowPackSealingProducts[activeSealingSlide % flowPackSealingProducts.length]?.name} className="w-full h-full object-cover" />
+                      <img src={flowPackSealingProducts[activeSealingSlide % flowPackSealingProducts.length]?.images[sealingImageIndex] ?? flowPackSealingProducts[activeSealingSlide % flowPackSealingProducts.length]?.images[0]} alt={flowPackSealingProducts[activeSealingSlide % flowPackSealingProducts.length]?.name} className="w-full h-full object-cover" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
@@ -199,7 +219,7 @@ const FlowPack = () => {
                 <AnimatePresence>
                   <motion.div key={activeCuttingSlide} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }} className="absolute inset-0 flex flex-col">
                     <div className="flex-1 relative">
-                      <img src={flowPackCuttingProducts[activeCuttingSlide].images[0]} alt={flowPackCuttingProducts[activeCuttingSlide].name} className="w-full h-full object-cover" />
+                      <img src={flowPackCuttingProducts[activeCuttingSlide]?.images[cuttingImageIndex] ?? flowPackCuttingProducts[activeCuttingSlide]?.images[0]} alt={flowPackCuttingProducts[activeCuttingSlide]?.name} className="w-full h-full object-cover object-top" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
@@ -235,7 +255,7 @@ const FlowPack = () => {
       <section className="py-20 lg:py-28 bg-gradient-to-b from-white to-muted">
         <div className="container mx-auto px-6 max-w-7xl">
           <FadeIn variant="scale">
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-12 lg:p-16 text-center text-white mb-20">
+            <div className="bg-gradient-to-br from-slate-700 to-slate-900 rounded-3xl p-12 lg:p-16 text-center text-white mb-20">
               <div className="max-w-2xl mx-auto">
                 <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-6"><MessageCircle className="w-8 h-8 text-white" /></div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Não Sabe Qual Solução Escolher?</h2>
@@ -253,7 +273,7 @@ const FlowPack = () => {
               <h3 className="text-3xl font-bold text-center text-foreground mb-12">Veja Soluções para Outros Equipamentos</h3>
               <StaggerChildren className="grid md:grid-cols-2 gap-8" staggerDelay={0.15}>
                 <StaggerItem>
-                  <Link href="/vffs" className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer block">
+                  <Link href="/verticais" className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer block">
                     <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&h=600&fit=crop" alt="Vertical" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
