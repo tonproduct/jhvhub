@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/ludimonte/projetos/**)",
+      "Bash(npx shadcn add navigation-menu sheet breadcrumb accordion textarea tooltip carousel --overwrite)",
+      "Bash(npm run build)",
+      "Bash(git add package.json package-lock.json src/ public/hero-packaging.jpg public/logo.png public/logo.svg)",
+      "Bash(git remote add origin https://github.com/tonproduct/jhvhub.git)",
+      "Bash(git push -u origin master)",
+      "Bash(git remote set-url origin https://github.com/tonproduct/jhvhub.git)",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d.get\\('version'\\)\\); print\\(json.dumps\\(d.get\\('exports', {}\\), indent=2\\)\\)\")",
+      "Bash(npx tsc:*)",
+      "Bash(npx next:*)",
+      "mcp__shadcn__search_items_in_registries"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\ludimonte\\projetos\\jhv-pack-nav-temp\\src\\assets",
+      "C:\\Users\\ludimonte\\projetos\\jhv-pack-nav-temp\\public",
+      "C:\\Users\\ludimonte\\projetos\\jhv-pack-nav-temp\\src\\data",
+      "C:\\Users\\ludimonte\\projetos\\jhv-pack-nav-temp\\src\\hooks",
+      "C:\\Users\\ludimonte\\projetos\\jhv-pack-nav-temp"
+    ]
+  }
+}

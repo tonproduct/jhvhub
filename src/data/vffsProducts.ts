@@ -47,7 +47,8 @@ export const vffsSealingProducts: Product[] = [
     description: 'Mordente projetado para máquinas VFFS com sistema de aquecimento integrado e pressão uniforme para selagens perfeitas.',
     fullDescription: 'Mordente de selagem projetado para máquinas VFFS, com sistema de aquecimento integrado e pressão uniforme para selagens perfeitas em sachês, pouches e stick packs.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/MORDENTE VERTICAL.png',
+      '/produtos/flow-pack/MORDENTE VERTICAL 2.png',
     ],
     specifications: {
       material: 'Alumínio anodizado',
@@ -74,12 +75,13 @@ export const vffsSealingProducts: Product[] = [
   {
     id: 'vffs-seal-02',
     category: 'selagem',
-    name: 'Mordente Horizontal para VFFS',
+    name: 'Mordente Horizontal',
     shortDescription: 'Selagem horizontal com perfil otimizado para alta velocidade',
     description: 'Mordente para selagem horizontal em máquinas VFFS, ideal para produção de alta velocidade com qualidade consistente.',
     fullDescription: 'Mordente desenvolvido para selagem horizontal em máquinas verticais, com perfil otimizado para garantir selagem hermética mesmo em alta velocidade de produção.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/barra3 (1).JPEG',
+      '/produtos/flow-pack/MORDENTE VERTICAL 3.png',
     ],
     specifications: {
       material: 'Aço temperado',
@@ -104,12 +106,12 @@ export const vffsSealingProducts: Product[] = [
   {
     id: 'vffs-seal-03',
     category: 'selagem',
-    name: 'Resistência para Selagem VFFS',
+    name: 'Resistência para Selagem',
     shortDescription: 'Elemento aquecedor de alta performance com distribuição uniforme de temperatura',
     description: 'Resistência elétrica para aquecimento dos mordentes com distribuição uniforme de temperatura.',
     fullDescription: 'Resistência elétrica de alta performance para aquecimento dos mordentes de selagem em máquinas VFFS, com distribuição uniforme de temperatura para selagens consistentes.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/MORDENTE COM RESISTENCIA E TERMOPAR.JPEG',
     ],
     specifications: {
       material: 'Mica',
@@ -131,35 +133,6 @@ export const vffsSealingProducts: Product[] = [
     sku: 'VFFS-RES-800',
   },
   {
-    id: 'vffs-seal-04',
-    category: 'selagem',
-    name: 'Mordente com Perfil Customizado',
-    shortDescription: 'Projetos sob medida para diferentes estruturas de filme',
-    description: 'Mordentes desenvolvidos especificamente para sua aplicação, garantindo máxima eficiência.',
-    fullDescription: 'Mordentes com perfil customizado para atender necessidades específicas de diferentes estruturas de filme, garantindo selagem hermética em materiais especiais.',
-    images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
-    ],
-    specifications: {
-      material: 'Conforme projeto',
-      dimensions: 'Customizadas',
-    },
-    benefits: [
-      'Projeto exclusivo',
-      'Adapta-se a materiais especiais',
-      'Otimiza qualidade',
-      'Reduz desperdício',
-    ],
-    applications: [
-      'Filmes especiais',
-      'Materiais multicamadas',
-      'Aplicações específicas',
-    ],
-    availability: 'Sob encomenda',
-    leadTime: '15-20 dias',
-    sku: 'VFFS-MPC-XXX',
-  },
-  {
     id: 'vffs-seal-05',
     category: 'selagem',
     name: 'Rolo de Selagem Vertical',
@@ -167,7 +140,8 @@ export const vffsSealingProducts: Product[] = [
     description: 'Rolos para selagem vertical contínua, ideais para linhas de alta produtividade.',
     fullDescription: 'Sistema de rolos de selagem para operação contínua em máquinas VFFS, proporcionando selagem uniforme mesmo em velocidades elevadas.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/ROLO DE SELAGEM RECARTILHADO.png',
+      '/produtos/flow-pack/ROLO DE SELAGEM 2.png',
     ],
     specifications: {
       material: 'Aço pré-endurecido',
@@ -196,7 +170,7 @@ export const vffsSealingProducts: Product[] = [
     description: 'Termopar tipo J ou K para monitoramento preciso da temperatura de selagem.',
     fullDescription: 'Termopar de alta precisão para monitoramento e controle da temperatura nos mordentes de selagem, garantindo consistência no processo.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/MORDENTE 2.JPEG',
     ],
     specifications: {
       material: 'Tipo J/K',
@@ -224,6 +198,34 @@ export const vffsSealingProducts: Product[] = [
 // ════════════════════════════════════════════════════════════
 
 export const vffsCuttingProducts: Product[] = [
+  {
+    id: 'vffs-cut-00',
+    category: 'corte',
+    name: 'Facas dentadas',
+    shortDescription: 'Facas com perfil dentado para corte preciso em diversos filmes',
+    fullDescription: 'Facas dentadas desenvolvidas para corte de alta performance em máquinas verticais, com perfil serrilhado que garante corte limpo em filmes multicamada, metalizado e plástico.',
+    images: [
+      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+    ],
+    specifications: {
+      material: 'Aço ferramenta temperado',
+      tolerance: '±0.02mm',
+    },
+    benefits: [
+      'Corte limpo em filmes especiais',
+      'Alta durabilidade',
+      'Perfil otimizado',
+      'Baixa manutenção',
+    ],
+    applications: [
+      'Filmes multicamada',
+      'Metalizado',
+      'Embalagens verticais',
+    ],
+    availability: 'Em estoque',
+    leadTime: '5-7 dias',
+    sku: 'VFFS-FDT-XXX',
+  },
   {
     id: 'vffs-cut-01',
     category: 'corte',
@@ -256,7 +258,7 @@ export const vffsCuttingProducts: Product[] = [
   {
     id: 'vffs-cut-02',
     category: 'corte',
-    name: 'Faca Zig Zag para VFFS',
+    name: 'Faca Zig Zag',
     shortDescription: 'Corte serrilhado para fácil abertura das embalagens',
     fullDescription: 'Faca zig zag para máquinas VFFS, facilitando a abertura da embalagem pelo consumidor final.',
     images: [
@@ -284,7 +286,7 @@ export const vffsCuttingProducts: Product[] = [
   {
     id: 'vffs-cut-03',
     category: 'corte',
-    name: 'Contra-faca VFFS',
+    name: 'Contra-faca',
     shortDescription: 'Base de corte com tratamento especial para máxima durabilidade',
     fullDescription: 'Contra-faca para máquinas VFFS com tratamento térmico especial, garantindo vida útil prolongada do conjunto de corte.',
     images: [
@@ -311,7 +313,7 @@ export const vffsCuttingProducts: Product[] = [
   {
     id: 'vffs-cut-04',
     category: 'corte',
-    name: 'Faca Rotativa para VFFS',
+    name: 'Faca Rotativa',
     shortDescription: 'Sistema rotativo para corte contínuo em alta velocidade',
     fullDescription: 'Sistema de faca rotativa para máquinas VFFS de alta velocidade, proporcionando corte contínuo e uniforme.',
     images: [

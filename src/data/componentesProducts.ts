@@ -232,7 +232,7 @@ export const controleProducts: Product[] = [
     description: 'Fotocélula de alta precisão para leitura de marcas de registro.',
     fullDescription: 'Fotocélula de alta precisão para leitura de marcas de registro, garantindo corte e posicionamento correto em filmes pré-impressos.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/fotocélula para registro de embalagem.png',
     ],
     specifications: {
       material: 'Plástico/Metal',
@@ -261,7 +261,7 @@ export const controleProducts: Product[] = [
     description: 'Encoder rotativo incremental de alta resolução para controle preciso.',
     fullDescription: 'Encoder rotativo incremental de alta resolução para controle preciso da velocidade de alimentação do filme e sincronização dos processos.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/encoder rotativo incremental.png',
     ],
     specifications: {
       material: 'Alumínio/Aço',
@@ -290,7 +290,7 @@ export const controleProducts: Product[] = [
     description: 'Controlador digital com display para gestão precisa da temperatura de selagem.',
     fullDescription: 'Controlador de temperatura digital com display e controle PID para gestão precisa da temperatura de selagem em máquinas de embalagem.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/Controlador de Temperatura Digital.png',
     ],
     specifications: {
       material: 'Plástico ABS',
@@ -320,7 +320,7 @@ export const controleProducts: Product[] = [
     description: 'Inversor de frequência para controle preciso de velocidade de motores.',
     fullDescription: 'Inversor de frequência para controle preciso de velocidade de motores em máquinas de embalagem, com proteções integradas.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/Inversor de Frequência.png',
     ],
     specifications: {
       material: 'Metálico',
@@ -349,7 +349,7 @@ export const controleProducts: Product[] = [
     description: 'Sensor capacitivo ou ultrassônico para monitoramento de nível de produto.',
     fullDescription: 'Sensor capacitivo ou ultrassônico para monitoramento do nível de produto no funil de alimentação, evitando falta ou excesso de material.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/Sensor de Nível.png',
     ],
     specifications: {
       material: 'Aço inox/Plástico',

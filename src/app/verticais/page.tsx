@@ -109,47 +109,73 @@ const VFFS = () => {
       <Navigation />
 
       {/* HERO SECTION */}
-      <section className="relative h-[58vh] flex items-center justify-center" style={{
-        backgroundImage: "url('https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed"
-      }}>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
+      <section className="grid lg:grid-cols-2 min-h-[70vh]">
+        {/* Painel esquerdo — conteúdo */}
+        <div className="bg-slate-900 flex flex-col justify-center px-8 md:px-14 py-16 order-2 lg:order-1">
+          <FadeIn variant="up" delay={0.0}>
+            <Breadcrumb className="mb-8">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link href="/" className="text-slate-400 hover:text-white text-sm">Início</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-slate-600" />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link href="/solucoes" className="text-slate-400 hover:text-white text-sm">Equipamentos</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-slate-600" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="text-slate-300 text-sm">Verticais</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+          </FadeIn>
 
-        <div className="relative z-10 px-4 max-w-5xl mx-auto w-full container">
-          <Breadcrumb className="mb-6">
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/" className="text-white/80 hover:text-white">Início</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-white/60" />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/solucoes" className="text-white/80 hover:text-white">Equipamentos</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-white/60" />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="text-white">Vertical</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+          <FadeIn variant="up" delay={0.1}>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
+              Inovação para empacotadoras Verticais contínuas e intermitentes
+            </h1>
+          </FadeIn>
 
-          <FadeIn variant="up" delay={0.1}><h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Inovação para empacotadoras Verticais contínuas e intermitente</h1></FadeIn>
+          <FadeIn variant="up" delay={0.2}>
+            <p className="text-slate-300 text-lg leading-relaxed mb-10">
+              Componentes de alta performance para máquinas verticais. Ferramentas de selagem, corte e colarinhos.
+            </p>
+          </FadeIn>
 
-          <FadeIn variant="up" delay={0.3}><p className="text-xl text-white/90 max-w-3xl leading-relaxed mb-10">Componentes de alta performance para máquinas verticais. Ferramentas de selagem, corte e colarinhos (formatos)</p></FadeIn>
+          <FadeIn variant="up" delay={0.3}>
+            <div className="flex flex-col sm:flex-row gap-3 mb-10">
+              <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100 px-8 py-6 text-base font-semibold shadow-lg" onClick={() => scrollToSection("#section-selagem")}>
+                Ver Soluções
+              </Button>
+              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-6 text-base font-semibold" asChild>
+                <Link href="/contato">Falar com Especialista</Link>
+              </Button>
+            </div>
+          </FadeIn>
 
-          <FadeIn variant="up" delay={0.5}><div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-white text-foreground hover:bg-white/90 px-8 py-6 text-lg font-semibold shadow-xl" onClick={() => scrollToSection("#section-selagem")}>
-              Ver Soluções
-            </Button>
-            <Button size="lg" variant="outline" className="border border-white/60 text-white/80 hover:bg-white/10 hover:text-white px-8 py-5 text-base" asChild>
-              <Link href="/contato">Falar com Especialista</Link>
-            </Button>
-          </div></FadeIn>
+          <FadeIn variant="up" delay={0.4}>
+            <div className="flex gap-6 border-t border-slate-700 pt-8">
+              <button onClick={() => scrollToSection("#section-selagem")} className="text-slate-200 hover:text-white text-sm font-medium transition-colors">
+                Selagem
+              </button>
+              <button onClick={() => scrollToSection("#section-corte")} className="text-slate-200 hover:text-white text-sm font-medium transition-colors">
+                Corte
+              </button>
+            </div>
+          </FadeIn>
+        </div>
+
+        {/* Painel direito — imagem */}
+        <div className="relative min-h-[40vh] lg:min-h-full order-1 lg:order-2">
+          <img
+            src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg"
+            alt="Empacotadoras Verticais"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
         </div>
       </section>
 

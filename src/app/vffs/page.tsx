@@ -433,7 +433,7 @@ const VFFS = () => {
       {/* CTA FINAL */}
       <section className="py-20 lg:py-28 bg-gradient-to-b from-white to-muted">
         <div className="container mx-auto px-6 max-w-7xl">
-          <div className="bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-3xl p-12 lg:p-16 text-center text-white mb-20 animate-fade-in">
+          <div className="bg-gradient-to-br from-slate-700 to-slate-900 rounded-3xl p-12 lg:p-16 text-center text-white mb-20 animate-fade-in">
             <div className="max-w-2xl mx-auto">
               <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-6">
                 <MessageCircle className="w-8 h-8 text-white" />

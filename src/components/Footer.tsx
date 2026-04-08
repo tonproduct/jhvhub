@@ -25,7 +25,7 @@ export const Footer = () => {
             <h3 className="text-white font-bold mb-4">Soluções</h3>
             <ul className="space-y-2">
               <li><Link href="/flow-pack" className="hover:text-primary transition-colors">• Flow Pack</Link></li>
-              <li><Link href="/vffs" className="hover:text-primary transition-colors">• Embaladoras Verticais</Link></li>
+              <li><Link href="/verticais" className="hover:text-primary transition-colors">• Embaladoras Verticais</Link></li>
               <li><Link href="/sache" className="hover:text-primary transition-colors">• Máquinas de Sachê</Link></li>
               <li><Link href="/componentes" className="hover:text-primary transition-colors">• Ferramentas e Componentes</Link></li>
             </ul>

@@ -1,7 +1,8 @@
 "use client";
 
 import { X, Download, Mail, Check, Flame, Scissors, Cog, Gauge, Wind, Box, Beaker } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -40,7 +41,15 @@ interface ProductModalProps {
 }
 
 export const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
-  const [selectedImageIndex] = useState(0);
+  const [currentImg, setCurrentImg] = useState(0);
+  const images = product.images.length > 0 ? product.images : ['https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800'];
+
+  useEffect(() => {
+    if (!isOpen || images.length <= 1) return;
+    setCurrentImg(0);
+    const t = setInterval(() => setCurrentImg(p => (p + 1) % images.length), 3000);
+    return () => clearInterval(t);
+  }, [isOpen, product.id]);
 
   const getCategoryIcon = () => {
     switch (product.category) {
@@ -69,14 +78,32 @@ export const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) =>
   };
 
   const CategoryIcon = getCategoryIcon();
-  const placeholderImage = 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=600&fit=crop';
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl p-0 gap-0 max-h-[90vh] overflow-y-auto">
-        <div className="relative h-80 bg-gradient-to-br from-muted to-muted/80">
-          <img src={placeholderImage} alt={product.name} className="w-full h-full object-cover" />
-          <button onClick={onClose} className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center transition-colors shadow-lg">
+        <div className="relative h-80 bg-gradient-to-br from-muted to-muted/80 overflow-hidden">
+          <AnimatePresence mode="sync">
+            <motion.img
+              key={currentImg}
+              src={images[currentImg]}
+              alt={product.name}
+              className="absolute inset-0 w-full h-full object-cover"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6 }}
+            />
+          </AnimatePresence>
+          {images.length > 1 && (
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+              {images.map((_, i) => (
+                <button key={i} onClick={() => setCurrentImg(i)}
+                  className={`w-1.5 h-1.5 rounded-full transition-all ${i === currentImg ? 'bg-white w-4' : 'bg-white/50'}`} />
+              ))}
+            </div>
+          )}
+          <button onClick={onClose} className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center transition-colors shadow-lg z-10">
             <X className="w-5 h-5" />
           </button>
         </div>

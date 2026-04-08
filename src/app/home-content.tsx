@@ -11,10 +11,147 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/FadeIn";
-
+import { motion, AnimatePresence } from "framer-motion";
 type Solution = "selagem" | "corte" | "componentes" | null;
+
+// ── Portrait Carousel ──────────────────────────────────────────
+const PORTRAIT_IMGS = [
+  "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763660647/Firefly_9_o31dqx.jpg",
+  "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_Complete_horizontal_flow_pack_packaging_machine_full_side_view_stainless_steel_HFFS_89014_bijmno.jpg",
+  "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763660645/Firefly_10_exmprq.jpg",
+  "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg",
+  "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763660644/Firefly_11_ztopy3.jpg",
+  "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_Complete_sachet_packaging_machine_full_side_view_showing_height_stainless_steel_mul_182693_uevfys.png",
+];
+
+const CAROUSEL_MS = 4000;
+const SLIDE_W = 240; // px
+const SLIDE_H = 320; // px — 3:4 portrait
+const SLIDE_GAP = 18; // px
+const SVG_R = 18;
+const SVG_CIRC = 2 * Math.PI * SVG_R;
+
+// Versão compacta para a coluna direita do hero
+const HERO_SLIDE_W = 280;
+const HERO_SLIDE_H = 380;
+
+function HeroPortraitCarousel() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setCurrent((p) => (p + 1) % PORTRAIT_IMGS.length);
+    }, CAROUSEL_MS);
+    return () => clearInterval(t);
+  }, []);
+
+  const trackX = -(current * (HERO_SLIDE_W + SLIDE_GAP));
+
+  return (
+    <div
+      style={{
+        width: HERO_SLIDE_W * 1.6,
+        maskImage: "linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%)",
+      }}
+    >
+      <div className="overflow-hidden" style={{ paddingLeft: `calc(50% - ${HERO_SLIDE_W / 2}px)` }}>
+        <motion.div
+          className="flex"
+          style={{ gap: SLIDE_GAP }}
+          animate={{ x: trackX }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {PORTRAIT_IMGS.map((src, i) => (
+            <motion.div
+              key={i}
+              className="flex-shrink-0 rounded-2xl overflow-hidden cursor-pointer"
+              style={{ width: HERO_SLIDE_W, height: HERO_SLIDE_H }}
+              animate={{ opacity: i === current ? 1 : 0.3, scale: i === current ? 1 : 0.88 }}
+              transition={{ duration: 0.45, ease: [0.25, 0.4, 0.25, 1] }}
+              onClick={() => setCurrent(i)}
+            >
+              <img src={src} alt="" className="w-full h-full object-cover" />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
+function PortraitCarousel() {
+  const [current, setCurrent] = useState(0);
+  const [tick, setTick] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setCurrent((p) => (p + 1) % PORTRAIT_IMGS.length);
+      setTick((k) => k + 1);
+    }, CAROUSEL_MS);
+    return () => clearInterval(t);
+  }, []);
+
+  // padding lateral faz o slide 0 começar centralizado;
+  // translateX desloca o track para centralizar o slide ativo
+  const trackX = -(current * (SLIDE_W + SLIDE_GAP));
+
+  return (
+    <div>
+      {/* viewport com padding que centraliza o primeiro slide */}
+      <div
+        className="overflow-hidden"
+        style={{ paddingLeft: `calc(50% - ${SLIDE_W / 2}px)` }}
+      >
+        <motion.div
+          className="flex"
+          style={{ gap: SLIDE_GAP }}
+          animate={{ x: trackX }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {PORTRAIT_IMGS.map((src, i) => (
+            <motion.div
+              key={i}
+              className="rounded-2xl overflow-hidden flex-shrink-0 cursor-pointer"
+              style={{ width: SLIDE_W, height: SLIDE_H }}
+              animate={{
+                opacity: i === current ? 1 : 0.35,
+                scale: i === current ? 1 : 0.9,
+              }}
+              transition={{ duration: 0.45, ease: [0.25, 0.4, 0.25, 1] }}
+              onClick={() => { setCurrent(i); setTick((k) => k + 1); }}
+            >
+              <img src={src} alt="" className="w-full h-full object-cover" />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Spinner circular */}
+      <div className="flex justify-center mt-7">
+        <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden>
+          <circle cx="22" cy="22" r={SVG_R} fill="none" stroke="#e5e7eb" strokeWidth="2.5" />
+          <g transform="rotate(-90 22 22)">
+            <motion.circle
+              key={tick}
+              cx="22" cy="22" r={SVG_R}
+              fill="none"
+              stroke="hsl(var(--primary))"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeDasharray={SVG_CIRC}
+              initial={{ strokeDashoffset: SVG_CIRC }}
+              animate={{ strokeDashoffset: 0 }}
+              transition={{ duration: CAROUSEL_MS / 1000, ease: "linear" }}
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
 const HomeContent = () => {
   const [solutionStep, setSolutionStep] = useState<1 | 2>(1);
   const [selectedSolution, setSelectedSolution] = useState<Solution>(null);
@@ -29,37 +166,61 @@ const HomeContent = () => {
     setSelectedSolution(solution);
     setSolutionStep(2);
   };
-  return <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative text-white overflow-hidden" style={{ backgroundColor: 'hsl(var(--hero-bg))' }}>
-        <div className="absolute inset-0 opacity-40">
-          <img src="/hero-packaging.jpg" alt="Packaging machinery" className="w-full h-full object-cover" />
+      {/* Hero Section — 2 colunas: texto | carrossel retrato */}
+      <section className="relative text-white px-6 md:px-24" style={{ backgroundColor: 'hsl(var(--hero-bg))' }}>
+        {/* Background clipped separadamente */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute inset-0 opacity-20">
+            <img src="/hero-packaging.jpg" alt="" className="w-full h-full object-cover" />
+          </div>
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, hsl(var(--hero-bg) / 0.95) 40%, hsl(var(--hero-bg) / 0.5))' }} />
         </div>
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, hsl(var(--hero-bg) / 0.85), hsl(var(--hero-bg) / 0.60))' }}></div>
 
-        <div className="container relative mx-auto px-4 md:px-8 py-24 md:py-32">
-          <div className="max-w-3xl">
-            <FadeIn variant="up" delay={0.1}>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white">Ferramentas de precisão para embaladoras.<span className="block text-primary">Mantenha seus Produtos com uma Selagem Perfeita</span></h1>
-            </FadeIn>
+        <div className="relative max-w-[1340px] mx-auto">
+          <div className="grid lg:grid-cols-[60%_1fr] gap-12 items-center py-24 md:py-28">
 
-            <FadeIn variant="up" delay={0.3}>
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">Fabricação nacional de ferramentas de selagem e corte para embaladoras Flow Pack, Verticais e Sachê e outras. Qualidade com padrões internacionais, prazos reduzidos com custos acessíveis para mercado Brasileiro.</p>
-            </FadeIn>
+            {/* ── Coluna esquerda: texto ── */}
+            <div>
+              <FadeIn variant="up" delay={0.1}>
+                <h1 className="text-[28px] md:text-[52px] font-bold mb-6 leading-tight text-white">
+                  Ferramentas de precisão<br />para embaladoras.
+                  <span className="block text-primary">Mantenha seus Produtos<br />com uma Selagem Perfeita</span>
+                </h1>
+              </FadeIn>
 
-            <FadeIn variant="up" delay={0.5}>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="text-lg">
-                  Solicitar Orçamento
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-                <Button size="lg" variant="outline" className="text-lg bg-white/10 border-white/30 text-white hover:bg-background hover:text-foreground">
-                  Ver Catálogo
-                </Button>
+              <FadeIn variant="up" delay={0.3}>
+                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                  Fabricação nacional de ferramentas de selagem e corte para embaladoras Flow Pack, Verticais e Sachê e outras. Qualidade com padrões internacionais, prazos reduzidos com custos acessíveis para mercado Brasileiro.
+                </p>
+              </FadeIn>
+
+              <FadeIn variant="up" delay={0.5}>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+                    <Button size="lg" className="text-lg w-full">
+                      Solicitar Orçamento
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                    </Button>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+                    <Button size="lg" variant="outline" className="text-lg bg-white/10 border-white/30 text-white hover:bg-background hover:text-foreground w-full">
+                      Ver Catálogo
+                    </Button>
+                  </motion.div>
+                </div>
+              </FadeIn>
+            </div>
+
+            {/* ── Coluna direita: carrossel retrato ── */}
+            <FadeIn variant="right" delay={0.35}>
+              <div className="hidden lg:flex justify-end">
+                <HeroPortraitCarousel />
               </div>
             </FadeIn>
+
           </div>
         </div>
       </section>
@@ -151,7 +312,7 @@ const HomeContent = () => {
                     </StaggerItem>
 
                     <StaggerItem>
-                      <Link href={`/vffs#section-${selectedSolution}`}>
+                      <Link href={`/verticais#section-${selectedSolution}`}>
                         <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
                           <img src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg" alt="Vertical" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
@@ -272,7 +433,7 @@ const HomeContent = () => {
 
             {/* Card 2: Vertical */}
             <StaggerItem>
-              <Link href="/vertical">
+              <Link href="/verticais">
                 <div className="relative h-64 rounded-2xl overflow-hidden group cursor-pointer">
                   <img src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg" alt="Vertical" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/40 group-hover:from-gray-900/90 group-hover:to-gray-900/60 transition-all duration-300"></div>
@@ -330,10 +491,16 @@ const HomeContent = () => {
             <StaggerItem variant="up">
               <div className="relative">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6 relative">
+                  <motion.div
+                    className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6 relative"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ type: "spring", stiffness: 280, damping: 18, delay: 0.3 }}
+                  >
                     <span className="text-3xl font-bold text-primary">1</span>
                     <div className="hidden md:block absolute top-1/2 left-full w-full h-0.5 bg-gray-200 -translate-y-1/2"></div>
-                  </div>
+                  </motion.div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">Diagnóstico</h3>
                   <p className="text-gray-600">
                     Você nos conta qual peça precisa ou o problema que está enfrentando na sua linha de produção
@@ -346,10 +513,16 @@ const HomeContent = () => {
             <StaggerItem variant="up">
               <div className="relative">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6 relative">
+                  <motion.div
+                    className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6 relative"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ type: "spring", stiffness: 280, damping: 18, delay: 0.4 }}
+                  >
                     <span className="text-3xl font-bold text-primary">2</span>
                     <div className="hidden md:block absolute top-1/2 left-full w-full h-0.5 bg-gray-200 -translate-y-1/2"></div>
-                  </div>
+                  </motion.div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">Solução Técnica</h3>
                   <p className="text-gray-600">
                     Nossa equipe identifica a peça ideal ou desenvolve uma solução customizada para seu equipamento
@@ -362,9 +535,15 @@ const HomeContent = () => {
             <StaggerItem variant="up">
               <div className="relative">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                  <motion.div
+                    className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ type: "spring", stiffness: 280, damping: 18, delay: 0.5 }}
+                  >
                     <span className="text-3xl font-bold text-primary">3</span>
-                  </div>
+                  </motion.div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">Entrega Rápida</h3>
                   <p className="text-gray-600">
                     Fabricação nacional e estoque local garantem prazos reduzidos e sua linha volta a operar
@@ -376,55 +555,6 @@ const HomeContent = () => {
         </div>
       </section>
 
-      {/* Por Que Escolher Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-          <FadeIn variant="up">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Por Que Escolher a JHV Pack Tools?</h2>
-              <p className="text-lg text-gray-600">
-                Soluções completas para manter sua produção funcionando com máxima eficiência
-              </p>
-            </div>
-          </FadeIn>
-
-          <StaggerChildren className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.1}>
-            {[{
-            icon: Zap,
-            title: "Entrega Rápida",
-            description: "Estoque local e produção ágil garantem prazos reduzidos",
-            color: "bg-yellow-50",
-            iconColor: "text-yellow-600"
-          }, {
-            icon: Shield,
-            title: "Qualidade Garantida",
-            description: "Certificações ISO 9001 e controle rigoroso em todas as etapas",
-            color: "bg-blue-50",
-            iconColor: "text-blue-600"
-          }, {
-            icon: Globe,
-            title: "Nacionalização",
-            description: "Fabricação nacional de peças importadas com economia de até 40%",
-            color: "bg-green-50",
-            iconColor: "text-green-600"
-          }, {
-            icon: Clock,
-            title: "Suporte 24/7",
-            description: "Equipe técnica disponível para emergências e consultoria",
-            color: "bg-red-50",
-            iconColor: "text-primary"
-          }].map((feature, idx) => <StaggerItem key={idx} variant="up">
-                <div className="bg-white rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100 h-full">
-                  <div className={`w-14 h-14 rounded-xl ${feature.color} flex items-center justify-center mb-4`}>
-                    <feature.icon className={`w-7 h-7 ${feature.iconColor}`} />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
-                </div>
-              </StaggerItem>)}
-          </StaggerChildren>
-        </div>
-      </section>
 
       {/* Stats Section */}
       <section ref={statsRef} className="py-16 bg-gray-900">
@@ -459,9 +589,9 @@ const HomeContent = () => {
       </section>
 
       {/* CTA Final Section */}
-      <FadeIn variant="scale">
-        <section className="py-20 bg-gradient-to-r from-primary to-red-700 text-white text-center">
-          <div className="container mx-auto px-4 max-w-4xl">
+      <section className="py-20 bg-gradient-to-r from-primary to-red-700 text-white text-center">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <FadeIn variant="up">
             <Award className="w-16 h-16 mx-auto mb-6 opacity-80" />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Precisa de uma Peça Específica ou Solução Personalizada?
@@ -470,16 +600,18 @@ const HomeContent = () => {
               Nossa equipe técnica está pronta para atender você com soluções sob medida
             </p>
             <div className="flex justify-center">
-              <a href="https://wa.me/5519981791472" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="secondary" className="text-lg px-8 py-4">
-                  <MessageCircle className="mr-2 w-5 h-5" />
-                  Falar com Especialista
-                </Button>
-              </a>
+              <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+                <a href="https://wa.me/5519981791472" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" variant="secondary" className="text-lg px-8 py-4">
+                    <MessageCircle className="mr-2 w-5 h-5" />
+                    Falar com Especialista
+                  </Button>
+                </a>
+              </motion.div>
             </div>
-          </div>
-        </section>
-      </FadeIn>
+          </FadeIn>
+        </div>
+      </section>
 
       <Footer />
     </div>;

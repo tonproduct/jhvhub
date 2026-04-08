@@ -231,7 +231,7 @@ export const sacheCuttingProducts: Product[] = [
     shortDescription: 'Sistema de facas paralelas para corte simultâneo de múltiplos sachês',
     fullDescription: 'Conjunto de facas paralelas para corte simultâneo de múltiplos sachês, aumentando produtividade e garantindo cortes uniformes.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/faca-multiplo-sache-01.png',
     ],
     specifications: {
       material: 'Aço D2',
@@ -260,7 +260,7 @@ export const sacheCuttingProducts: Product[] = [
     shortDescription: 'Cria micro-perfurações para fácil abertura sem comprometer vedação',
     fullDescription: 'Dispositivo para criar picotes (micro-perfurações) em sachês, facilitando a abertura pelo consumidor sem necessidade de tesoura.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/picotador-sache-01.png',
     ],
     specifications: {
       material: 'Aço temperado',
@@ -288,7 +288,7 @@ export const sacheCuttingProducts: Product[] = [
     shortDescription: 'Combina corte liso com entalhe para abertura facilitada',
     fullDescription: 'Faca que combina corte liso com um entalhe especial que indica o ponto correto de abertura do sachê.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/faca-easy-open-sache-01.png',
     ],
     specifications: {
       material: 'Aço ferramenta',
@@ -316,7 +316,7 @@ export const sacheCuttingProducts: Product[] = [
     shortDescription: 'Corte serrilhado decorativo que facilita abertura manual',
     fullDescription: 'Faca zig zag para sachês que cria borda serrilhada decorativa e facilita a abertura manual pelo consumidor.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/faca-zig-zag-sache-01.png',
     ],
     specifications: {
       material: 'Aço D2',
@@ -344,7 +344,7 @@ export const sacheCuttingProducts: Product[] = [
     shortDescription: 'Base de corte com tratamento especial para longa vida útil',
     fullDescription: 'Contra-faca com tratamento térmico especial para trabalhar em conjunto com as facas de corte, garantindo vida útil prolongada do sistema.',
     images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
+      '/produtos/flow-pack/contra-faca-sache-01.png',
     ],
     specifications: {
       material: 'Aço temperado',

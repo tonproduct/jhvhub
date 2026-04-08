@@ -35,11 +35,11 @@ const megaMenuData = {
   },
   vertical: {
     title: "Verticais",
-    link: "/vffs",
+    link: "/verticais",
     image: "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg",
     categories: [
-      { name: "Selagem", icon: Flame, link: "/vffs#selagem" },
-      { name: "Corte", icon: Scissors, link: "/vffs#corte" },
+      { name: "Selagem", icon: Flame, link: "/verticais#selagem" },
+      { name: "Corte", icon: Scissors, link: "/verticais#corte" },
     ],
   },
   sache: {
@@ -81,7 +81,7 @@ export const Navigation = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background shadow-sm">
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="max-w-[1340px] mx-auto px-6 md:px-24">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center transition-opacity hover:opacity-80">
