@@ -109,73 +109,37 @@ const VFFS = () => {
       <Navigation />
 
       {/* HERO SECTION */}
-      <section className="grid lg:grid-cols-2 min-h-[70vh]">
-        {/* Painel esquerdo — conteúdo */}
-        <div className="bg-slate-900 flex flex-col justify-center px-8 md:px-14 py-16 order-2 lg:order-1">
-          <FadeIn variant="up" delay={0.0}>
-            <Breadcrumb className="mb-8">
-              <BreadcrumbList>
-                <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link href="/" className="text-slate-400 hover:text-white text-sm">Início</Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="text-slate-600" />
-                <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link href="/solucoes" className="text-slate-400 hover:text-white text-sm">Equipamentos</Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="text-slate-600" />
-                <BreadcrumbItem>
-                  <BreadcrumbPage className="text-slate-300 text-sm">Verticais</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
-          </FadeIn>
-
+      <section className="relative h-[58vh] flex items-center justify-center" style={{
+        backgroundImage: "url('https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed"
+      }}>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
+        <div className="relative z-10 px-6 max-w-7xl mx-auto w-full container py-20 lg:py-28">
+          <Breadcrumb className="mb-5">
+            <BreadcrumbList>
+              <BreadcrumbItem><BreadcrumbLink asChild><Link href="/" className="text-white/80 hover:text-white">Início</Link></BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbSeparator className="text-white/60" />
+              <BreadcrumbItem><BreadcrumbLink asChild><Link href="/solucoes" className="text-white/80 hover:text-white">Equipamentos</Link></BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbSeparator className="text-white/60" />
+              <BreadcrumbItem><BreadcrumbPage className="text-white">Verticais</BreadcrumbPage></BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
           <FadeIn variant="up" delay={0.1}>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-              Inovação para empacotadoras Verticais contínuas e intermitentes
-            </h1>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">Inovação para empacotadoras <br /> verticais contínuas e intermitentes</h1>
           </FadeIn>
-
-          <FadeIn variant="up" delay={0.2}>
-            <p className="text-slate-300 text-lg leading-relaxed mb-10">
-              Componentes de alta performance para máquinas verticais. Ferramentas de selagem, corte e colarinhos.
-            </p>
-          </FadeIn>
-
           <FadeIn variant="up" delay={0.3}>
-            <div className="flex flex-col sm:flex-row gap-3 mb-10">
-              <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100 px-8 py-6 text-base font-semibold shadow-lg" onClick={() => scrollToSection("#section-selagem")}>
-                Ver Soluções
-              </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-6 text-base font-semibold" asChild>
+            <p className="text-base text-white/80 max-w-2xl leading-relaxed mb-8">Componentes de alta performance para máquinas verticais. Ferramentas de selagem, corte e colarinhos.</p>
+          </FadeIn>
+          <FadeIn variant="up" delay={0.5}>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button size="default" className="bg-white text-foreground hover:bg-white/90 px-6 h-11 text-sm font-semibold shadow-xl" onClick={() => scrollToSection("#section-selagem")}>Ver Soluções</Button>
+              <Button size="default" variant="outline" className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-slate-900 px-6 h-11 text-sm font-semibold" asChild>
                 <Link href="/contato">Falar com Especialista</Link>
               </Button>
             </div>
           </FadeIn>
-
-          <FadeIn variant="up" delay={0.4}>
-            <div className="flex gap-6 border-t border-slate-700 pt-8">
-              <button onClick={() => scrollToSection("#section-selagem")} className="text-slate-200 hover:text-white text-sm font-medium transition-colors">
-                Selagem
-              </button>
-              <button onClick={() => scrollToSection("#section-corte")} className="text-slate-200 hover:text-white text-sm font-medium transition-colors">
-                Corte
-              </button>
-            </div>
-          </FadeIn>
-        </div>
-
-        {/* Painel direito — imagem */}
-        <div className="relative min-h-[40vh] lg:min-h-full order-1 lg:order-2">
-          <img
-            src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg"
-            alt="Empacotadoras Verticais"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
         </div>
       </section>
 
@@ -204,8 +168,8 @@ const VFFS = () => {
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0 group-hover:bg-orange-200 transition-colors">
-                      <Cookie className="w-6 h-6 text-orange-600" />
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
+                      <Cookie className="w-6 h-6 text-slate-600" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Snacks e Grãos</h4>
@@ -216,8 +180,8 @@ const VFFS = () => {
                   </div>
 
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
-                      <Pill className="w-6 h-6 text-blue-600" />
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
+                      <Pill className="w-6 h-6 text-slate-500" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Farmacêutico</h4>
@@ -228,8 +192,8 @@ const VFFS = () => {
                   </div>
 
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0 group-hover:bg-green-200 transition-colors">
-                      <Droplet className="w-6 h-6 text-green-600" />
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
+                      <Droplet className="w-6 h-6 text-slate-500" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Líquidos e Massas</h4>
@@ -240,8 +204,8 @@ const VFFS = () => {
                   </div>
 
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-200 transition-colors">
-                      <Wrench className="w-6 h-6 text-purple-600" />
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
+                      <Wrench className="w-6 h-6 text-slate-600" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Industrial</h4>

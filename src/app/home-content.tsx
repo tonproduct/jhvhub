@@ -7,23 +7,22 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, ArrowLeft, Repeat, Package, Globe, Award, CheckCircle2, Zap, Clock, Shield, Settings, Wrench, MessageCircle, Phone, Pill, Sparkles, Box, Star, Sparkle, Package2, Flame, Scissors, Droplet } from "lucide-react";
 
-import CountUp from "react-countup";
-import { useInView } from "react-intersection-observer";
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useState, useEffect } from "react";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/FadeIn";
+import { ComoTrabalhamos } from "@/components/ComoTrabalhamos";
 import { motion, AnimatePresence } from "framer-motion";
 type Solution = "selagem" | "corte" | "componentes" | null;
 
 // ── Portrait Carousel ──────────────────────────────────────────
 const PORTRAIT_IMGS = [
-  "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763660647/Firefly_9_o31dqx.jpg",
-  "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_Complete_horizontal_flow_pack_packaging_machine_full_side_view_stainless_steel_HFFS_89014_bijmno.jpg",
-  "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763660645/Firefly_10_exmprq.jpg",
-  "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg",
-  "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763660644/Firefly_11_ztopy3.jpg",
-  "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_Complete_sachet_packaging_machine_full_side_view_showing_height_stainless_steel_mul_182693_uevfys.png",
+  "/produtos/flow-pack/MORDENTE VERTICAL.png",
+  "/produtos/flow-pack/zig-zag-01.png",
+  "/produtos/flow-pack/ROLO DE SELAGEM RECARTILHADO.png",
+  "/produtos/flow-pack/FACA DENTADA.png",
+  "/produtos/flow-pack/mordente-selagem-01.png",
+  "/produtos/flow-pack/faca-zig-zag-sache-01.png",
 ];
 
 const CAROUSEL_MS = 4000;
@@ -155,14 +154,7 @@ function PortraitCarousel() {
 const HomeContent = () => {
   const [solutionStep, setSolutionStep] = useState<1 | 2>(1);
   const [selectedSolution, setSelectedSolution] = useState<Solution>(null);
-  const {
-    ref: statsRef,
-    inView: statsInView
-  } = useInView({
-    triggerOnce: true,
-    threshold: 0.3
-  });
-  const handleSolutionSelect = (solution: Solution) => {
+const handleSolutionSelect = (solution: Solution) => {
     setSelectedSolution(solution);
     setSolutionStep(2);
   };
@@ -476,122 +468,14 @@ const HomeContent = () => {
         </div>
       </section>
 
-      {/* Como Funciona Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-          <FadeIn variant="up">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Como Trabalhamos com Você</h2>
-              <p className="text-lg text-gray-600">Processo simples e eficiente para manter sua linha sempre operando</p>
-            </div>
-          </FadeIn>
-
-          <StaggerChildren className="grid md:grid-cols-3 gap-8" staggerDelay={0.2}>
-            {/* Step 1 */}
-            <StaggerItem variant="up">
-              <div className="relative">
-                <div className="flex flex-col items-center text-center">
-                  <motion.div
-                    className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6 relative"
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ type: "spring", stiffness: 280, damping: 18, delay: 0.3 }}
-                  >
-                    <span className="text-3xl font-bold text-primary">1</span>
-                    <div className="hidden md:block absolute top-1/2 left-full w-full h-0.5 bg-gray-200 -translate-y-1/2"></div>
-                  </motion.div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Diagnóstico</h3>
-                  <p className="text-gray-600">
-                    Você nos conta qual peça precisa ou o problema que está enfrentando na sua linha de produção
-                  </p>
-                </div>
-              </div>
-            </StaggerItem>
-
-            {/* Step 2 */}
-            <StaggerItem variant="up">
-              <div className="relative">
-                <div className="flex flex-col items-center text-center">
-                  <motion.div
-                    className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6 relative"
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ type: "spring", stiffness: 280, damping: 18, delay: 0.4 }}
-                  >
-                    <span className="text-3xl font-bold text-primary">2</span>
-                    <div className="hidden md:block absolute top-1/2 left-full w-full h-0.5 bg-gray-200 -translate-y-1/2"></div>
-                  </motion.div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Solução Técnica</h3>
-                  <p className="text-gray-600">
-                    Nossa equipe identifica a peça ideal ou desenvolve uma solução customizada para seu equipamento
-                  </p>
-                </div>
-              </div>
-            </StaggerItem>
-
-            {/* Step 3 */}
-            <StaggerItem variant="up">
-              <div className="relative">
-                <div className="flex flex-col items-center text-center">
-                  <motion.div
-                    className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6"
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ type: "spring", stiffness: 280, damping: 18, delay: 0.5 }}
-                  >
-                    <span className="text-3xl font-bold text-primary">3</span>
-                  </motion.div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Entrega Rápida</h3>
-                  <p className="text-gray-600">
-                    Fabricação nacional e estoque local garantem prazos reduzidos e sua linha volta a operar
-                  </p>
-                </div>
-              </div>
-            </StaggerItem>
-          </StaggerChildren>
-        </div>
-      </section>
+      <ComoTrabalhamos />
 
 
-      {/* Stats Section */}
-      <section ref={statsRef} className="py-16 bg-gray-900">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-8" staggerDelay={0.15}>
-            {[{
-            number: 20,
-            suffix: "+",
-            label: "Anos de Experiência"
-          }, {
-            number: 500,
-            suffix: "+",
-            label: "Clientes Atendidos"
-          }, {
-            number: 10000,
-            suffix: "+",
-            label: "Peças Fabricadas"
-          }, {
-            number: 99,
-            suffix: "%",
-            label: "Satisfação dos Clientes"
-          }].map((stat, idx) => <StaggerItem key={idx} variant="up">
-                <div className="text-center">
-                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                    {statsInView && <CountUp end={stat.number} duration={2.5} suffix={stat.suffix} />}
-                  </div>
-                  <p className="text-sm md:text-base text-gray-300 font-medium">{stat.label}</p>
-                </div>
-              </StaggerItem>)}
-          </StaggerChildren>
-        </div>
-      </section>
 
       {/* CTA Final Section */}
       <section className="py-20 bg-gradient-to-r from-primary to-red-700 text-white text-center">
         <div className="container mx-auto px-4 max-w-4xl">
-          <FadeIn variant="up">
+          <div>
             <Award className="w-16 h-16 mx-auto mb-6 opacity-80" />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Precisa de uma Peça Específica ou Solução Personalizada?
@@ -609,7 +493,7 @@ const HomeContent = () => {
                 </a>
               </motion.div>
             </div>
-          </FadeIn>
+          </div>
         </div>
       </section>
 

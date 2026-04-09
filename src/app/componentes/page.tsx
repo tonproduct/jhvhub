@@ -109,40 +109,30 @@ const Componentes = () => {
         backgroundAttachment: "fixed"
       }}>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
-
-        <div className="relative z-10 px-4 max-w-5xl mx-auto w-full container">
-          <Breadcrumb className="mb-6">
+        <div className="relative z-10 px-6 max-w-7xl mx-auto w-full container py-20 lg:py-28">
+          <Breadcrumb className="mb-5">
             <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/" className="text-white/80 hover:text-white">Início</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
+              <BreadcrumbItem><BreadcrumbLink asChild><Link href="/" className="text-white/80 hover:text-white">Início</Link></BreadcrumbLink></BreadcrumbItem>
               <BreadcrumbSeparator className="text-white/60" />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/solucoes" className="text-white/80 hover:text-white">Equipamentos</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
+              <BreadcrumbItem><BreadcrumbLink asChild><Link href="/solucoes" className="text-white/80 hover:text-white">Equipamentos</Link></BreadcrumbLink></BreadcrumbItem>
               <BreadcrumbSeparator className="text-white/60" />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="text-white">Componentes</BreadcrumbPage>
-              </BreadcrumbItem>
+              <BreadcrumbItem><BreadcrumbPage className="text-white">Componentes</BreadcrumbPage></BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-
-          <FadeIn variant="up" delay={0.1}><h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Componentes e peças para Máquinas de Empacotamento</h1></FadeIn>
-
-          <FadeIn variant="up" delay={0.3}><p className="text-xl text-white/90 max-w-3xl leading-relaxed mb-10">Atendemos também componentes e peças para todos os tipos de máquinas de empacotamento</p></FadeIn>
-
-          <FadeIn variant="up" delay={0.5}><div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-white text-foreground hover:bg-white/90 px-8 py-6 text-lg font-semibold shadow-xl" onClick={() => scrollToSection("#section-transmissao")}>
-              Ver Componentes
-            </Button>
-            <Button size="lg" variant="outline" className="border border-white/60 text-white/80 hover:bg-white/10 hover:text-white px-8 py-5 text-base" asChild>
-              <Link href="/contato">Falar com Especialista</Link>
-            </Button>
-          </div></FadeIn>
+          <FadeIn variant="up" delay={0.1}>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">Componentes e peças para <br /> máquinas de empacotamento</h1>
+          </FadeIn>
+          <FadeIn variant="up" delay={0.3}>
+            <p className="text-base text-white/80 max-w-2xl leading-relaxed mb-8">Transmissão, controle e componentes de alta performance para todos os tipos de máquinas.</p>
+          </FadeIn>
+          <FadeIn variant="up" delay={0.5}>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button size="default" className="bg-white text-foreground hover:bg-white/90 px-6 h-11 text-sm font-semibold shadow-xl" onClick={() => scrollToSection("#section-transmissao")}>Ver Componentes</Button>
+              <Button size="default" variant="outline" className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-slate-900 px-6 h-11 text-sm font-semibold" asChild>
+                <Link href="/contato">Falar com Especialista</Link>
+              </Button>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -181,8 +171,8 @@ const Componentes = () => {
                   </div>
 
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
-                      <Gauge className="w-6 h-6 text-blue-600" />
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
+                      <Gauge className="w-6 h-6 text-slate-500" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Controle</h4>
@@ -201,8 +191,8 @@ const Componentes = () => {
                   </div>
 
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-200 transition-colors">
-                      <Settings className="w-6 h-6 text-purple-600" />
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
+                      <Settings className="w-6 h-6 text-slate-600" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Compatibilidade</h4>
