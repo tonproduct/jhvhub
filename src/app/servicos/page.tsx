@@ -18,11 +18,11 @@ const Servicos = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center justify-center" style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920')",
+      <section className="relative h-[58vh] flex items-center justify-center" style={{
+        backgroundImage: "url('/hero-servicos.png')",
         backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed"
+        backgroundPosition: "center 65%",
+        
       }}>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80" />
 
@@ -43,40 +43,46 @@ const Servicos = () => {
 
           <FadeIn variant="up" delay={0.1}><Badge variant="outline" className="mb-6 border-white/30 bg-white/10 text-white backdrop-blur-sm">20+ Anos de Experiência</Badge></FadeIn>
 
-          <FadeIn variant="up" delay={0.2}><h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Serviços Completos para Máquinas de Embalagem</h1></FadeIn>
+          <FadeIn variant="up" delay={0.2}><h1 className="text-[18px] md:text-[24px] lg:text-[36px] text-white mb-6 leading-tight" style={{fontWeight: 600}}>Serviços Completos para <br /><span style={{fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em"}}>Máquinas de Embalagem</span></h1></FadeIn>
 
           <FadeIn variant="up" delay={0.4}><p className="text-xl text-white/90 max-w-3xl leading-relaxed">Atuamos também com reformas de máquinas de empacotamento com profissionais experientes com anos de experiência em máquinas de empacotar</p></FadeIn>
         </div>
       </section>
 
       {/* Introdução */}
-      <section className="py-24 bg-gray-900 ">
+      <section className="py-24 bg-slate-950">
         <div className="container mx-auto px-4 max-w-5xl">
-          <FadeIn variant="up"><h2 className="text-center mb-4 text-neutral-50 text-4xl font-bold">Nossa Expertise</h2>
-          <p className="text-center mb-8 text-neutral-50 text-xl px-[90px]">
-            Equipe técnica com mais de 20 anos construindo e desenvolvendo máquinas de empacotamento
-          </p>
-          <p className="text-center max-w-3xl mx-auto leading-relaxed text-neutral-50 font-light">
-            Contamos com profissionais altamente qualificados, com vasta experiência na construção de máquinas de
-            empacotamento e desenvolvimento de projetos personalizados para diversos sistemas de embalagem. Essa
-            trajetória sólida nos permite oferecer soluções precisas, duráveis e alinhadas às necessidades reais da
-            indústria, com foco em performance, segurança e inovação.
-          </p></FadeIn>
+          <FadeIn variant="up">
+            <p className="text-xs font-medium tracking-widest uppercase text-slate-500 mb-6">Serviços</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-12">
+              Nossa Expertise
+            </h2>
+            <div className="grid md:grid-cols-2 gap-10 border-t border-slate-800 pt-10">
+              <p className="text-slate-300 text-lg leading-relaxed">
+                Contamos com profissionais altamente qualificados, com vasta experiência na construção de máquinas de empacotamento e desenvolvimento de projetos personalizados para diversos sistemas de embalagem.
+              </p>
+              <p className="text-slate-400 leading-relaxed">
+                Essa trajetória sólida nos permite oferecer soluções precisas, duráveis e alinhadas às necessidades reais da indústria, com foco em performance, segurança e inovação — para Flow Pack, Verticais e Sachê.
+              </p>
+            </div>
+
+          </FadeIn>
         </div>
       </section>
 
       {/* Serviço 1: Fabricação Sob Medida (Imagem à Esquerda) */}
       <section className="bg-gradient-to-b from-background to-muted/20 py-[120px]">
-        <div className="container mx-auto px-4 max-w-7xl">
+        <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid md:grid-cols-2 gap-16 ">
             <FadeIn variant="left">
-              <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800" alt="Fabricação" className="rounded-2xl shadow-2xl w-full h-[400px] w-full h-full object-cover" />
+              <img src="/Gemini_Generated_Image_amyb0jamyb0jamyb.png" alt="Fabricação Sob Medida" className="rounded-2xl w-full h-full object-cover" />
             </FadeIn>
 
             <FadeIn variant="right" delay={0.2}><div className="relative">
               <div className="absolute -top-4 -left-4 text-8xl font-bold text-muted/10">01</div>
               <div className="relative z-10">
-                <h3 className="text-3xl font-bold mb-4">Fabricação Sob Medida</h3>
+                <p className="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-6">Fabricação Sob Medida</p>
+                <h3 className="text-4xl md:text-5xl font-bold leading-tight mb-6">Fabricação<br />Sob Medida</h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   Desenvolvimento e fabricação de peças técnicas personalizadas para máquinas de embalagem. Com
                   materiais de alta resistência e acabamento técnico de precisão, criamos soluções que atendem
@@ -105,213 +111,199 @@ const Servicos = () => {
         </div>
       </section>
 
-      {/* Serviço 2: Nacionalização (Imagem à Direita) */}
-      <section className="py-12 bg-muted/30">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative order-2 md:order-1">
-              <div className="absolute -top-4 -left-4 text-8xl font-bold text-muted/10">02</div>
-              <div className="relative z-10">
-                <h3 className="text-3xl font-bold mb-4">Nacionalização de Peças</h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Substituição inteligente de peças importadas por componentes nacionais de alta qualidade. Com mais de
-                  20 anos de experiência em materiais, oferecemos soluções que reduzem custos e prazos sem comprometer a
-                  performance.
+      {/* Serviço 2: Nacionalização */}
+      <section className="py-24 bg-slate-950">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <FadeIn variant="up">
+            <p className="text-xs font-medium tracking-widest uppercase text-slate-500 mb-6">Serviço 02</p>
+            <div className="grid md:grid-cols-[1fr_1.2fr] gap-16 items-start">
+
+              {/* Esquerda: título + métricas */}
+              <div>
+                <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                  Nacionalização<br />de Peças
+                </h3>
+                <p className="text-slate-400 leading-relaxed mb-10">
+                  Substituição inteligente de peças importadas por componentes nacionais de alta qualidade — sem comprometer performance.
                 </p>
-
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  {[{
-                  icon: "💰",
-                  label: "Até 60%",
-                  desc: "de economia"
-                }, {
-                  icon: "⏱️",
-                  label: "Dias",
-                  desc: "não meses"
-                }, {
-                  icon: "🇧🇷",
-                  label: "Estoque",
-                  desc: "local"
-                }, {
-                  icon: "🔬",
-                  label: "Qualidade",
-                  desc: "garantida"
-                }].map((item, idx) => <Card key={idx} className="p-4 text-center">
-                      <div className="text-2xl mb-2">{item.icon}</div>
-                      <div className="font-bold text-lg">{item.label}</div>
-                      <div className="text-xs text-muted-foreground">{item.desc}</div>
-                    </Card>)}
-                </div>
-
-                <div className="bg-card p-4 rounded-lg border mb-6">
-                  <h4 className="font-semibold mb-3">Como Funciona:</h4>
-                  <ol className="space-y-2 text-sm">
-                    <li className="flex gap-2">
-                      <span className="font-bold text-primary">1.</span>
-                      <span>Engenharia reversa da peça importada</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <span className="font-bold text-primary">2.</span>
-                      <span>Seleção de materiais equivalentes ou superiores</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <span className="font-bold text-primary">3.</span>
-                      <span>Fabricação com controle de qualidade rigoroso</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <span className="font-bold text-primary">4.</span>
-                      <span>Testes e validação</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <span className="font-bold text-primary">5.</span>
-                      <span>Entrega e suporte técnico</span>
-                    </li>
-                  </ol>
+                <div className="grid grid-cols-2 gap-x-8 gap-y-8">
+                  {[
+                    { value: "60%", label: "de economia média" },
+                    { value: "Dias", label: "não meses" },
+                    { value: "Nacional", label: "estoque local" },
+                    { value: "20+", label: "anos de experiência" },
+                  ].map((m, i) => (
+                    <div key={i} className="border-t border-slate-800 pt-4">
+                      <p className="text-3xl font-bold text-white mb-1">{m.value}</p>
+                      <p className="text-xs text-slate-500 uppercase tracking-widest">{m.label}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
 
-            <div className="order-1 md:order-2">
-              <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800" alt="Nacionalização" className="rounded-2xl shadow-2xl w-full h-full object-cover " />
+              {/* Direita: processo como steps */}
+              <div className="flex flex-col gap-0 pt-2">
+                <p className="text-xs font-medium tracking-widest uppercase text-slate-500 mb-6">Como Funciona</p>
+                {[
+                  "Engenharia reversa da peça importada",
+                  "Seleção de materiais equivalentes ou superiores",
+                  "Fabricação com controle de qualidade rigoroso",
+                  "Testes e validação",
+                  "Entrega e suporte técnico",
+                ].map((step, idx, arr) => (
+                  <div key={idx} className="flex gap-5">
+                    <div className="flex flex-col items-center">
+                      <div className="w-6 h-6 rounded-full border border-slate-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-xs font-bold text-primary">{idx + 1}</span>
+                      </div>
+                      {idx < arr.length - 1 && <div className="w-px flex-1 bg-slate-800 my-1" />}
+                    </div>
+                    <div className="pb-6">
+                      <p className="text-slate-300 text-sm leading-relaxed">{step}</p>
+                    </div>
+                  </div>
+                ))}
+                <img
+                  src="/iro.png"
+                  alt="Nacionalização de peças"
+                  className="w-full h-32 object-cover rounded-xl mt-2"
+                />
+              </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* Serviço 3: Reforma e Manutenção (Imagem à Esquerda) */}
-      <section className="py-12 bg-gradient-to-b from-background to-muted/20">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800" alt="Reforma" className="rounded-2xl shadow-2xl w-full h-[400px] w-full h-full object-cover" />
-            </div>
-
-            <div className="relative">
-              <div className="absolute -top-4 -left-4 text-8xl font-bold text-muted/10">03</div>
-              <div className="relative z-10">
-                <h3 className="text-3xl font-bold mb-4">Reforma e Manutenção</h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Serviços completos de reforma e manutenção de máquinas de embalagem. Atuamos tanto na parte mecânica
-                  quanto eletrônica, devolvendo performance e vida útil aos seus equipamentos.
+      {/* Serviço 3: Reforma e Manutenção */}
+      <section className="py-28 bg-background">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <FadeIn variant="up">
+            <p className="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-6">Reforma e Manutenção</p>
+            <div className="grid md:grid-cols-[1fr_1.2fr] gap-16 items-start">
+              <div>
+                <h3 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                  Reforma e<br />Manutenção
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-10">
+                  Serviços completos de reforma e manutenção de máquinas de embalagem — mecânica e eletrônica — devolvendo performance e vida útil aos seus equipamentos.
                 </p>
-
-                {/* Tabs */}
-                <div className="mb-6">
-                  <div className="flex gap-2 mb-4">
-                    <Button variant={activeReformaTab === "mecanica" ? "default" : "outline"} onClick={() => setActiveReformaTab("mecanica")} className="flex-1">
-                      Reforma Mecânica
-                    </Button>
-                    <Button variant={activeReformaTab === "eletronica" ? "default" : "outline"} onClick={() => setActiveReformaTab("eletronica")} className="flex-1">
-                      Manutenção Eletrônica
-                    </Button>
-                  </div>
-
-                  <Card className="p-4">
-                    <CardContent className="p-0">
-                      {activeReformaTab === "mecanica" ? <ul className="space-y-2 text-sm">
-                          {["Substituição de componentes desgastados", "Retífica de rolos e eixos", "Troca de rolamentos e buchas", "Alinhamento de conjuntos de corte e selagem", "Ajuste fino de facas e mordentes", "Pintura e acabamento profissional"].map((item, idx) => <li key={idx} className="flex items-start gap-2">
-                              <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                              <span>{item}</span>
-                            </li>)}
-                        </ul> : <ul className="space-y-2 text-sm">
-                          {["Revisão completa de painéis elétricos", "Substituição de sensores e encoders", "Atualização de controladores e inversores", "Calibração de sistemas de controle", "Testes de funcionamento e performance", "Documentação técnica atualizada"].map((item, idx) => <li key={idx} className="flex items-start gap-2">
-                              <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                              <span>{item}</span>
-                            </li>)}
-                        </ul>}
-                    </CardContent>
-                  </Card>
+                <div className="grid grid-cols-2 gap-x-8 gap-y-8">
+                  {[
+                    { value: "Mecânica", label: "reforma estrutural completa" },
+                    { value: "Eletrônica", label: "painéis, sensores e inversores" },
+                    { value: "Garantia", label: "em todos os serviços" },
+                    { value: "Suporte", label: "pós-reforma incluído" },
+                  ].map((m, i) => (
+                    <div key={i} className="border-t border-border pt-4">
+                      <p className="text-2xl font-bold mb-1">{m.value}</p>
+                      <p className="text-xs text-muted-foreground uppercase tracking-widest">{m.label}</p>
+                    </div>
+                  ))}
                 </div>
+              </div>
 
-                <Badge variant="secondary" className="mb-4 bg-green-100 text-green-800 border-green-200">
-                  <CheckCircle2 className="w-3 h-3 mr-1" />
-                  Garantia de Serviço
-                </Badge>
-                <p className="text-sm text-muted-foreground mb-6">
-                  Todos os serviços incluem garantia e suporte pós-reforma
-                </p>
+              <div className="flex flex-col gap-0 pt-2">
+                <p className="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-6">O Que Cobrimos</p>
+                {[
+                  "Substituição de componentes desgastados",
+                  "Retífica de rolos e eixos",
+                  "Alinhamento de conjuntos de corte e selagem",
+                  "Revisão completa de painéis elétricos",
+                  "Substituição de sensores e encoders",
+                  "Calibração de sistemas de controle",
+                ].map((step, idx, arr) => (
+                  <div key={idx} className="flex gap-5">
+                    <div className="flex flex-col items-center">
+                      <div className="w-6 h-6 rounded-full border border-border flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-xs font-bold text-primary">{idx + 1}</span>
+                      </div>
+                      {idx < arr.length - 1 && <div className="w-px flex-1 bg-border my-1" />}
+                    </div>
+                    <div className="pb-6">
+                      <p className="text-sm leading-relaxed text-foreground">{step}</p>
+                    </div>
+                  </div>
+                ))}
+                <img
+                  src="/WhatsApp Image 2026-04-04 at 11.53.55.jpeg"
+                  alt="Reforma e manutenção"
+                  className="w-full h-32 object-cover rounded-xl mt-2"
+                />
               </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* Serviço 4: Treinamentos (Imagem à Direita) */}
-      <section className="py-12 bg-muted/30">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative order-2 md:order-1">
-              <div className="absolute -top-4 -left-4 text-8xl font-bold text-muted/10">04</div>
-              <div className="relative z-10">
-                <h3 className="text-3xl font-bold mb-4">Treinamentos Especializados</h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Capacitação técnica para equipes de operação e manutenção. Com experiência na fabricação de máquinas,
-                  trazemos técnicas que facilitam manutenção autônoma e operação mais eficiente.
+      {/* Serviço 4: Treinamentos */}
+      <section className="py-28 bg-slate-100">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <FadeIn variant="up">
+            <p className="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-6">Treinamentos</p>
+            <div className="grid md:grid-cols-[1fr_1.2fr] gap-16 items-start">
+              <div>
+                <h3 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                  Treinamentos<br />Especializados
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-10">
+                  Capacitação técnica para equipes de operação e manutenção, com foco em manutenção autônoma e operação mais eficiente.
                 </p>
-
-                <Accordion type="single" collapsible className="mb-6">
-                  <AccordionItem value="curso1">
-                    <AccordionTrigger className="text-left">
-                      <div>
-                        <div className="font-semibold">Curso 1: Ajuste de Facas e Mordentes</div>
-                        <div className="text-sm text-muted-foreground">Duração: 8 horas (1 dia) • Presencial</div>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <ul className="space-y-2 text-sm mt-2">
-                        {["Tipos de facas e mordentes", "Técnicas de ajuste fino com lâminas calibradas", "Uso de blocos de carbono para alinhamento", "Sistemas de ajuste por parafuso cônico vs lâmina de calço", "Resolução de problemas comuns", "Manutenção preventiva"].map((item, idx) => <li key={idx} className="flex items-start gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0 mt-2" />
-                            <span>{item}</span>
-                          </li>)}
-                      </ul>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  <AccordionItem value="curso2">
-                    <AccordionTrigger className="text-left">
-                      <div>
-                        <div className="font-semibold">Curso 2: Operação de Flow Packs</div>
-                        <div className="text-sm text-muted-foreground">Duração: 16 horas (2 dias) • Presencial</div>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <ul className="space-y-2 text-sm mt-2">
-                        {["Princípios de funcionamento de flow packs", "Setup e ajustes de máquina", "Identificação rápida de problemas", "Técnicas de manutenção autônoma", "Otimização de performance e velocidade", "Conceitos de manuais de fabricantes"].map((item, idx) => <li key={idx} className="flex items-start gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0 mt-2" />
-                            <span>{item}</span>
-                          </li>)}
-                      </ul>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-
-                <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg mb-6">
-                  <h4 className="font-semibold mb-3">Benefícios:</h4>
-                  <div className="grid grid-cols-2 gap-2 text-sm">
-                    {["Redução de paradas", "Maior autonomia", "Resolução rápida", "Certificado incluso"].map((item, idx) => <div key={idx} className="flex items-center gap-2">
-                          <Check className="w-4 h-4 text-blue-600" />
-                          {item}
-                        </div>)}
-                  </div>
+                <div className="grid grid-cols-2 gap-x-8 gap-y-8">
+                  {[
+                    { value: "8h", label: "ajuste de facas e mordentes" },
+                    { value: "16h", label: "operação de flow packs" },
+                    { value: "Presencial", label: "na sua planta ou na nossa" },
+                    { value: "Certificado", label: "incluso em todos os cursos" },
+                  ].map((m, i) => (
+                    <div key={i} className="border-t border-border pt-4">
+                      <p className="text-2xl font-bold mb-1">{m.value}</p>
+                      <p className="text-xs text-muted-foreground uppercase tracking-widest">{m.label}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
 
-            <div className="order-1 md:order-2">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800" alt="Treinamento" className="rounded-2xl shadow-2xl w-full h-[400px] object-cover" />
+              <div className="flex flex-col gap-0 pt-2">
+                <p className="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-6">O Que Você Aprende</p>
+                {[
+                  "Tipos de facas e mordentes e suas aplicações",
+                  "Técnicas de ajuste fino com lâminas calibradas",
+                  "Uso de blocos de carbono para alinhamento",
+                  "Princípios de funcionamento de flow packs",
+                  "Identificação rápida de problemas",
+                  "Técnicas de manutenção autônoma",
+                ].map((step, idx, arr) => (
+                  <div key={idx} className="flex gap-5">
+                    <div className="flex flex-col items-center">
+                      <div className="w-6 h-6 rounded-full border border-border flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-xs font-bold text-primary">{idx + 1}</span>
+                      </div>
+                      {idx < arr.length - 1 && <div className="w-px flex-1 bg-border my-1" />}
+                    </div>
+                    <div className="pb-6">
+                      <p className="text-sm leading-relaxed text-foreground">{step}</p>
+                    </div>
+                  </div>
+                ))}
+                <img
+                  src="/WhatsApp Image 2026-04-04 at 15.51.43.jpeg"
+                  alt="Treinamentos especializados"
+                  className="w-full h-32 object-cover object-[center_20%] rounded-xl mt-2"
+                />
+              </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Projetos Especiais */}
-      <section className="py-20 relative" style={{
+      <section className="py-20 relative hidden" style={{
       backgroundImage: "url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920')",
       backgroundSize: "cover",
       backgroundPosition: "center"
     }}>
         <div className="absolute inset-0 bg-primary/90" />
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 max-w-5xl relative z-10">
           <div className="text-center mb-12">
             <Settings className="w-16 h-16 text-white mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-white mb-4">Projetos Especiais e Conjuntos Completos</h2>

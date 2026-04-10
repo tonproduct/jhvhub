@@ -10,7 +10,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Phone, Mail, MapPin, Loader2 } from "lucide-react";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/FadeIn";
 
 const Contato = () => {
@@ -27,8 +26,19 @@ const Contato = () => {
     }
     setIsLoading(true);
     try {
-      const { error } = await supabase.functions.invoke("send-contact-email", { body: { name, email, phone, message } });
-      if (error) throw error;
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "f1f70ff6-1e4d-489a-8f4e-8127dd8f06b4",
+          name,
+          email,
+          phone,
+          message,
+        }),
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message);
       toast.success("Mensagem enviada!", { description: "Entraremos em contato em breve." });
       setName(""); setEmail(""); setPhone(""); setMessage("");
     } catch (error: any) {

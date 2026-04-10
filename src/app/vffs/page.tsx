@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { vffsSealingProducts, vffsCuttingProducts, vffsFormingProducts, Product } from "@/data/vffsProducts";
 import { ProductModal } from "@/components/ProductModal";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { ArrowRight, MessageCircle, Download, ChevronLeft, Flame, Scissors, Box, Cookie, Pill, Droplet, Wrench } from "lucide-react";
+import { ArrowRight, MessageCircle, Download, ChevronLeft, Flame, Scissors, Box, Cookie, Pill, Droplet, Wrench, Award } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -99,12 +99,11 @@ const VFFS = () => {
 
       {/* HERO SECTION */}
       <section className="relative h-[80vh] flex items-center justify-center" style={{
-        backgroundImage: "url('https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg')",
+        backgroundImage: "url('/hero-verticais.png')",
         backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed"
+        backgroundPosition: "center"
       }}>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80" />
+        <div className="absolute inset-0" style={{background: "linear-gradient(105deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 47%, transparent 65%)"}} />
 
         <div className="relative z-10 px-4 max-w-5xl mx-auto w-full container">
           <Breadcrumb className="mb-6">
@@ -147,7 +146,7 @@ const VFFS = () => {
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <FadeIn variant="left">
-              <Badge className="bg-emerald-50 text-emerald-700 px-4 py-2 text-sm font-medium mb-6">Sobre a Tecnologia</Badge>
+              <Badge className="bg-slate-100 text-slate-700 px-4 py-2 text-sm font-medium mb-6">Sobre a Tecnologia</Badge>
 
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">Ferramentas para empacotadoras Verticais continua e intermitentes </h2>
 
@@ -162,13 +161,13 @@ const VFFS = () => {
             </FadeIn>
 
             <FadeIn variant="right" delay={0.2}>
-              <div className="bg-card rounded-2xl shadow-xl p-8 border border-border">
+              <div className="bg-card rounded-2xl p-8 border border-border">
                 <h3 className="text-2xl font-bold text-foreground mb-8">Principais Aplicações</h3>
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0 group-hover:bg-orange-200 transition-colors">
-                      <Cookie className="w-6 h-6 text-orange-600" />
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
+                      <Cookie className="w-6 h-6 text-slate-600" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Snacks e Grãos</h4>
@@ -179,8 +178,8 @@ const VFFS = () => {
                   </div>
 
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
-                      <Pill className="w-6 h-6 text-blue-600" />
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
+                      <Pill className="w-6 h-6 text-slate-600" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Farmacêutico</h4>
@@ -191,8 +190,8 @@ const VFFS = () => {
                   </div>
 
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0 group-hover:bg-green-200 transition-colors">
-                      <Droplet className="w-6 h-6 text-green-600" />
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
+                      <Droplet className="w-6 h-6 text-slate-600" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Líquidos e Massas</h4>
@@ -203,8 +202,8 @@ const VFFS = () => {
                   </div>
 
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-200 transition-colors">
-                      <Wrench className="w-6 h-6 text-purple-600" />
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
+                      <Wrench className="w-6 h-6 text-slate-600" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Industrial</h4>
@@ -241,8 +240,8 @@ const VFFS = () => {
                 {vffsSealingProducts.slice(0, 6).map((product, index) => <div key={product.id} onMouseEnter={() => {
                 setActiveSealingSlide(index);
                 setIsSealingAutoPlaying(false);
-              }} onMouseLeave={() => setIsSealingAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activeSealingSlide === index ? "bg-emerald-50 text-emerald-600" : "hover:bg-emerald-50 text-base")}>
-                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activeSealingSlide === index ? "text-emerald-600" : "text-base")} />
+              }} onMouseLeave={() => setIsSealingAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activeSealingSlide === index ? "bg-slate-100 text-slate-600" : "hover:bg-slate-100 text-base")}>
+                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activeSealingSlide === index ? "text-slate-600" : "text-base")} />
                     <h3 className="font-semibold text-base">{product.name}</h3>
                   </div>)}
               </div>
@@ -350,8 +349,8 @@ const VFFS = () => {
                 {vffsCuttingProducts.map((product, index) => <div key={product.id} onMouseEnter={() => {
                 setActiveCuttingSlide(index);
                 setIsCuttingAutoPlaying(false);
-              }} onMouseLeave={() => setIsCuttingAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activeCuttingSlide === index ? "bg-emerald-50 text-emerald-600" : "hover:bg-emerald-50 text-base")}>
-                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activeCuttingSlide === index ? "text-emerald-600" : "text-base")} />
+              }} onMouseLeave={() => setIsCuttingAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activeCuttingSlide === index ? "bg-slate-100 text-slate-600" : "hover:bg-slate-100 text-base")}>
+                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activeCuttingSlide === index ? "text-slate-600" : "text-base")} />
                     <h3 className="font-semibold text-base">{product.name}</h3>
                   </div>)}
               </div>
@@ -381,8 +380,8 @@ const VFFS = () => {
                 {vffsFormingProducts.map((product, index) => <div key={product.id} onMouseEnter={() => {
                 setActiveFormingSlide(index);
                 setIsFormingAutoPlaying(false);
-              }} onMouseLeave={() => setIsFormingAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activeFormingSlide === index ? "bg-emerald-50 text-emerald-600" : "hover:bg-emerald-50 text-base")}>
-                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activeFormingSlide === index ? "text-emerald-600" : "text-base")} />
+              }} onMouseLeave={() => setIsFormingAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activeFormingSlide === index ? "bg-slate-100 text-slate-600" : "hover:bg-slate-100 text-base")}>
+                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activeFormingSlide === index ? "text-slate-600" : "text-base")} />
                     <h3 className="font-semibold text-base">{product.name}</h3>
                   </div>)}
               </div>
@@ -430,67 +429,59 @@ const VFFS = () => {
         </div>
       </section>
 
-      {/* CTA FINAL */}
-      <section className="py-20 lg:py-28 bg-gradient-to-b from-white to-muted">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="bg-gradient-to-br from-slate-700 to-slate-900 rounded-3xl p-12 lg:p-16 text-center text-white mb-20 animate-fade-in">
-            <div className="max-w-2xl mx-auto">
-              <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-6">
-                <MessageCircle className="w-8 h-8 text-white" />
+      {/* OUTROS EQUIPAMENTOS — full bleed */}
+      <section>
+        <FadeIn variant="up">
+          <div className="grid grid-cols-2 h-72">
+            <Link href="/flow-pack" className="group relative overflow-hidden">
+              <img
+                src="/hero-flow-pack.png"
+                alt="Flow Pack"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-900/75 to-gray-900/35 group-hover:from-gray-900/85 transition-all duration-300" />
+              <div className="absolute inset-0 flex items-center justify-between px-12">
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-white/60 mb-3">Horizontal</p>
+                  <h4 className="text-3xl font-bold text-white group-hover:translate-x-2 transition-transform duration-300">Flow Pack</h4>
+                </div>
+                <ArrowRight className="w-8 h-8 text-white flex-shrink-0 group-hover:translate-x-2 transition-transform duration-300" />
               </div>
-
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Não Sabe Qual Solução Escolher?</h2>
-
-              <p className="text-xl text-emerald-100 mb-8">
-                Nossa equipe técnica analisa sua operação e recomenda os componentes ideais para maximizar performance e
-                reduzir custos.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-white text-emerald-900 hover:bg-emerald-50 px-8 py-6 text-lg" asChild>
-                  <Link href="/contato">Falar com Especialista</Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
-                  <Download className="mr-2" />
-                  Baixar Catálogo PDF
-                </Button>
+            </Link>
+            <Link href="/sache" className="group relative overflow-hidden border-l border-white/10">
+              <img
+                src="/hero-sache.png"
+                alt="Sachê"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-900/75 to-gray-900/35 group-hover:from-gray-900/85 transition-all duration-300" />
+              <div className="absolute inset-0 flex items-center justify-between px-12">
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-white/60 mb-3">Sachê</p>
+                  <h4 className="text-3xl font-bold text-white group-hover:translate-x-2 transition-transform duration-300">Máquinas de Sachê</h4>
+                </div>
+                <ArrowRight className="w-8 h-8 text-white flex-shrink-0 group-hover:translate-x-2 transition-transform duration-300" />
               </div>
-            </div>
+            </Link>
           </div>
+        </FadeIn>
+      </section>
 
-          {/* Navegação Relacionada */}
-          <div className="border-t-2 border-border pt-16 animate-fade-in">
-            <h3 className="text-3xl font-bold text-center text-foreground mb-12">
-              Veja Soluções para Outros Equipamentos
-            </h3>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <Link href="/flow-pack" className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&h=600&fit=crop" alt="Flow Pack" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <Badge className="bg-white/20 text-white mb-3">Flow Pack</Badge>
-                  <h4 className="text-3xl font-bold mb-2">Máquinas Flow Pack</h4>
-                  <p className="text-emerald-100 mb-4">Soluções completas para máquinas horizontais</p>
-                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900">
-                    Ver Soluções <ArrowRight className="ml-2" />
-                  </Button>
-                </div>
-              </Link>
-
-              <Link href="/sache" className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop" alt="Sachê" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <Badge className="bg-white/20 text-white mb-3">Sachê</Badge>
-                  <h4 className="text-3xl font-bold mb-2">Máquinas de Sachê</h4>
-                  <p className="text-emerald-100 mb-4">Componentes especializados para sachês</p>
-                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900">
-                    Ver Soluções <ArrowRight className="ml-2" />
-                  </Button>
-                </div>
-              </Link>
-            </div>
+      {/* CTA FINAL */}
+      <section className="py-20 bg-gradient-to-r from-primary to-red-700 text-white text-center">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <Award className="w-16 h-16 mx-auto mb-6 opacity-80" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Não Sabe Qual Solução Escolher?</h2>
+          <p className="text-xl text-white/90 mb-8">Nossa equipe técnica analisa sua operação e recomenda os componentes ideais para maximizar performance e reduzir custos.</p>
+          <div className="flex justify-center">
+            <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+              <a href="https://wa.me/5519981791472" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="secondary" className="text-lg px-8 py-4">
+                  <MessageCircle className="mr-2 w-5 h-5" />
+                  Falar com Especialista
+                </Button>
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>

@@ -27,7 +27,7 @@ const megaMenuData = {
     title: "Flow Pack",
     link: "/flow-pack",
     image:
-      "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_Complete_horizontal_flow_pack_packaging_machine_full_side_view_stainless_steel_HFFS_89014_bijmno.jpg",
+      "/hero-flow-pack.png",
     categories: [
       { name: "Selagem", icon: Flame, link: "/flow-pack#selagem" },
       { name: "Corte", icon: KnifeIcon, link: "/flow-pack#corte" },
@@ -36,7 +36,7 @@ const megaMenuData = {
   vertical: {
     title: "Verticais",
     link: "/verticais",
-    image: "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg",
+    image: "/hero-vffs.png",
     categories: [
       { name: "Selagem", icon: Flame, link: "/verticais#selagem" },
       { name: "Corte", icon: Scissors, link: "/verticais#corte" },
@@ -46,7 +46,7 @@ const megaMenuData = {
     title: "Máquina de Sachê Contínua",
     link: "/sache",
     image:
-      "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_Complete_sachet_packaging_machine_full_side_view_showing_height_stainless_steel_mul_182693_uevfys.png",
+      "/hero-sache.png",
     categories: [
       { name: "Selagem", icon: Flame, link: "/sache#selagem" },
       { name: "Corte", icon: ScanLine, link: "/sache#corte" },
@@ -56,10 +56,10 @@ const megaMenuData = {
     title: "Ferramentas e Componentes",
     link: "/componentes",
     image:
-      "https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653702/Firefly_Industrial_packaging_machine_components_and_parts_display_stainless_steel_mechanical_890444_r1bqyj.png",
+      "/hero-componentes.png",
     categories: [
-      { name: "Resistências", icon: Zap, link: "/componentes#resistencias" },
-      { name: "Peças Técnicas", icon: PackageOpen, link: "/componentes#pecas-tecnicas" },
+      { name: "Transmissão", icon: Zap, link: "/componentes#section-transmissao" },
+      { name: "Controle", icon: PackageOpen, link: "/componentes#section-controle" },
     ],
   },
 };
@@ -80,8 +80,8 @@ export const Navigation = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background shadow-sm">
-      <div className="max-w-[1340px] mx-auto px-6 md:px-24">
+    <header className="sticky top-0 z-50 w-full bg-background shadow-sm px-6 md:px-24">
+      <div className="max-w-[1340px] mx-auto">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center transition-opacity hover:opacity-80">
@@ -172,7 +172,7 @@ export const Navigation = () => {
             <Button variant="ghost" size="icon" className="text-foreground hover:text-primary">
               <Search className="w-5 h-5" />
             </Button>
-            <Button>Solicitar Orçamento</Button>
+            <Button asChild><Link href="/contato">Solicitar Orçamento</Link></Button>
           </div>
 
           {/* Mobile Menu */}
@@ -198,7 +198,7 @@ export const Navigation = () => {
                 </div>
                 <Link href="/servicos" className="text-lg font-medium text-foreground hover:text-primary">Serviços</Link>
                 <Link href="/contato" className="text-lg font-medium text-foreground hover:text-primary">Contato</Link>
-                <Button className="mt-4 w-full">Solicitar Orçamento</Button>
+                <Button className="mt-4 w-full" asChild><Link href="/contato">Solicitar Orçamento</Link></Button>
               </nav>
             </SheetContent>
           </Sheet>
