@@ -310,7 +310,7 @@ const Componentes = () => {
       </section>
 
       {/* COMPONENTES PNEUMÁTICOS */}
-      <section id="section-pneumatico" className="py-20 lg:py-28 bg-white scroll-mt-20">
+      <section id="section-pneumatico" className="py-20 lg:py-28 bg-white scroll-mt-20 hidden">
         <div className="container mx-auto px-6 max-w-7xl">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 lg:hidden">Pneumático</h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8 lg:hidden">

@@ -109,8 +109,8 @@ export const Navigation = () => {
                   <NavigationMenuTrigger className="text-sm font-medium text-foreground hover:text-primary transition-colors bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent p-0 h-auto">
                     Soluções
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="!left-1/2 !-translate-x-1/2 data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52">
-                    <div className="w-[950px] p-8">
+                  <NavigationMenuContent className="!left-auto !right-0 !translate-x-0 data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52">
+                    <div className="w-[min(950px,calc(100vw-3rem))] p-8">
                       <div className="grid grid-cols-4 gap-6">
                         {Object.entries(megaMenuData).map(([key, data]) => (
                           <div key={key} className="space-y-4 min-w-0">
