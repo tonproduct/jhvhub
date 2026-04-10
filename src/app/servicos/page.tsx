@@ -51,7 +51,7 @@ const Servicos = () => {
 
       {/* Introdução */}
       <section className="py-24 bg-slate-950">
-        <div className="container mx-auto px-4 max-w-5xl">
+        <div className="mx-auto px-6 md:px-24 max-w-5xl">
           <FadeIn variant="up">
             <p className="text-xs font-medium tracking-widest uppercase text-slate-500 mb-6">Serviços</p>
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-12">
@@ -72,7 +72,7 @@ const Servicos = () => {
 
       {/* Serviço 1: Fabricação Sob Medida (Imagem à Esquerda) */}
       <section className="bg-gradient-to-b from-background to-muted/20 py-[120px]">
-        <div className="container mx-auto px-4 max-w-5xl">
+        <div className="mx-auto px-6 md:px-24 max-w-5xl">
           <div className="grid md:grid-cols-2 gap-16 ">
             <FadeIn variant="left">
               <img src="/Gemini_Generated_Image_amyb0jamyb0jamyb.png" alt="Fabricação Sob Medida" className="rounded-2xl w-full h-full object-cover" />
@@ -113,7 +113,7 @@ const Servicos = () => {
 
       {/* Serviço 2: Nacionalização */}
       <section className="py-24 bg-slate-950">
-        <div className="container mx-auto px-4 max-w-5xl">
+        <div className="mx-auto px-6 md:px-24 max-w-5xl">
           <FadeIn variant="up">
             <p className="text-xs font-medium tracking-widest uppercase text-slate-500 mb-6">Serviço 02</p>
             <div className="grid md:grid-cols-[1fr_1.2fr] gap-16 items-start">
@@ -176,7 +176,7 @@ const Servicos = () => {
 
       {/* Serviço 3: Reforma e Manutenção */}
       <section className="py-28 bg-background">
-        <div className="container mx-auto px-4 max-w-5xl">
+        <div className="mx-auto px-6 md:px-24 max-w-5xl">
           <FadeIn variant="up">
             <p className="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-6">Reforma e Manutenção</p>
             <div className="grid md:grid-cols-[1fr_1.2fr] gap-16 items-start">
@@ -237,7 +237,7 @@ const Servicos = () => {
 
       {/* Serviço 4: Treinamentos */}
       <section className="py-28 bg-slate-100">
-        <div className="container mx-auto px-4 max-w-5xl">
+        <div className="mx-auto px-6 md:px-24 max-w-5xl">
           <FadeIn variant="up">
             <p className="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-6">Treinamentos</p>
             <div className="grid md:grid-cols-[1fr_1.2fr] gap-16 items-start">
@@ -303,7 +303,7 @@ const Servicos = () => {
       backgroundPosition: "center"
     }}>
         <div className="absolute inset-0 bg-primary/90" />
-        <div className="container mx-auto px-4 max-w-5xl relative z-10">
+        <div className="mx-auto px-6 md:px-24 max-w-5xl relative z-10">
           <div className="text-center mb-12">
             <Settings className="w-16 h-16 text-white mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-white mb-4">Projetos Especiais e Conjuntos Completos</h2>

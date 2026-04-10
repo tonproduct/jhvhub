@@ -144,7 +144,7 @@ const VFFS = () => {
 
       {/* Sobre a Tecnologia */}
       <section className="py-20 lg:py-28 bg-gradient-to-b from-white to-muted">
-        <div className="container mx-auto px-6 max-w-7xl">
+        <div className="mx-auto px-6 md:px-24 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <FadeIn variant="left">
               <Badge className="bg-slate-100 text-slate-700 px-4 py-2 text-sm font-medium mb-6">Sobre a Tecnologia</Badge>
@@ -222,7 +222,7 @@ const VFFS = () => {
 
       {/* SOLUÇÕES DE SELAGEM */}
       <section id="section-selagem" className="py-20 lg:py-28 bg-white scroll-mt-20">
-        <div className="container mx-auto px-6 max-w-7xl">
+        <div className="mx-auto px-6 md:px-24 max-w-7xl">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 lg:hidden">Soluções de Selagem</h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8 lg:hidden">
             Mordentes e resistências de alta performance para selagem vertical precisa e durável.
@@ -279,7 +279,7 @@ const VFFS = () => {
 
       {/* SOLUÇÕES DE CORTE */}
       <section id="section-corte" className="py-20 lg:py-28 bg-gradient-to-b from-gray-50 to-white scroll-mt-20">
-        <div className="container mx-auto px-6 max-w-7xl">
+        <div className="mx-auto px-6 md:px-24 max-w-7xl">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 lg:hidden">Soluções de Corte</h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8 lg:hidden">
             Facas de precisão para corte limpo e durável em máquinas verticais.
@@ -325,7 +325,7 @@ const VFFS = () => {
 
       {/* SOLUÇÕES DE FORMAÇÃO */}
       <section id="section-formacao" className="hidden">
-        <div className="container mx-auto px-6 max-w-7xl">
+        <div className="mx-auto px-6 md:px-24 max-w-7xl">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 lg:hidden">Soluções de Formação</h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8 lg:hidden">
             Tubos formadores e colarinhos para formação perfeita de embalagens verticais.
@@ -433,7 +433,7 @@ const VFFS = () => {
 
       {/* CTA FINAL */}
       <section className="py-20 bg-gradient-to-r from-primary to-red-700 text-white text-center">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="mx-auto px-6 md:px-24 max-w-4xl">
           <Award className="w-16 h-16 mx-auto mb-6 opacity-80" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Não Sabe Qual Solução Escolher?</h2>
           <p className="text-xl text-white/90 mb-8">Nossa equipe técnica analisa sua operação e recomenda os componentes ideais para maximizar performance e reduzir custos.</p>

@@ -137,7 +137,7 @@ const Componentes = () => {
 
       {/* O QUE SÃO COMPONENTES */}
       <section className="py-20 lg:py-28 bg-white">
-        <div className="container mx-auto px-6 max-w-7xl">
+        <div className="mx-auto px-6 md:px-24 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <FadeIn variant="left">
               <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">Sobre os Componentes</p>
@@ -202,7 +202,7 @@ const Componentes = () => {
 
       {/* COMPONENTES DE TRANSMISSÃO */}
       <section id="section-transmissao" className="py-20 lg:py-28 bg-white scroll-mt-20">
-        <div className="container mx-auto px-6 max-w-7xl">
+        <div className="mx-auto px-6 md:px-24 max-w-7xl">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 lg:hidden">Transmissão</h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8 lg:hidden">
             Correias dentadas, polias, rolamentos, eixos e buchas de alta qualidade para sistemas de transmissão.
@@ -244,7 +244,7 @@ const Componentes = () => {
 
       {/* COMPONENTES DE CONTROLE */}
       <section id="section-controle" className="py-20 lg:py-28 bg-gradient-to-b from-gray-50 to-white scroll-mt-20">
-        <div className="container mx-auto px-6 max-w-7xl">
+        <div className="mx-auto px-6 md:px-24 max-w-7xl">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 lg:hidden">Controle</h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8 lg:hidden">
             Sensores, encoders, controladores de temperatura e inversores de frequência para automação e controle.
@@ -311,7 +311,7 @@ const Componentes = () => {
 
       {/* COMPONENTES PNEUMÁTICOS */}
       <section id="section-pneumatico" className="py-20 lg:py-28 bg-white scroll-mt-20 hidden">
-        <div className="container mx-auto px-6 max-w-7xl">
+        <div className="mx-auto px-6 md:px-24 max-w-7xl">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 lg:hidden">Pneumático</h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8 lg:hidden">
             Cilindros, válvulas solenóide, filtros reguladores e conexões para sistemas pneumáticos.
@@ -434,7 +434,7 @@ const Componentes = () => {
 
       {/* CTA FINAL */}
       <section className="py-20 bg-gradient-to-r from-primary to-red-700 text-white text-center">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="mx-auto px-6 md:px-24 max-w-4xl">
           <Award className="w-16 h-16 mx-auto mb-6 opacity-80" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Precisa de um Componente Específico?</h2>
           <p className="text-xl text-white/90 mb-8">Nossa equipe técnica pode ajudar a identificar a peça correta para sua máquina, mesmo que não esteja em nosso catálogo.</p>

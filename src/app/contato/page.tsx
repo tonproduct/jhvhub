@@ -86,7 +86,7 @@ const Contato = () => {
 
       {/* FAQ */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="mx-auto px-6 md:px-24 max-w-4xl">
           <FadeIn variant="up">
             <h2 className="text-3xl font-bold text-center mb-12">Perguntas Frequentes</h2>
           </FadeIn>
