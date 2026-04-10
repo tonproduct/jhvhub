@@ -87,7 +87,7 @@ const Sobre = () => {
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80" />
-        <div className="relative z-10 px-6 max-w-7xl mx-auto w-full container py-20 lg:py-28">
+        <div className="relative z-10 px-6 md:px-24 max-w-7xl mx-auto w-full py-20 lg:py-28">
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>

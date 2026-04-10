@@ -108,7 +108,7 @@ const Sache = () => {
         backgroundPosition: "center"
       }}>
         <div className="absolute inset-0" style={{background: "linear-gradient(105deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 47%, transparent 65%)"}} />
-        <div className="relative z-10 px-6 max-w-7xl mx-auto w-full container py-20 lg:py-28">
+        <div className="relative z-10 px-6 md:px-24 max-w-7xl mx-auto w-full py-20 lg:py-28">
           <Breadcrumb className="mb-5">
             <BreadcrumbList>
               <BreadcrumbItem><BreadcrumbLink asChild><Link href="/" className="text-white/80 hover:text-white">Início</Link></BreadcrumbLink></BreadcrumbItem>

@@ -26,7 +26,7 @@ const Servicos = () => {
       }}>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80" />
 
-        <div className="relative z-10 px-4 max-w-5xl mx-auto w-full container">
+        <div className="relative z-10 px-6 md:px-24 max-w-5xl mx-auto w-full">
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>

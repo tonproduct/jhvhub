@@ -105,7 +105,7 @@ const VFFS = () => {
       }}>
         <div className="absolute inset-0" style={{background: "linear-gradient(105deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 47%, transparent 65%)"}} />
 
-        <div className="relative z-10 px-4 max-w-5xl mx-auto w-full container">
+        <div className="relative z-10 px-6 md:px-24 max-w-5xl mx-auto w-full">
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>
