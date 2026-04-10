@@ -80,8 +80,8 @@ export const Navigation = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background shadow-sm px-6 md:px-24">
-      <div className="max-w-[1340px] mx-auto">
+    <header className="sticky top-0 z-50 w-full bg-background shadow-sm">
+      <div className="max-w-[1340px] mx-auto px-6 md:px-24">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center transition-opacity hover:opacity-80">
