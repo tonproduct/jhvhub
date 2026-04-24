@@ -406,7 +406,7 @@ const handleSolutionSelect = (solution: Solution) => {
             <StaggerItem>
               <Link href="/flow-pack">
                 <div className="relative h-64 rounded-2xl overflow-hidden group cursor-pointer">
-                  <img src="/fotos/novas/flow.jpeg" alt="Flow Pack" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src="/hero-flow-pack.png" alt="Flow Pack" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/40 group-hover:from-gray-900/90 group-hover:to-gray-900/60 transition-all duration-300"></div>
                   <div className="absolute inset-0 flex items-center justify-between px-8 md:px-12">
                     <div>
@@ -427,7 +427,7 @@ const handleSolutionSelect = (solution: Solution) => {
             <StaggerItem>
               <Link href="/verticais">
                 <div className="relative h-64 rounded-2xl overflow-hidden group cursor-pointer">
-                  <img src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg" alt="Vertical" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src="/hero-verticais.png" alt="Vertical" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/40 group-hover:from-gray-900/90 group-hover:to-gray-900/60 transition-all duration-300"></div>
                   <div className="absolute inset-0 flex items-center justify-between px-8 md:px-12">
                     <div>
@@ -448,7 +448,7 @@ const handleSolutionSelect = (solution: Solution) => {
             <StaggerItem>
               <Link href="/sache">
                 <div className="relative h-64 rounded-2xl overflow-hidden group cursor-pointer">
-                  <img src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_Complete_sachet_packaging_machine_full_side_view_showing_height_stainless_steel_mul_182693_uevfys.png" alt="Sachê" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src="/hero-sache.png" alt="Sachê" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/40 group-hover:from-gray-900/90 group-hover:to-gray-900/60 transition-all duration-300"></div>
                   <div className="absolute inset-0 flex items-center justify-between px-8 md:px-12">
                     <div>
