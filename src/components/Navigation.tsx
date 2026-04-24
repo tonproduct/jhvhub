@@ -159,6 +159,12 @@ export const Navigation = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
+                  <Link href="/parceiros" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+                    Parceiros
+                  </Link>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
                   <Link href="/contato" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
                     Contato
                   </Link>
@@ -197,6 +203,7 @@ export const Navigation = () => {
                   </div>
                 </div>
                 <Link href="/servicos" className="text-lg font-medium text-foreground hover:text-primary">Serviços</Link>
+                <Link href="/parceiros" className="text-lg font-medium text-foreground hover:text-primary">Parceiros</Link>
                 <Link href="/contato" className="text-lg font-medium text-foreground hover:text-primary">Contato</Link>
                 <Button className="mt-4 w-full" asChild><Link href="/contato">Solicitar Orçamento</Link></Button>
               </nav>

@@ -32,13 +32,11 @@ import { FadeIn, StaggerChildren, StaggerItem } from "@/components/FadeIn";
 import { useState, useEffect } from "react";
 
 const ALL_IMAGES = [
-  { src: "/produtos/flow-pack/mordente-selagem-01.png", alt: "Mordente de Selagem" },
-  { src: "/produtos/flow-pack/ROLO DE SELAGEM RECARTILHADO.png", alt: "Rolo de Selagem" },
-  { src: "/produtos/flow-pack/contra-facas-01.jpg", alt: "Contra Facas" },
-  { src: "/produtos/flow-pack/faca-zig-zag-sache-01.png", alt: "Faca Zig Zag" },
-  { src: "/produtos/flow-pack/cabecote-selagem-corte-01.jpg", alt: "Cabeçote de Selagem" },
-  { src: "/produtos/flow-pack/FACA DENTADA.png", alt: "Faca Dentada" },
-  { src: "/produtos/flow-pack/MORDENTE VERTICAL.png", alt: "Mordente Vertical" },
+  { src: "/fotos/novas/bicoserra.jpeg", alt: "Usinagem CNC de Precisão" },
+  { src: "/fotos/novas/bico.jpeg", alt: "Usinagem de Mordente" },
+  { src: "/fotos/novas/a2.jpeg", alt: "Centro de Usinagem CNC" },
+  { src: "/fotos/novas/serra.jpeg", alt: "Retífica com Faíscas" },
+  { src: "/fotos/novas/12.jpeg", alt: "Engenheiro em CAD" },
 ];
 
 function MosaicRandom() {

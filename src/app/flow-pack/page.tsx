@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { flowPackSealingProducts, flowPackCuttingProducts, Product } from "@/data/flowPackProducts";
 import { ProductModal } from "@/components/ProductModal";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { ArrowRight, Check, Flame, Scissors, MessageCircle, TrendingUp, Clock, Shield, Download, ChevronLeft, Package, Heart, Sparkles, Settings, Cookie, Pill, Droplet, Wrench, Award } from "lucide-react";
+import { ArrowRight, Check, Flame, Scissors, MessageCircle, TrendingUp, Clock, Shield, Download, ChevronLeft, Package, Heart, Sparkles, Settings, Cookie, Pill, Droplet, Wrench } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -99,12 +99,13 @@ const FlowPack = () => {
 
       {/* HERO SECTION */}
       <section className="relative h-[58vh] flex items-center justify-center" style={{
-        backgroundImage: "url('/hero-flow-pack.png')",
+        backgroundImage: "url('/fotos/novas/flow.jpeg')",
         backgroundSize: "cover",
-        backgroundPosition: "70% center"
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed"
       }}>
-        <div className="absolute inset-0" style={{background: "linear-gradient(105deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 47%, transparent 65%)"}} />
-        <div className="relative z-10 px-6 md:px-24 max-w-7xl mx-auto w-full py-20 lg:py-28">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
+        <div className="relative z-10 px-6 max-w-7xl mx-auto w-full container py-20 lg:py-28">
           <Breadcrumb className="mb-5">
             <BreadcrumbList>
               <BreadcrumbItem><BreadcrumbLink asChild><Link href="/" className="text-white/80 hover:text-white">Início</Link></BreadcrumbLink></BreadcrumbItem>
@@ -116,7 +117,7 @@ const FlowPack = () => {
           </Breadcrumb>
 
           <FadeIn variant="up" delay={0.1}>
-            <h1 className="text-[18px] md:text-[24px] lg:text-[36px] text-white mb-4 leading-tight" style={{fontWeight: 600}}>Ferramentas de corte e selagem <br /> <span style={{fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em"}}>para máquinas flow pack's</span></h1>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">Ferramentas de corte e selagem <br /> para máquinas flow pack's</h1>
           </FadeIn>
           <FadeIn variant="up" delay={0.3}>
             <p className="text-base text-white/80 max-w-2xl leading-relaxed mb-8">Componentes de alta performance para selagem e corte para várias estruturas de filmes.</p>
@@ -134,17 +135,17 @@ const FlowPack = () => {
 
       {/* O QUE É FLOW PACK */}
       <section className="py-20 lg:py-28 bg-gradient-to-b from-white to-muted">
-        <div className="mx-auto px-6 md:px-24 max-w-7xl">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <FadeIn variant="left">
-              <Badge className="bg-slate-100 text-slate-700 px-4 py-2 text-sm font-medium mb-6">Sobre a Tecnologia</Badge>
+              <Badge className="bg-blue-50 text-blue-700 px-4 py-2 text-sm font-medium mb-6">Sobre a Tecnologia</Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">O Que oferecemos de soluções a cliente de Flow pack?</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4" style={{ lineHeight: "1.8" }}>Atuamos focados em 100% dos caso na melhoria do equipamento Flow Pack como um todo com soluções inteligentes que melhoram a performance da maquina e assim garantimos uma boa selagem uniforme sem excessos de pressão / tempos e temperaturas, com isso garantimos os bons resultados e produtos Herméticos </p>
               <p className="text-lg text-muted-foreground leading-relaxed" style={{ lineHeight: "1.8" }}></p>
             </FadeIn>
 
             <FadeIn variant="right" delay={0.2}>
-              <div className="bg-card rounded-2xl p-8 border border-border">
+              <div className="bg-card rounded-2xl shadow-xl p-8 border border-border">
                 <h3 className="text-2xl font-bold text-foreground mb-8">Principais Aplicações</h3>
                 <StaggerChildren className="space-y-6" staggerDelay={0.1}>
                   <StaggerItem><div className="flex items-start gap-4 group"><div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors"><Cookie className="w-6 h-6 text-slate-600" /></div><div><h4 className="font-semibold text-foreground mb-1">Alimentos</h4><p className="text-sm text-muted-foreground">Snacks, barras, biscoitos e produtos de panificação</p></div></div></StaggerItem>
@@ -160,7 +161,7 @@ const FlowPack = () => {
 
       {/* SOLUÇÕES DE SELAGEM */}
       <section id="section-selagem" className="py-20 lg:py-28 bg-white scroll-mt-20">
-        <div className="mx-auto px-6 md:px-24 max-w-7xl">
+        <div className="container mx-auto px-6 max-w-7xl">
           <FadeIn variant="up" className="lg:hidden">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Soluções de Selagem</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">Mordentes de alta performance para selagem precisa e durável. Desenvolvidos para garantir selagem consistente em diferentes tipos de filmes e velocidades de produção.</p>
@@ -173,8 +174,8 @@ const FlowPack = () => {
                 <p className="text-lg text-muted-foreground leading-relaxed">Ferramentas de selagem de alta performance com durabilidade com custos acessivos para sua embaladora. Desenvolvidos para garantir o pacote perfeito e hermético para diferentes tipos de filmes e velocidades de produção.</p>
               </div>
               <div className="space-y-3">
-                {flowPackSealingProducts.slice(0, 6).map((product, index) => <div key={product.id} onMouseEnter={() => { setActiveSealingSlide(index); setIsSealingAutoPlaying(false); }} onMouseLeave={() => setIsSealingAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activeSealingSlide === index ? "bg-slate-100 text-slate-600" : "hover:bg-slate-100 text-base")}>
-                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activeSealingSlide === index ? "text-slate-600" : "text-base")} />
+                {flowPackSealingProducts.slice(0, 6).map((product, index) => <div key={product.id} onMouseEnter={() => { setActiveSealingSlide(index); setIsSealingAutoPlaying(false); }} onMouseLeave={() => setIsSealingAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activeSealingSlide === index ? "bg-blue-50 text-blue-600" : "hover:bg-blue-50 text-base")}>
+                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activeSealingSlide === index ? "text-blue-600" : "text-base")} />
                     <h3 className="font-semibold text-base">{product.name}</h3>
                   </div>)}
               </div>
@@ -206,7 +207,7 @@ const FlowPack = () => {
 
       {/* SOLUÇÕES DE CORTE - INVERTIDO */}
       <section id="section-corte" className="py-20 lg:py-28 bg-gradient-to-b from-gray-50 to-white scroll-mt-20">
-        <div className="mx-auto px-6 md:px-24 max-w-7xl">
+        <div className="container mx-auto px-6 max-w-7xl">
           <FadeIn variant="up" className="lg:hidden">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Soluções de Corte</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">Facas de precisão para corte limpo e durável. Diversos perfis de corte para diferentes tipos de filme e aplicações.</p>
@@ -240,8 +241,8 @@ const FlowPack = () => {
                 <p className="text-lg text-muted-foreground leading-relaxed">Facas de precisão para corte limpo e durável. Diversos perfis de corte para diferentes tipos de filme e aplicações.</p>
               </div>
               <div className="space-y-3">
-                {flowPackCuttingProducts.map((product, index) => <div key={product.id} onMouseEnter={() => { setActiveCuttingSlide(index); setIsCuttingAutoPlaying(false); }} onMouseLeave={() => setIsCuttingAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activeCuttingSlide === index ? "bg-slate-100 text-slate-600" : "hover:bg-slate-100 text-base")}>
-                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activeCuttingSlide === index ? "text-slate-600" : "text-base")} />
+                {flowPackCuttingProducts.map((product, index) => <div key={product.id} onMouseEnter={() => { setActiveCuttingSlide(index); setIsCuttingAutoPlaying(false); }} onMouseLeave={() => setIsCuttingAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activeCuttingSlide === index ? "bg-blue-50 text-blue-600" : "hover:bg-blue-50 text-base")}>
+                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activeCuttingSlide === index ? "text-blue-600" : "text-base")} />
                     <h3 className="font-semibold text-base">{product.name}</h3>
                   </div>)}
               </div>
@@ -250,52 +251,54 @@ const FlowPack = () => {
         </div>
       </section>
 
-      {/* OUTROS EQUIPAMENTOS — full bleed */}
-      <section>
-        <FadeIn variant="up">
-          <div className="grid grid-cols-2 h-72">
-            <Link href="/verticais" className="group relative overflow-hidden">
-              <img src="/hero-vffs.png" alt="Máquinas Verticais" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-r from-gray-900/75 to-gray-900/35 group-hover:from-gray-900/85 transition-all duration-300" />
-              <div className="absolute inset-0 flex items-center justify-between px-12">
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-white/60 mb-3">Vertical</p>
-                  <h4 className="text-3xl font-bold text-white group-hover:translate-x-2 transition-transform duration-300">Máquinas Verticais</h4>
+      {/* CTA FINAL + NAVEGAÇÃO RELACIONADA */}
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-white to-muted">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <FadeIn variant="scale">
+            <div className="bg-gradient-to-br from-slate-700 to-slate-900 rounded-3xl p-12 lg:p-16 text-center text-white mb-20">
+              <div className="max-w-2xl mx-auto">
+                <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-6"><MessageCircle className="w-8 h-8 text-white" /></div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Não Sabe Qual Solução Escolher?</h2>
+                <p className="text-xl text-blue-100 mb-8">Nossa equipe técnica analisa sua operação e recomenda os componentes ideais para maximizar performance e reduzir custos.</p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50 px-8 py-6 text-lg" asChild><Link href="/contato">Falar com Especialista</Link></Button>
+                  <Button size="lg" variant="outline" className="border border-white/60 text-white/80 hover:bg-white/10 hover:text-white px-8 py-5 text-base"><Download className="mr-2" />Baixar Catálogo PDF</Button>
                 </div>
-                <ArrowRight className="w-8 h-8 text-white flex-shrink-0 group-hover:translate-x-2 transition-transform duration-300" />
               </div>
-            </Link>
-            <Link href="/sache" className="group relative overflow-hidden border-l border-white/10">
-              <img src="/hero-sache.png" alt="Máquinas de Sachê" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-r from-gray-900/75 to-gray-900/35 group-hover:from-gray-900/85 transition-all duration-300" />
-              <div className="absolute inset-0 flex items-center justify-between px-12">
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-white/60 mb-3">Sachê</p>
-                  <h4 className="text-3xl font-bold text-white group-hover:translate-x-2 transition-transform duration-300">Máquinas de Sachê</h4>
-                </div>
-                <ArrowRight className="w-8 h-8 text-white flex-shrink-0 group-hover:translate-x-2 transition-transform duration-300" />
-              </div>
-            </Link>
-          </div>
-        </FadeIn>
-      </section>
+            </div>
+          </FadeIn>
 
-      {/* CTA FINAL */}
-      <section className="py-20 bg-gradient-to-r from-primary to-red-700 text-white text-center">
-        <div className="mx-auto px-6 md:px-24 max-w-4xl">
-          <Award className="w-16 h-16 mx-auto mb-6 opacity-80" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Não Sabe Qual Solução Escolher?</h2>
-          <p className="text-xl text-white/90 mb-8">Nossa equipe técnica analisa sua operação e recomenda os componentes ideais para maximizar performance e reduzir custos.</p>
-          <div className="flex justify-center">
-            <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
-              <a href="https://wa.me/5519981791472" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="secondary" className="text-lg px-8 py-4">
-                  <MessageCircle className="mr-2 w-5 h-5" />
-                  Falar com Especialista
-                </Button>
-              </a>
-            </motion.div>
-          </div>
+          <FadeIn variant="up">
+            <div className="border-t-2 border-border pt-16">
+              <h3 className="text-3xl font-bold text-center text-foreground mb-12">Veja Soluções para Outros Equipamentos</h3>
+              <StaggerChildren className="grid md:grid-cols-2 gap-8" staggerDelay={0.15}>
+                <StaggerItem>
+                  <Link href="/verticais" className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer block">
+                    <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&h=600&fit=crop" alt="Vertical" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                      <Badge className="bg-white/20 text-white mb-3">Vertical</Badge>
+                      <h4 className="text-3xl font-bold mb-2">Máquinas Verticais</h4>
+                      <p className="text-blue-100 mb-4">Soluções completas para máquinas verticais</p>
+                      <Button variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900">Ver Soluções <ArrowRight className="ml-2" /></Button>
+                    </div>
+                  </Link>
+                </StaggerItem>
+                <StaggerItem>
+                  <Link href="/sache" className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer block">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop" alt="Sachê" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                      <Badge className="bg-white/20 text-white mb-3">Sachê</Badge>
+                      <h4 className="text-3xl font-bold mb-2">Máquinas de Sachê</h4>
+                      <p className="text-blue-100 mb-4">Componentes especializados para sachês</p>
+                      <Button variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900">Ver Soluções <ArrowRight className="ml-2" /></Button>
+                    </div>
+                  </Link>
+                </StaggerItem>
+              </StaggerChildren>
+            </div>
+          </FadeIn>
         </div>
       </section>
 

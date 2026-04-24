@@ -9,11 +9,7 @@ import { ArrowRight, ArrowLeft, Repeat, Package, Globe, Award, CheckCircle2, Zap
 
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { useState, useEffect, useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(useGSAP);
+import { useState, useEffect } from "react";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/FadeIn";
 import { ComoTrabalhamos } from "@/components/ComoTrabalhamos";
 import { motion, AnimatePresence } from "framer-motion";
@@ -158,19 +154,6 @@ function PortraitCarousel() {
 const HomeContent = () => {
   const [solutionStep, setSolutionStep] = useState<1 | 2>(1);
   const [selectedSolution, setSelectedSolution] = useState<Solution>(null);
-  const highlightRef = useRef<HTMLSpanElement>(null);
-
-  useGSAP(() => {
-    if (!highlightRef.current) return;
-    gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
-      gsap.from(highlightRef.current, {
-        clipPath: "inset(0 100% 0 0)",
-        duration: 0.8,
-        ease: "power3.inOut",
-        delay: 0.9,
-      });
-    });
-  });
 const handleSolutionSelect = (solution: Solution) => {
     setSelectedSolution(solution);
     setSolutionStep(2);
@@ -194,33 +177,29 @@ const handleSolutionSelect = (solution: Solution) => {
             {/* ── Coluna esquerda: texto ── */}
             <div>
               <FadeIn variant="up" delay={0.1}>
-                <h1 className="text-[25px] md:text-[46px] font-bold mb-6 leading-tight text-white">
+                <h1 className="text-[28px] md:text-[52px] font-bold mb-6 leading-tight text-white">
                   Ferramentas de precisão<br />para embaladoras.
-                  <span className="block text-primary">Mantenha seus Produtos<br />com uma <span ref={highlightRef} style={{backgroundColor: "#dc2626", color: "hsl(235, 35%, 7.5%)", padding: "0 4px", borderRadius: "3px", display: "inline-block", lineHeight: "1", fontSize: "0.92em"}}>Selagem Perfeita</span></span>
+                  <span className="block text-primary">Mantenha seus Produtos<br />com uma Selagem Perfeita</span>
                 </h1>
               </FadeIn>
 
               <FadeIn variant="up" delay={0.3}>
-                <p className="text-lg text-gray-300 mb-8 leading-relaxed max-w-xl">
-                  Fabricação nacional de ferramentas de selagem e corte para embaladoras Flow Pack, Verticais e Sachê. Qualidade com padrões internacionais, prazos reduzidos.
+                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                  Fabricação nacional de ferramentas de selagem e corte para embaladoras Flow Pack, Verticais e Sachê e outras. Qualidade com padrões internacionais, prazos reduzidos com custos acessíveis para mercado Brasileiro.
                 </p>
               </FadeIn>
 
               <FadeIn variant="up" delay={0.5}>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
-                    <Button size="lg" className="text-lg w-full" asChild>
-                      <a href="#solucoes">
-                        Encontrar minha solução
-                        <ArrowRight className="ml-2 w-5 h-5" />
-                      </a>
+                    <Button size="lg" className="text-lg w-full">
+                      Solicitar Orçamento
+                      <ArrowRight className="ml-2 w-5 h-5" />
                     </Button>
                   </motion.div>
                   <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
-                    <Button size="lg" variant="outline" className="text-lg bg-white/10 border-white/30 text-white hover:bg-background hover:text-foreground w-full" asChild>
-                      <a href="https://wa.me/551935006957" target="_blank" rel="noopener noreferrer">
-                        Solicitar Orçamento
-                      </a>
+                    <Button size="lg" variant="outline" className="text-lg bg-white/10 border-white/30 text-white hover:bg-background hover:text-foreground w-full">
+                      Ver Catálogo
                     </Button>
                   </motion.div>
                 </div>
@@ -239,7 +218,7 @@ const handleSolutionSelect = (solution: Solution) => {
       </section>
 
       {/* SEÇÃO 1: NAVEGAÇÃO POR SOLUÇÃO */}
-      <section id="solucoes" className="py-20 px-6 md:px-24 bg-white">
+      <section className="py-20 px-6 md:px-24 bg-white">
         <div className="max-w-[1340px] mx-auto">
           <FadeIn variant="up">
             <h2 className="text-3xl font-bold text-gray-900 mb-4 text-left">Encontre a Solução Certa</h2>
@@ -255,7 +234,7 @@ const handleSolutionSelect = (solution: Solution) => {
                 {/* Card 1: Selagem */}
                 <StaggerItem>
                   <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300" onClick={() => handleSolutionSelect("selagem")}>
-                    <img src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763660647/Firefly_9_o31dqx.jpg" alt="Soluções de Selagem" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <img src="/fotos/novas/WhatsApp Image 2026-04-22 at 08.28.32.jpeg" alt="Soluções de Selagem" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                       <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300">
@@ -269,7 +248,7 @@ const handleSolutionSelect = (solution: Solution) => {
                 {/* Card 2: Corte */}
                 <StaggerItem>
                   <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300" onClick={() => handleSolutionSelect("corte")}>
-                    <img src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763660645/Firefly_10_exmprq.jpg" alt="Soluções de Corte" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <img src="/fotos/novas/WhatsApp Image 2026-04-22 at 08.28.332211.jpeg" alt="Soluções de Corte" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                       <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300 mx-0 px-0 pr-0 pl-0 mr-[19px]">
@@ -283,7 +262,7 @@ const handleSolutionSelect = (solution: Solution) => {
                 {/* Card 3: Componentes */}
                 <StaggerItem>
                   <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300" onClick={() => handleSolutionSelect("componentes")}>
-                    <img src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763660644/Firefly_11_ztopy3.jpg" alt="Componentes e Acessórios" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <img src="/fotos/novas/WhatsApp Image 2026-04-22 at 08.28.3312.jpeg" alt="Componentes e Acessórios" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                       <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300">
@@ -312,7 +291,7 @@ const handleSolutionSelect = (solution: Solution) => {
                     <StaggerItem>
                       <Link href={`/flow-pack#section-${selectedSolution}`}>
                         <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
-                          <img src="/hero-flow-pack.png" alt="Flow Pack" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                          <img src="/fotos/novas/flow.jpeg" alt="Flow Pack" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                           <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                             <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300">
@@ -327,7 +306,7 @@ const handleSolutionSelect = (solution: Solution) => {
                     <StaggerItem>
                       <Link href={`/verticais#section-${selectedSolution}`}>
                         <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
-                          <img src="/hero-vffs.png" alt="Vertical" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                          <img src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg" alt="Vertical" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                           <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                             <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300">
@@ -342,7 +321,7 @@ const handleSolutionSelect = (solution: Solution) => {
                     <StaggerItem>
                       <Link href={`/sache#section-${selectedSolution}`}>
                         <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
-                          <img src="/hero-sache.png" alt="Sachê" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                          <img src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_Complete_sachet_packaging_machine_full_side_view_showing_height_stainless_steel_mul_182693_uevfys.png" alt="Sachê" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                           <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                             <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300">
@@ -355,13 +334,15 @@ const handleSolutionSelect = (solution: Solution) => {
                     </StaggerItem>
                   </> : <>
                     <StaggerItem>
-                      <Link href="/componentes#section-transmissao">
-                        <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
-                          <img src="/hero-componentes.png" alt="Transmissão" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                      <Link href="/componentes/aquecimento">
+                        <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300 bg-gray-100">
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <Flame className="w-20 h-20 text-gray-400 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
+                          </div>
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                           <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                             <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300">
-                              TRANSMISSÃO
+                              ELEMENTOS DE AQUECIMENTO
                             </span>
                             <ArrowRight className="w-6 h-6 text-white flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
                           </div>
@@ -370,13 +351,32 @@ const handleSolutionSelect = (solution: Solution) => {
                     </StaggerItem>
 
                     <StaggerItem>
-                      <Link href="/componentes#section-controle">
-                        <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
-                          <img src="/Gemini_Generated_Image_a3t1h9a3t1h9a3t1.png" alt="Controle" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                      <Link href="/componentes/fixacao">
+                        <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300 bg-gray-100">
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <Settings className="w-20 h-20 text-gray-400 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
+                          </div>
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                           <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                             <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300">
-                              CONTROLE
+                              FIXAÇÃO E ALINHAMENTO
+                            </span>
+                            <ArrowRight className="w-6 h-6 text-white flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
+                          </div>
+                        </div>
+                      </Link>
+                    </StaggerItem>
+
+                    <StaggerItem>
+                      <Link href="/componentes/acessorios">
+                        <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300 bg-gray-100">
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <Package className="w-20 h-20 text-gray-400 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
+                          </div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
+                          <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
+                            <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300">
+                              ACESSÓRIOS
                             </span>
                             <ArrowRight className="w-6 h-6 text-white flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
                           </div>
@@ -397,7 +397,7 @@ const handleSolutionSelect = (solution: Solution) => {
               Conheça Todas as Soluções para Sua Máquina
             </h2>
             <p className="text-lg text-gray-600 text-center mb-12">
-              Selecione seu quipamento e veja tudo que oferecemos
+              Selecione seu equipamento e veja tudo que oferecemos
             </p>
           </FadeIn>
 
@@ -406,7 +406,7 @@ const handleSolutionSelect = (solution: Solution) => {
             <StaggerItem>
               <Link href="/flow-pack">
                 <div className="relative h-64 rounded-2xl overflow-hidden group cursor-pointer">
-                  <img src="/hero-flow-pack.png" alt="Flow Pack" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src="/fotos/novas/flow.jpeg" alt="Flow Pack" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/40 group-hover:from-gray-900/90 group-hover:to-gray-900/60 transition-all duration-300"></div>
                   <div className="absolute inset-0 flex items-center justify-between px-8 md:px-12">
                     <div>
@@ -427,12 +427,12 @@ const handleSolutionSelect = (solution: Solution) => {
             <StaggerItem>
               <Link href="/verticais">
                 <div className="relative h-64 rounded-2xl overflow-hidden group cursor-pointer">
-                  <img src="/hero-vffs.png" alt="Vertical" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg" alt="Vertical" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/40 group-hover:from-gray-900/90 group-hover:to-gray-900/60 transition-all duration-300"></div>
                   <div className="absolute inset-0 flex items-center justify-between px-8 md:px-12">
                     <div>
                       <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 group-hover:translate-x-2 transition-transform duration-300">
-                        VERTICAIS
+                        VERTICAL
                       </h3>
                       <p className="text-gray-200 text-lg group-hover:translate-x-2 transition-transform duration-300 delay-75">
                         Componentes para sistemas de envase vertical com dosagem precisa
@@ -448,7 +448,7 @@ const handleSolutionSelect = (solution: Solution) => {
             <StaggerItem>
               <Link href="/sache">
                 <div className="relative h-64 rounded-2xl overflow-hidden group cursor-pointer">
-                  <img src="/hero-sache.png" alt="Sachê" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_Complete_sachet_packaging_machine_full_side_view_showing_height_stainless_steel_mul_182693_uevfys.png" alt="Sachê" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/40 group-hover:from-gray-900/90 group-hover:to-gray-900/60 transition-all duration-300"></div>
                   <div className="absolute inset-0 flex items-center justify-between px-8 md:px-12">
                     <div>

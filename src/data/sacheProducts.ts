@@ -42,8 +42,8 @@ export const sacheSealingProducts: Product[] = [
   {
     id: 'sache-seal-01',
     category: 'selagem',
-    name: 'Mordente para Sachê Quatro Lados',
-    shortDescription: 'Sistema de selagem para sachês tipo almofada com vedação completa',
+    name: 'Blocos de Selagem Vertical',
+    shortDescription: 'Blocos de selagem vertical para máquinas de sachê de alta velocidade',
     description: 'Mordente especial para selagem de sachês com quatro lados selados, garantindo vedação hermética.',
     fullDescription: 'Mordente especial para selagem de sachês tipo almofada (pillow pack) com quatro lados selados, garantindo vedação completa para produtos líquidos, pastas e pós.',
     images: [
@@ -73,8 +73,8 @@ export const sacheSealingProducts: Product[] = [
   {
     id: 'sache-seal-02',
     category: 'selagem',
-    name: 'Mordente para Sachê Três Lados',
-    shortDescription: 'Selagem em três lados para sachês flat com acabamento premium',
+    name: 'Blocos de Selagem Horizontal',
+    shortDescription: 'Blocos de selagem horizontal para máquinas de sachê contínuas',
     description: 'Mordente para sachês tipo flat com selagem em três lados, ideal para amostras e produtos unitários.',
     fullDescription: 'Mordente desenvolvido para selagem de sachês tipo flat com três lados selados, proporcionando acabamento premium e vedação confiável.',
     images: [
@@ -104,8 +104,8 @@ export const sacheSealingProducts: Product[] = [
   {
     id: 'sache-seal-03',
     category: 'selagem',
-    name: 'Resistência para Sachê',
-    shortDescription: 'Elemento aquecedor de alta precisão para selagem consistente',
+    name: 'Mordente Multipistas Perfil Cruzado',
+    shortDescription: 'Mordente multipistas com perfil cruzado para selagem precisa de sachês',
     description: 'Resistência elétrica desenvolvida para garantir aquecimento uniforme em máquinas de sachê.',
     fullDescription: 'Resistência elétrica de alta performance para aquecimento dos mordentes em máquinas de sachê, garantindo temperatura uniforme para selagens perfeitas.',
     images: [
@@ -133,8 +133,8 @@ export const sacheSealingProducts: Product[] = [
   {
     id: 'sache-seal-04',
     category: 'selagem',
-    name: 'Mordente com Perfil Texturizado',
-    shortDescription: 'Cria textura na selagem para melhor aderência e visual',
+    name: 'Mordentes Recartilhados',
+    shortDescription: 'Mordentes recartilhados com acabamento retificado CNC para selagem uniforme',
     description: 'Mordente com perfil especial que cria textura na área de selagem, melhorando aderência.',
     fullDescription: 'Mordente com perfil texturizado que cria um padrão na área de selagem, melhorando a aderência em filmes mais espessos e proporcionando visual diferenciado.',
     images: [
@@ -162,8 +162,8 @@ export const sacheSealingProducts: Product[] = [
   {
     id: 'sache-seal-05',
     category: 'selagem',
-    name: 'Sistema de Selagem a Frio',
-    shortDescription: 'Para filmes cold seal sem necessidade de aquecimento',
+    name: 'Rolos de Selagem',
+    shortDescription: 'Rolos de selagem para máquinas de sachê contínuas de alta velocidade',
     description: 'Sistema de selagem desenvolvido para trabalhar com filmes cold seal, sem aquecimento.',
     fullDescription: 'Sistema de selagem a frio para trabalhar com filmes pré-revestidos (cold seal), ideal para produtos sensíveis ao calor como chocolates.',
     images: [
