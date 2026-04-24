@@ -186,7 +186,7 @@ const FlowPack = () => {
                 <AnimatePresence>
                   <motion.div key={activeSealingSlide} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }} className="absolute inset-0 flex flex-col">
                     <div className="flex-1 relative">
-                      <img src={flowPackSealingProducts[activeSealingSlide % flowPackSealingProducts.length]?.images[sealingImageIndex] ?? flowPackSealingProducts[activeSealingSlide % flowPackSealingProducts.length]?.images[0]} alt={flowPackSealingProducts[activeSealingSlide % flowPackSealingProducts.length]?.name} className="w-full h-full object-cover object-center" />
+                      {(() => { const src = flowPackSealingProducts[activeSealingSlide % flowPackSealingProducts.length]?.images[sealingImageIndex] ?? flowPackSealingProducts[activeSealingSlide % flowPackSealingProducts.length]?.images[0]; const isContain = src?.includes('aaa.jpeg'); return <img src={src} alt={flowPackSealingProducts[activeSealingSlide % flowPackSealingProducts.length]?.name} className={`w-full h-full object-center ${isContain ? 'object-contain' : 'object-cover'}`} />; })()}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
