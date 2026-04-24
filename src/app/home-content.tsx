@@ -306,7 +306,7 @@ const handleSolutionSelect = (solution: Solution) => {
                     <StaggerItem>
                       <Link href={`/verticais#section-${selectedSolution}`}>
                         <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
-                          <img src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_6_act83n.jpg" alt="Vertical" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                          <img src="/hero-verticais.png" alt="Vertical" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                           <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                             <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300">
@@ -321,7 +321,7 @@ const handleSolutionSelect = (solution: Solution) => {
                     <StaggerItem>
                       <Link href={`/sache#section-${selectedSolution}`}>
                         <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
-                          <img src="https://res.cloudinary.com/dxdbh2c1b/image/upload/v1763653691/Firefly_Complete_sachet_packaging_machine_full_side_view_showing_height_stainless_steel_mul_182693_uevfys.png" alt="Sachê" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                          <img src="/hero-sache.png" alt="Sachê" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                           <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                             <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300">
