@@ -119,7 +119,7 @@ const Componentes = () => {
             </BreadcrumbList>
           </Breadcrumb>
           <FadeIn variant="up" delay={0.1}>
-            <h1 className="text-[18px] md:text-[24px] lg:text-[36px] text-white mb-4 leading-tight" style={{fontWeight: 600}}>Componentes e peças para <br /> <span style={{fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em"}}>máquinas de empacotamento</span></h1>
+            <h1 className="text-[24px] sm:text-[30px] md:text-[38px] lg:text-[48px] text-white mb-4 leading-tight" style={{fontWeight: 600}}>Componentes e peças para <br /> <span style={{fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em"}}>máquinas de empacotamento</span></h1>
           </FadeIn>
           <FadeIn variant="up" delay={0.3}>
             <p className="text-base text-white/80 max-w-2xl leading-relaxed mb-8">Transmissão, controle e componentes de alta performance para todos os tipos de máquinas.</p>

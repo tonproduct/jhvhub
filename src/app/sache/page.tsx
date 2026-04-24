@@ -9,12 +9,13 @@ import { Badge } from "@/components/ui/badge";
 import { sacheSealingProducts, sacheCuttingProducts, sacheDosagemProducts, Product } from "@/data/sacheProducts";
 import { ProductModal } from "@/components/ProductModal";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { ArrowRight, MessageCircle, Download, ChevronLeft, Flame, Scissors, Beaker, Coffee, Pill, Sparkles, UtensilsCrossed } from "lucide-react";
+import { ArrowRight, MessageCircle, Download, ChevronLeft, Flame, Scissors, Beaker, Coffee, Pill, Sparkles, UtensilsCrossed, Award } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/FadeIn";
+import { RelatedEquipmentNav } from "@/components/RelatedEquipmentNav";
 const Sache = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -120,7 +121,7 @@ const Sache = () => {
             </BreadcrumbList>
           </Breadcrumb>
           <FadeIn variant="up" delay={0.1}>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">Ferramentas e soluções para <br /> máquinas de sachê</h1>
+            <h1 className="text-[24px] sm:text-[30px] md:text-[38px] lg:text-[48px] text-white mb-4 leading-tight" style={{fontWeight: 600}}>Ferramentas e soluções para <br /><span style={{fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em"}}>máquinas de sachê</span></h1>
           </FadeIn>
           <FadeIn variant="up" delay={0.3}>
             <p className="text-base text-white/80 max-w-2xl leading-relaxed mb-8">Componentes de alta performance para selagem e corte em máquinas contínuas e intermitentes.</p>
@@ -161,8 +162,8 @@ const Sache = () => {
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-200 transition-colors">
-                      <UtensilsCrossed className="w-6 h-6 text-amber-600" />
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
+                      <UtensilsCrossed className="w-6 h-6 text-slate-600" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Condimentos</h4>
@@ -173,7 +174,7 @@ const Sache = () => {
                   </div>
 
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-brown-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
                       <Coffee className="w-6 h-6 text-slate-600" />
                     </div>
                     <div>
@@ -186,7 +187,7 @@ const Sache = () => {
 
                   <div className="flex items-start gap-4 group">
                     <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
-                      <Pill className="w-6 h-6 text-slate-500" />
+                      <Pill className="w-6 h-6 text-slate-600" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Farmacêutico</h4>
@@ -197,8 +198,8 @@ const Sache = () => {
                   </div>
 
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-pink-100 flex items-center justify-center flex-shrink-0 group-hover:bg-pink-200 transition-colors">
-                      <Sparkles className="w-6 h-6 text-pink-600" />
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 transition-colors">
+                      <Sparkles className="w-6 h-6 text-slate-600" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Cosméticos</h4>
@@ -232,7 +233,7 @@ const Sache = () => {
               </div>
 
               <div className="space-y-3">
-                {sacheSealingProducts.slice(0, 6).map((product) => <div key={product.id} className="group py-3 px-4 rounded-lg flex items-center gap-3 hover:bg-amber-50 transition-all duration-300 cursor-default">
+                {sacheSealingProducts.map((product) =><div key={product.id} className="group py-3 px-4 rounded-lg flex items-center gap-3 hover:bg-amber-50 transition-all duration-300 cursor-default">
                     <ChevronRight className="w-5 h-5 flex-shrink-0 text-muted-foreground group-hover:text-amber-600 transition-colors" />
                     <h3 className="font-semibold text-base group-hover:text-amber-600 transition-colors">{product.name}</h3>
                   </div>)}
@@ -393,67 +394,25 @@ const Sache = () => {
         </div>
       </section>
 
-      {/* CTA FINAL */}
-      <section className="py-20 lg:py-28 bg-gradient-to-b from-white to-muted">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="bg-gradient-to-br from-slate-700 to-slate-900 rounded-3xl p-12 lg:p-16 text-center text-white mb-20 animate-fade-in">
-            <div className="max-w-2xl mx-auto">
-              <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-6">
-                <MessageCircle className="w-8 h-8 text-white" />
-              </div>
+      <RelatedEquipmentNav items={[
+        { href: "/flow-pack", image: "/hero-flow-pack.png", label: "Horizontal", title: "Flow Pack" },
+        { href: "/verticais", image: "/hero-verticais.png", label: "Vertical", title: "Máquinas Verticais" },
+      ]} />
 
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Não Sabe Qual Solução Escolher?</h2>
-
-              <p className="text-xl text-amber-100 mb-8">
-                Nossa equipe técnica analisa sua operação e recomenda os componentes ideais para maximizar performance e
-                reduzir custos.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-white text-amber-900 hover:bg-amber-50 px-8 py-6 text-lg" asChild>
-                  <Link href="/contato">Falar com Especialista</Link>
+      <section className="py-20 bg-gradient-to-r from-primary to-red-700 text-white text-center">
+        <div className="mx-auto px-6 md:px-24 max-w-4xl">
+          <Award className="w-16 h-16 mx-auto mb-6 opacity-80" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Não Sabe Qual Solução Escolher?</h2>
+          <p className="text-xl text-white/90 mb-8">Nossa equipe técnica analisa sua operação e recomenda os componentes ideais para maximizar performance e reduzir custos.</p>
+          <div className="flex justify-center">
+            <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+              <a href="https://wa.me/5519981791472" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="secondary" className="text-lg px-8 py-4">
+                  <MessageCircle className="mr-2 w-5 h-5" />
+                  Falar com Especialista
                 </Button>
-                <Button size="lg" variant="outline" className="border border-white/60 text-white/80 hover:bg-white/10 hover:text-white px-8 py-5 text-base">
-                  <Download className="mr-2" />
-                  Baixar Catálogo PDF
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          {/* Navegação Relacionada */}
-          <div className="border-t-2 border-border pt-16 animate-fade-in">
-            <h3 className="text-3xl font-bold text-center text-foreground mb-12">
-              Veja Soluções para Outros Equipamentos
-            </h3>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <Link href="/flow-pack" className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&h=600&fit=crop" alt="Flow Pack" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <Badge className="bg-white/20 text-white mb-3">Flow Pack</Badge>
-                  <h4 className="text-3xl font-bold mb-2">Máquinas Flow Pack</h4>
-                  <p className="text-amber-100 mb-4">Soluções completas para máquinas horizontais</p>
-                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900">
-                    Ver Soluções <ArrowRight className="ml-2" />
-                  </Button>
-                </div>
-              </Link>
-
-              <Link href="/verticais" className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop" alt="Verticais" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <Badge className="bg-white/20 text-white mb-3">Vertical</Badge>
-                  <h4 className="text-3xl font-bold mb-2">Máquinas Verticais</h4>
-                  <p className="text-amber-100 mb-4">Componentes para máquinas verticais</p>
-                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900">
-                    Ver Soluções <ArrowRight className="ml-2" />
-                  </Button>
-                </div>
-              </Link>
-            </div>
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>

@@ -33,8 +33,8 @@ const SVG_R = 18;
 const SVG_CIRC = 2 * Math.PI * SVG_R;
 
 // Versão compacta para a coluna direita do hero
-const HERO_SLIDE_W = 280;
-const HERO_SLIDE_H = 380;
+const HERO_SLIDE_W = 320;
+const HERO_SLIDE_H = 430;
 
 function HeroPortraitCarousel() {
   const [current, setCurrent] = useState(0);
@@ -161,9 +161,9 @@ const handleSolutionSelect = (solution: Solution) => {
   return <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
 
-      {/* Hero Section — 2 colunas: texto | carrossel retrato */}
+      {/* Hero Section — 2 colunas: texto | card produto */}
       <section className="relative text-white px-6 md:px-24" style={{ backgroundColor: 'hsl(var(--hero-bg))' }}>
-        {/* Background clipped separadamente */}
+        {/* Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute inset-0 opacity-20">
             <img src="/hero-packaging.jpg" alt="" className="w-full h-full object-cover" />
@@ -172,34 +172,56 @@ const handleSolutionSelect = (solution: Solution) => {
         </div>
 
         <div className="relative max-w-[1340px] mx-auto">
-          <div className="grid lg:grid-cols-[60%_1fr] gap-12 items-center py-24 md:py-28">
+          <div className="grid lg:grid-cols-[58%_1fr] gap-12 items-center py-20 md:py-24">
 
             {/* ── Coluna esquerda: texto ── */}
             <div>
               <FadeIn variant="up" delay={0.1}>
-                <h1 className="text-[28px] md:text-[52px] font-bold mb-6 leading-tight text-white">
+                <h1 className="text-[28px] md:text-[48px] font-bold mb-6 leading-tight text-white">
                   Ferramentas de precisão<br />para embaladoras.
-                  <span className="block text-primary">Mantenha seus Produtos<br />com uma Selagem Perfeita</span>
+                  <span className="block text-primary mt-1">
+                    Mantenha seus Produtos<br />
+                    com uma{" "}
+                    <span className="relative inline-block">
+                      {/* caixa vermelha desliza da esquerda */}
+                      <motion.span
+                        className="absolute inset-0 bg-primary"
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{ duration: 0.5, delay: 1.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        style={{ transformOrigin: "left center" }}
+                      />
+                      {/* texto na cor do fundo (azul escuro) — "recortado" da caixa */}
+                      <span
+                        className="relative z-10 px-1"
+                        style={{ color: "hsl(235 35% 7.5%)" }}
+                      >
+                        Selagem Perfeita
+                      </span>
+                    </span>
+                  </span>
                 </h1>
               </FadeIn>
 
               <FadeIn variant="up" delay={0.3}>
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                  Fabricação nacional de ferramentas de selagem e corte para embaladoras Flow Pack, Verticais e Sachê e outras. Qualidade com padrões internacionais, prazos reduzidos com custos acessíveis para mercado Brasileiro.
+                <p className="text-base text-gray-300 mb-8 leading-relaxed max-w-lg">
+                  Fabricação nacional de ferramentas de selagem e corte para embaladoras Flow Pack, Verticais e Sachê e outras. Qualidade com padrões internacionais, prazos reduzidos.
                 </p>
               </FadeIn>
 
               <FadeIn variant="up" delay={0.5}>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
-                    <Button size="lg" className="text-lg w-full">
-                      Solicitar Orçamento
-                      <ArrowRight className="ml-2 w-5 h-5" />
+                    <Button size="lg" className="text-base w-full" asChild>
+                      <a href="#encontrar-solucao">
+                        Encontrar minha solução
+                        <ArrowRight className="ml-2 w-5 h-5" />
+                      </a>
                     </Button>
                   </motion.div>
                   <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
-                    <Button size="lg" variant="outline" className="text-lg bg-white/10 border-white/30 text-white hover:bg-background hover:text-foreground w-full">
-                      Ver Catálogo
+                    <Button size="lg" variant="outline" className="text-base bg-white/10 border-white/30 text-white hover:bg-background hover:text-foreground w-full" asChild>
+                      <a href="/contato">Solicitar Orçamento</a>
                     </Button>
                   </motion.div>
                 </div>
@@ -218,7 +240,7 @@ const handleSolutionSelect = (solution: Solution) => {
       </section>
 
       {/* SEÇÃO 1: NAVEGAÇÃO POR SOLUÇÃO */}
-      <section className="py-20 px-6 md:px-24 bg-white">
+      <section id="encontrar-solucao" className="py-20 px-6 md:px-24 bg-white">
         <div className="max-w-[1340px] mx-auto">
           <FadeIn variant="up">
             <h2 className="text-3xl font-bold text-gray-900 mb-4 text-left">Encontre a Solução Certa</h2>

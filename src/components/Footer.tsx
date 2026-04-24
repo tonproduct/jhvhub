@@ -5,8 +5,8 @@ import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from "lucide-react
 export const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300">
-      <div className="container mx-auto px-4 md:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div className="max-w-[1340px] mx-auto px-6 md:px-24 py-16">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12">
           {/* Coluna 1: Empresa */}
           <div>
             <div className="mb-6">
@@ -21,7 +21,7 @@ export const Footer = () => {
           </div>
 
           {/* Coluna 2: Soluções */}
-          <div className="md:pt-[70px]">
+          <div>
             <h3 className="text-white font-bold mb-4">Soluções</h3>
             <ul className="space-y-2">
               <li><Link href="/flow-pack" className="hover:text-primary transition-colors">• Flow Pack</Link></li>
@@ -32,7 +32,7 @@ export const Footer = () => {
           </div>
 
           {/* Coluna 3: Serviços */}
-          <div className="md:pt-[70px]">
+          <div>
             <h3 className="text-white font-bold mb-4">Serviços</h3>
             <ul className="space-y-2">
               <li><Link href="/servicos" className="hover:text-primary transition-colors">• Nossos Serviços</Link></li>

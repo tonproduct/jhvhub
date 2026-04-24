@@ -43,7 +43,7 @@ const Servicos = () => {
 
           <FadeIn variant="up" delay={0.1}><Badge variant="outline" className="mb-6 border-white/30 bg-white/10 text-white backdrop-blur-sm">20+ Anos de Experiência</Badge></FadeIn>
 
-          <FadeIn variant="up" delay={0.2}><h1 className="text-[18px] md:text-[24px] lg:text-[36px] text-white mb-6 leading-tight" style={{fontWeight: 600}}>Serviços Completos para <br /><span style={{fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em"}}>Máquinas de Embalagem</span></h1></FadeIn>
+          <FadeIn variant="up" delay={0.2}><h1 className="text-[24px] sm:text-[30px] md:text-[38px] lg:text-[48px] text-white mb-6 leading-tight" style={{fontWeight: 600}}>Serviços Completos para <br /><span style={{fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em"}}>Máquinas de Embalagem</span></h1></FadeIn>
 
           <FadeIn variant="up" delay={0.4}><p className="text-xl text-white/90 max-w-3xl leading-relaxed">Atuamos também com reformas de máquinas de empacotamento com profissionais experientes com anos de experiência em máquinas de empacotar</p></FadeIn>
         </div>

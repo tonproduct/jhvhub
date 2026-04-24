@@ -46,6 +46,7 @@ export const flowPackSealingProducts: Product[] = [
     shortDescription: 'Mordentes de alta performance compatíveis com diversas marcas e modelos de embaladoras do mercado',
     fullDescription: 'Fabricamos ferramentas de selagem como mordentes para vários tipos de embaladoras, garantindo compatibilidade e performance superior.',
     images: [
+      '/fotos/novas/WhatsApp Image 2026-04-22 at 08.28.34.jpeg',
       '/produtos/flow-pack/mordente-selagem-01.png',
       '/produtos/flow-pack/mordente-selagem-02.png',
     ],

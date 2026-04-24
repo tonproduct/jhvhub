@@ -32,29 +32,26 @@ import { FadeIn, StaggerChildren, StaggerItem } from "@/components/FadeIn";
 import { useState, useEffect } from "react";
 
 const ALL_IMAGES = [
-  { src: "/fotos/novas/bicoserra.jpeg", alt: "Usinagem CNC de Precisão" },
-  { src: "/fotos/novas/bico.jpeg", alt: "Usinagem de Mordente" },
   { src: "/fotos/novas/a2.jpeg", alt: "Centro de Usinagem CNC" },
+  { src: "/fotos/novas/bico.jpeg", alt: "Usinagem de Mordente" },
   { src: "/fotos/novas/serra.jpeg", alt: "Retífica com Faíscas" },
-  { src: "/fotos/novas/12.jpeg", alt: "Engenheiro em CAD" },
 ];
 
 function MosaicRandom() {
-  const [imgs, setImgs] = useState(ALL_IMAGES.slice(0, 4));
+  const [imgs, setImgs] = useState(ALL_IMAGES.slice(0, 3));
 
   useEffect(() => {
     const shuffled = [...ALL_IMAGES].sort(() => Math.random() - 0.5);
-    setImgs(shuffled.slice(0, 4));
+    setImgs(shuffled.slice(0, 3));
   }, []);
 
   return (
     <FadeIn variant="right" delay={0.2}>
       <div className="flex justify-center">
-        <div className="grid grid-cols-3 grid-rows-3 gap-2 h-[360px] w-[360px]">
-          <img src={imgs[0].src} alt={imgs[0].alt} className="col-span-2 row-span-2 w-full h-full object-cover rounded-xl" />
+        <div className="grid grid-cols-2 grid-rows-2 gap-2 w-full max-w-[380px] aspect-square">
+          <img src={imgs[0].src} alt={imgs[0].alt} className="col-span-1 row-span-2 w-full h-full object-cover rounded-xl" />
           <img src={imgs[1].src} alt={imgs[1].alt} className="col-span-1 row-span-1 w-full h-full object-cover rounded-xl" />
-          <img src={imgs[2].src} alt={imgs[2].alt} className="col-span-1 row-span-2 w-full h-full object-cover rounded-xl" />
-          <img src={imgs[3].src} alt={imgs[3].alt} className="col-span-2 row-span-1 w-full h-full object-cover rounded-xl" />
+          <img src={imgs[2].src} alt={imgs[2].alt} className="col-span-1 row-span-1 w-full h-full object-cover rounded-xl" />
         </div>
       </div>
     </FadeIn>
@@ -103,8 +100,8 @@ const Sobre = () => {
             <Badge variant="outline" className="mb-6 border-white/30 bg-white/10 text-white backdrop-blur-sm">Engenharia de Precisão</Badge>
           </FadeIn>
           <FadeIn variant="up" delay={0.2}>
-            <h1 className="text-[18px] md:text-[24px] lg:text-[36px] text-white mb-6 leading-tight" style={{fontWeight: 600}}>
-              Excelência em ferramentas para <br /><span style={{fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em"}}>máquinas de embalagem</span>
+            <h1 className="text-[24px] sm:text-[30px] md:text-[38px] lg:text-[48px] text-white mb-6 leading-tight" style={{fontWeight: 600}}>
+              Excelência em ferramentas para <span className="block sm:inline"><span style={{fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em"}}>máquinas de embalagem</span></span>
             </h1>
           </FadeIn>
           <FadeIn variant="up" delay={0.4}>
@@ -138,7 +135,7 @@ const Sobre = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 mt-10">
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-10">
                 {[
                   { icon: Zap, label: "Alta Performance" },
                   { icon: Shield, label: "Qualidade Garantida" },

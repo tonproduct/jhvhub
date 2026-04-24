@@ -188,35 +188,6 @@ export const sacheSealingProducts: Product[] = [
     leadTime: '7-10 dias',
     sku: 'SACHE-SFR-XXX',
   },
-  {
-    id: 'sache-seal-06',
-    category: 'selagem',
-    name: 'Mordente Multi-pista',
-    shortDescription: 'Sistema para selagem simultânea de múltiplos sachês',
-    description: 'Mordente para máquinas multi-pista, permitindo produção simultânea de vários sachês.',
-    fullDescription: 'Sistema de mordente multi-pista para selagem simultânea de múltiplos sachês, aumentando significativamente a produtividade da linha.',
-    images: [
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
-    ],
-    specifications: {
-      material: 'Alumínio/Aço',
-      dimensions: '2 a 8 pistas',
-    },
-    benefits: [
-      'Alta produtividade',
-      'Múltiplas pistas',
-      'Selagem uniforme',
-      'Eficiência',
-    ],
-    applications: [
-      'Produção em massa',
-      'Sachês de condimentos',
-      'Açúcar/Sal',
-    ],
-    availability: 'Sob encomenda',
-    leadTime: '15-20 dias',
-    sku: 'SACHE-MMP-XXX',
-  },
 ];
 
 // ════════════════════════════════════════════════════════════

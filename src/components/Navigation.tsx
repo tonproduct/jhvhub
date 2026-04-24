@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Search, Menu, Flame, ScanLine, Zap, PackageOpen, ArrowRight, Scissors } from "lucide-react";
+import { Search, Menu, Flame, ScanLine, Zap, PackageOpen, ArrowRight, Scissors, ChevronDown, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const KnifeIcon = ({ className }: { className?: string }) => (
@@ -64,6 +64,9 @@ const megaMenuData = {
 };
 
 export const Navigation = () => {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [solucoesOpen, setSolucoesOpen] = React.useState(false);
+
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.includes("#")) {
       e.preventDefault();
@@ -79,8 +82,8 @@ export const Navigation = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background shadow-sm">
-      <div className="max-w-[1340px] mx-auto px-6 md:px-24">
+    <header className="sticky top-0 z-50 w-full bg-background shadow-sm px-6 md:px-24">
+      <div className="max-w-[1340px] mx-auto">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center transition-opacity hover:opacity-80">
@@ -181,31 +184,105 @@ export const Navigation = () => {
           </div>
 
           {/* Mobile Menu */}
-          <Sheet>
+          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon">
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <nav className="flex flex-col gap-4 mt-8">
-                <Link href="/" className="text-lg font-medium text-foreground hover:text-primary">Início</Link>
-                <Link href="/sobre" className="text-lg font-medium text-foreground hover:text-primary">Sobre Nós</Link>
-                <div className="flex flex-col gap-2">
-                  <span className="text-lg font-medium text-foreground">Soluções</span>
-                  <div className="flex flex-col gap-2 pl-4 border-l-2 border-primary/20">
-                    {Object.entries(megaMenuData).map(([key, data]) => (
-                      <Link key={key} href={data.link} className="text-base text-muted-foreground hover:text-primary transition-colors">
-                        {data.title}
-                      </Link>
-                    ))}
-                  </div>
+            <SheetContent side="right" className="w-[320px] sm:w-[380px] p-0 flex flex-col">
+              {/* Header */}
+              <div className="flex items-center justify-between px-6 py-5 border-b">
+                <Link href="/" onClick={() => setMobileOpen(false)}>
+                  <Image src="/logo.png" alt="JHV Pack Tools" width={120} height={40} className="h-9 w-auto" />
+                </Link>
+              </div>
+
+              {/* Nav links */}
+              <nav className="flex-1 overflow-y-auto px-6 py-4 flex flex-col gap-1">
+                <Link
+                  href="/"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center h-12 text-base font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Início
+                </Link>
+                <Link
+                  href="/sobre"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center h-12 text-base font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Sobre Nós
+                </Link>
+
+                {/* Soluções accordion */}
+                <div>
+                  <button
+                    onClick={() => setSolucoesOpen((v) => !v)}
+                    className="flex items-center justify-between w-full h-12 text-base font-medium text-foreground hover:text-primary transition-colors"
+                  >
+                    Soluções
+                    <ChevronDown className={cn("w-4 h-4 text-muted-foreground transition-transform duration-200", solucoesOpen && "rotate-180")} />
+                  </button>
+
+                  {solucoesOpen && (
+                    <div className="flex flex-col gap-1 mb-2">
+                      {Object.entries(megaMenuData).map(([key, data]) => (
+                        <Link
+                          key={key}
+                          href={data.link}
+                          onClick={() => setMobileOpen(false)}
+                          className="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-muted transition-colors group"
+                        >
+                          <span className="text-sm font-normal text-foreground group-hover:text-primary transition-colors leading-tight">
+                            {data.title}
+                          </span>
+                          <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <Link href="/servicos" className="text-lg font-medium text-foreground hover:text-primary">Serviços</Link>
-                <Link href="/parceiros" className="text-lg font-medium text-foreground hover:text-primary">Parceiros</Link>
-                <Link href="/contato" className="text-lg font-medium text-foreground hover:text-primary">Contato</Link>
-                <Button className="mt-4 w-full" asChild><Link href="/contato">Solicitar Orçamento</Link></Button>
+
+                <Link
+                  href="/servicos"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center h-12 text-base font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Serviços
+                </Link>
+                <Link
+                  href="/parceiros"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center h-12 text-base font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Parceiros
+                </Link>
+                <Link
+                  href="/contato"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center h-12 text-base font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Contato
+                </Link>
               </nav>
+
+              {/* Footer CTA */}
+              <div className="px-6 py-5 border-t flex flex-col gap-3">
+                <Button className="w-full" size="lg" asChild>
+                  <Link href="/contato" onClick={() => setMobileOpen(false)}>
+                    Solicitar Orçamento
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </Button>
+                <a
+                  href="tel:+5519981791472"
+                  className="flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  (19) 98179-1472
+                </a>
+              </div>
             </SheetContent>
           </Sheet>
         </div>

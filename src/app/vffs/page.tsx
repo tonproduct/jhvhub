@@ -15,6 +15,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/FadeIn";
+import { RelatedEquipmentNav } from "@/components/RelatedEquipmentNav";
 const VFFS = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -126,7 +127,7 @@ const VFFS = () => {
             </BreadcrumbList>
           </Breadcrumb>
 
-          <FadeIn variant="up" delay={0.1}><h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Inovação para empacotadoras Verticais contínuas e intermitente</h1></FadeIn>
+          <FadeIn variant="up" delay={0.1}><h1 className="text-[24px] sm:text-[30px] md:text-[38px] lg:text-[48px] text-white mb-6 leading-tight" style={{fontWeight: 600}}>Inovação para <br /><span style={{fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em"}}>empacotadoras verticais</span><br />contínuas e intermitentes</h1></FadeIn>
 
           <FadeIn variant="up" delay={0.3}><p className="text-xl text-white/90 max-w-3xl leading-relaxed mb-10">Componentes de alta performance para máquinas verticais. Ferramentas de selagem, corte e colarinhos (formatos)</p></FadeIn>
 
@@ -429,43 +430,10 @@ const VFFS = () => {
         </div>
       </section>
 
-      {/* OUTROS EQUIPAMENTOS — full bleed */}
-      <section>
-        <FadeIn variant="up">
-          <div className="grid grid-cols-2 h-72">
-            <Link href="/flow-pack" className="group relative overflow-hidden">
-              <img
-                src="/hero-flow-pack.png"
-                alt="Flow Pack"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-gray-900/75 to-gray-900/35 group-hover:from-gray-900/85 transition-all duration-300" />
-              <div className="absolute inset-0 flex items-center justify-between px-12">
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-white/60 mb-3">Horizontal</p>
-                  <h4 className="text-3xl font-bold text-white group-hover:translate-x-2 transition-transform duration-300">Flow Pack</h4>
-                </div>
-                <ArrowRight className="w-8 h-8 text-white flex-shrink-0 group-hover:translate-x-2 transition-transform duration-300" />
-              </div>
-            </Link>
-            <Link href="/sache" className="group relative overflow-hidden border-l border-white/10">
-              <img
-                src="/hero-sache.png"
-                alt="Sachê"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-gray-900/75 to-gray-900/35 group-hover:from-gray-900/85 transition-all duration-300" />
-              <div className="absolute inset-0 flex items-center justify-between px-12">
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-white/60 mb-3">Sachê</p>
-                  <h4 className="text-3xl font-bold text-white group-hover:translate-x-2 transition-transform duration-300">Máquinas de Sachê</h4>
-                </div>
-                <ArrowRight className="w-8 h-8 text-white flex-shrink-0 group-hover:translate-x-2 transition-transform duration-300" />
-              </div>
-            </Link>
-          </div>
-        </FadeIn>
-      </section>
+      <RelatedEquipmentNav items={[
+        { href: "/flow-pack", image: "/hero-flow-pack.png", label: "Horizontal", title: "Flow Pack" },
+        { href: "/sache", image: "/hero-sache.png", label: "Sachê", title: "Máquinas de Sachê" },
+      ]} />
 
       {/* CTA FINAL */}
       <section className="py-20 bg-gradient-to-r from-primary to-red-700 text-white text-center">
