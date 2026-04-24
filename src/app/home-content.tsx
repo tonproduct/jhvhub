@@ -238,7 +238,7 @@ const handleSolutionSelect = (solution: Solution) => {
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                       <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300">
-                        SOLUÇÕES DE SELAGEM
+                        FERRAMENTAS DE SELAGEM
                       </span>
                       <ArrowRight className="w-6 h-6 text-white flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
@@ -252,7 +252,7 @@ const handleSolutionSelect = (solution: Solution) => {
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                       <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300 mx-0 px-0 pr-0 pl-0 mr-[19px]">
-                        SOLUÇÕES DE CORTE
+                        FERRAMENTAS DE CORTE
                       </span>
                       <ArrowRight className="w-6 h-6 text-white flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
@@ -266,7 +266,7 @@ const handleSolutionSelect = (solution: Solution) => {
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                       <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300">
-                        COMPONENTES E ACESSÓRIOS
+                        COMPONENTES PARA MÁQUINAS
                       </span>
                       <ArrowRight className="w-6 h-6 text-white flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
