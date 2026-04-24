@@ -283,7 +283,8 @@ const handleSolutionSelect = (solution: Solution) => {
 
                 {/* Card 3: Componentes */}
                 <StaggerItem>
-                  <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300" onClick={() => handleSolutionSelect("componentes")}>
+                  <Link href="/componentes">
+                  <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
                     <img src="/fotos/novas/WhatsApp Image 2026-04-22 at 08.28.3312.jpeg" alt="Componentes e Acessórios" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
@@ -293,6 +294,7 @@ const handleSolutionSelect = (solution: Solution) => {
                       <ArrowRight className="w-6 h-6 text-white flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
+                  </Link>
                 </StaggerItem>
               </StaggerChildren>
             </div>}
