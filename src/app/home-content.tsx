@@ -406,7 +406,7 @@ const handleSolutionSelect = (solution: Solution) => {
             <StaggerItem>
               <Link href="/flow-pack">
                 <div className="relative h-64 rounded-2xl overflow-hidden group cursor-pointer">
-                  <img src="/hero-flow-pack.png" alt="Flow Pack" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src="/fotos/novas/flow.jpeg" alt="Flow Pack" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/40 group-hover:from-gray-900/90 group-hover:to-gray-900/60 transition-all duration-300"></div>
                   <div className="absolute inset-0 flex items-center justify-between px-8 md:px-12">
                     <div>
