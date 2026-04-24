@@ -26,8 +26,7 @@ const megaMenuData = {
   flowpack: {
     title: "Flow Pack",
     link: "/flow-pack",
-    image:
-      "/hero-flow-pack.png",
+    image: "/fotos/novas/flow.jpeg",
     categories: [
       { name: "Selagem", icon: Flame, link: "/flow-pack#selagem" },
       { name: "Corte", icon: KnifeIcon, link: "/flow-pack#corte" },
