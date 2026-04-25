@@ -46,7 +46,6 @@ export const flowPackSealingProducts: Product[] = [
     shortDescription: 'Mordentes de alta performance compatíveis com diversas marcas e modelos de embaladoras do mercado',
     fullDescription: 'Fabricamos ferramentas de selagem como mordentes para vários tipos de embaladoras, garantindo compatibilidade e performance superior.',
     images: [
-      '/fotos/novas/WhatsApp Image 2026-04-22 at 08.28.34.jpeg',
       '/produtos/flow-pack/mordente-selagem-01.png',
       '/produtos/flow-pack/mordente-selagem-02.png',
     ],
@@ -171,7 +170,8 @@ export const flowPackSealingProducts: Product[] = [
     shortDescription: 'Cabeçotes completos fabricados com tecnologias e padrões internacionais de qualidade',
     fullDescription: 'Fabricação de cabeçotes completos de selagem e corte utilizando tecnologias internacionais, garantindo os mais altos padrões de qualidade e performance.',
     images: [
-      '/fotos/novas/aaa.jpeg',
+      '/fotos/novas/WhatsApp Image 2026-04-24 at 16.24.27.jpeg',
+      '/fotos/novas/WhatsApp Image 2026-04-24 at 16.24.48.jpeg',
     ],
     specifications: {
       material: 'Aço temperado premium',
