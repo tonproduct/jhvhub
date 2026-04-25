@@ -26,7 +26,6 @@ const Sache = () => {
 
   // Carrossel de Corte
   const [activeCuttingSlide, setActiveCuttingSlide] = useState(0);
-  const [isCuttingAutoPlaying, setIsCuttingAutoPlaying] = useState(true);
 
   // Carrossel de Dosagem
   const [activeDosagemSlide, setActiveDosagemSlide] = useState(0);
@@ -53,14 +52,22 @@ const Sache = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Imagens do carrossel de Corte
+  const sacheCuttingImages = [
+    '/fotos/cortes/WhatsApp Image 2026-04-24 at 16.50.20.jpeg',
+    '/fotos/cortes/WhatsApp Image 2026-04-24 at 16.50.2011.jpeg',
+    '/fotos/cortes/WhatsApp Image 2026-04-24 at 16.50.20113.jpeg',
+    '/fotos/cortes/WhatsApp Image 2026-04-24 at 16.50.20xx.jpeg',
+    '/fotos/cortes/WhatsApp Image 2026-04-24 at 16.50.21.jpeg',
+  ];
+
   // Auto-play do carrossel de Corte
   useEffect(() => {
-    if (!isCuttingAutoPlaying) return;
     const interval = setInterval(() => {
-      setActiveCuttingSlide(prev => prev === sacheCuttingProducts.length - 1 ? 0 : prev + 1);
+      setActiveCuttingSlide(prev => prev === sacheCuttingImages.length - 1 ? 0 : prev + 1);
     }, 5000);
     return () => clearInterval(interval);
-  }, [isCuttingAutoPlaying]);
+  }, []);
 
   // Auto-play do carrossel de Dosagem
   useEffect(() => {
@@ -269,35 +276,21 @@ const Sache = () => {
             <div className="lg:sticky lg:top-24 h-fit order-3 lg:order-1">
               <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-muted to-muted/50 shadow-2xl">
                 <AnimatePresence>
-                  <motion.div key={activeCuttingSlide} initial={{
-                  opacity: 0
-                }} animate={{
-                  opacity: 1
-                }} exit={{
-                  opacity: 0
-                }} transition={{
-                  duration: 0.6
-                }} className="absolute inset-0">
-                    <img src={sacheCuttingProducts[activeCuttingSlide].images[0]} alt={sacheCuttingProducts[activeCuttingSlide].name} className="w-full h-full object-cover object-center" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
-                      <h3 className="text-2xl md:text-3xl font-bold">
-                        {sacheCuttingProducts[activeCuttingSlide].name}
-                      </h3>
-                    </div>
+                  <motion.div key={activeCuttingSlide} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }} className="absolute inset-0">
+                    <img src={sacheCuttingImages[activeCuttingSlide]} alt="Soluções de Corte" className="w-full h-full object-cover object-center" />
                   </motion.div>
                 </AnimatePresence>
 
-                <button onClick={() => setActiveCuttingSlide(prev => prev === 0 ? sacheCuttingProducts.length - 1 : prev - 1)} className="hidden lg:block absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/90 p-2 rounded-full shadow-md transition-all" aria-label="Produto anterior">
+                <button onClick={() => setActiveCuttingSlide(prev => prev === 0 ? sacheCuttingImages.length - 1 : prev - 1)} className="hidden lg:block absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/90 p-2 rounded-full shadow-md transition-all" aria-label="Imagem anterior">
                   <ChevronLeft className="w-5 h-5 text-gray-800" />
                 </button>
 
-                <button onClick={() => setActiveCuttingSlide(prev => prev === sacheCuttingProducts.length - 1 ? 0 : prev + 1)} className="hidden lg:block absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/90 p-2 rounded-full shadow-md transition-all" aria-label="Próximo produto">
+                <button onClick={() => setActiveCuttingSlide(prev => prev === sacheCuttingImages.length - 1 ? 0 : prev + 1)} className="hidden lg:block absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/90 p-2 rounded-full shadow-md transition-all" aria-label="Próxima imagem">
                   <ChevronRight className="w-5 h-5 text-gray-800" />
                 </button>
 
                 <div className="absolute top-6 right-6 flex gap-2">
-                  {sacheCuttingProducts.map((_, index) => <div key={index} className={cn("h-1 rounded-full transition-all duration-300", activeCuttingSlide === index ? "w-8 bg-white" : "w-4 bg-white/40")}></div>)}
+                  {sacheCuttingImages.map((_, index) => <div key={index} className={cn("h-1 rounded-full transition-all duration-300", activeCuttingSlide === index ? "w-8 bg-white" : "w-4 bg-white/40")}></div>)}
                 </div>
               </div>
             </div>
@@ -311,11 +304,8 @@ const Sache = () => {
               </div>
 
               <div className="space-y-3">
-                {sacheCuttingProducts.map((product, index) => <div key={product.id} onMouseEnter={() => {
-                setActiveCuttingSlide(index);
-                setIsCuttingAutoPlaying(false);
-              }} onMouseLeave={() => setIsCuttingAutoPlaying(true)} className={cn("group cursor-default py-3 px-4 rounded-lg transition-all duration-300 flex items-center gap-3", activeCuttingSlide === index ? "bg-amber-50 text-amber-600" : "hover:bg-amber-50 text-base")}>
-                    <ChevronRight className={cn("w-5 h-5 flex-shrink-0 transition-colors", activeCuttingSlide === index ? "text-amber-600" : "text-base")} />
+                {sacheCuttingProducts.map((product) => <div key={product.id} className="group cursor-default py-3 px-4 rounded-lg hover:bg-amber-50 transition-all duration-300 flex items-center gap-3">
+                    <ChevronRight className="w-5 h-5 flex-shrink-0 text-muted-foreground group-hover:text-amber-600 transition-colors" />
                     <h3 className="font-semibold text-base">{product.name}</h3>
                   </div>)}
               </div>

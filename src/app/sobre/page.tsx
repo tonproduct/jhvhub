@@ -32,7 +32,7 @@ import { FadeIn, StaggerChildren, StaggerItem } from "@/components/FadeIn";
 import { useState, useEffect } from "react";
 
 const ALL_IMAGES = [
-  { src: "/fotos/novas/a2.jpeg", alt: "Centro de Usinagem CNC" },
+  { src: "/fotos/novas/12.jpeg", alt: "Centro de Usinagem CNC" },
   { src: "/fotos/novas/bico.jpeg", alt: "Usinagem de Mordente" },
   { src: "/fotos/novas/serra.jpeg", alt: "Retífica com Faíscas" },
 ];
@@ -74,7 +74,7 @@ const Sobre = () => {
 
       {/* Hero */}
       <section
-        className="relative h-[58vh] flex items-center justify-center bg-gradient-to-b from-slate-900 to-slate-950"
+        className="relative flex items-center bg-gradient-to-b from-slate-900 to-slate-950"
         style={{
           backgroundImage: "url('/sobre-quem-somos.png')",
           backgroundSize: "cover",
@@ -82,33 +82,36 @@ const Sobre = () => {
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80" />
-        <div className="relative z-10 px-6 md:px-24 max-w-7xl mx-auto w-full py-20 lg:py-28">
-          <Breadcrumb className="mb-6">
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/" className="text-white/80 hover:text-white">Home</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-white/60" />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="text-white">Sobre Nós</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-          <FadeIn variant="up" delay={0.1}>
-            <Badge variant="outline" className="mb-6 border-white/30 bg-white/10 text-white backdrop-blur-sm">Engenharia de Precisão</Badge>
-          </FadeIn>
-          <FadeIn variant="up" delay={0.2}>
-            <h1 className="text-[24px] sm:text-[30px] md:text-[38px] lg:text-[48px] text-white mb-6 leading-tight" style={{fontWeight: 600}}>
-              Excelência em ferramentas para <span className="block sm:inline"><span style={{fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em"}}>máquinas de embalagem</span></span>
-            </h1>
-          </FadeIn>
-          <FadeIn variant="up" delay={0.4}>
-            <p className="text-xl text-white/90 max-w-3xl leading-relaxed">
-              Especialistas na fabricação de ferramentas de selagem e corte com foco em tecnologia que garante a hermeticidade dos produtos.
-            </p>
-          </FadeIn>
+        <div className="relative z-10 w-full px-6 md:px-24 py-20 lg:py-28">
+          <div className="max-w-[1340px] mx-auto">
+            <Breadcrumb className="mb-6">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link href="/" className="text-white/80 hover:text-white">Home</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="text-white/60" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="text-white">Sobre Nós</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+            <FadeIn variant="up" delay={0.1}>
+              <Badge variant="outline" className="mb-6 border-white/30 bg-white/10 text-white backdrop-blur-sm">Engenharia de Precisão</Badge>
+            </FadeIn>
+            <FadeIn variant="up" delay={0.2}>
+              <h1 className="text-[24px] sm:text-[30px] md:text-[38px] lg:text-[48px] text-white mb-6 leading-tight" style={{fontWeight: 600}}>
+                Excelência em ferramentas para<br />
+                <span style={{fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em"}}>máquinas de embalagem</span>
+              </h1>
+            </FadeIn>
+            <FadeIn variant="up" delay={0.4}>
+              <p className="text-xl text-white/90 max-w-2xl leading-relaxed">
+                Especialistas na fabricação de ferramentas de selagem e corte com foco em tecnologia que garante a hermeticidade dos produtos.
+              </p>
+            </FadeIn>
+          </div>
         </div>
       </section>
 

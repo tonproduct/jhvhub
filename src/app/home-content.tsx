@@ -22,7 +22,9 @@ const PORTRAIT_IMGS = [
   "/produtos/flow-pack/ROLO DE SELAGEM RECARTILHADO.png",
   "/produtos/flow-pack/FACA DENTADA.png",
   "/produtos/flow-pack/mordente-selagem-01.png",
-  "/produtos/flow-pack/faca-zig-zag-sache-01.png",
+  "/fotos/novas/WhatsApp Image 2026-04-24 at 16.35.40.jpeg",
+  "/fotos/novas/WhatsApp Image 2026-04-24 at 16.40.14.jpeg",
+  "/fotos/novas/WhatsApp Image 2026-04-24 at 16.41.27.jpeg",
 ];
 
 const CAROUSEL_MS = 4000;
@@ -49,33 +51,50 @@ function HeroPortraitCarousel() {
   const trackX = -(current * (HERO_SLIDE_W + SLIDE_GAP));
 
   return (
-    <div
-      style={{
-        width: HERO_SLIDE_W * 1.6,
-        maskImage: "linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%)",
-        WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%)",
-      }}
-    >
-      <div className="overflow-hidden" style={{ paddingLeft: `calc(50% - ${HERO_SLIDE_W / 2}px)` }}>
-        <motion.div
-          className="flex"
-          style={{ gap: SLIDE_GAP }}
-          animate={{ x: trackX }}
-          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {PORTRAIT_IMGS.map((src, i) => (
-            <motion.div
-              key={i}
-              className="flex-shrink-0 rounded-2xl overflow-hidden cursor-pointer"
-              style={{ width: HERO_SLIDE_W, height: HERO_SLIDE_H }}
-              animate={{ opacity: i === current ? 1 : 0.3, scale: i === current ? 1 : 0.88 }}
-              transition={{ duration: 0.45, ease: [0.25, 0.4, 0.25, 1] }}
-              onClick={() => setCurrent(i)}
-            >
-              <img src={src} alt="" className="w-full h-full object-cover" />
-            </motion.div>
-          ))}
-        </motion.div>
+    <div style={{ width: HERO_SLIDE_W * 1.6 }}>
+      <div
+        style={{
+          maskImage: "linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%)",
+        }}
+      >
+        <div className="overflow-hidden" style={{ paddingLeft: `calc(50% - ${HERO_SLIDE_W / 2}px)` }}>
+          <motion.div
+            className="flex"
+            style={{ gap: SLIDE_GAP }}
+            animate={{ x: trackX }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {PORTRAIT_IMGS.map((src, i) => (
+              <motion.div
+                key={i}
+                className="flex-shrink-0 rounded-2xl overflow-hidden cursor-pointer"
+                style={{ width: HERO_SLIDE_W, height: HERO_SLIDE_H }}
+                animate={{ opacity: i === current ? 1 : 0.3, scale: i === current ? 1 : 0.88 }}
+                transition={{ duration: 0.45, ease: [0.25, 0.4, 0.25, 1] }}
+                onClick={() => setCurrent(i)}
+              >
+                <img src={src} alt="" className="w-full h-full object-cover" />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-2 mt-4">
+        {PORTRAIT_IMGS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className="rounded-full transition-all duration-300"
+            style={{
+              width: i === current ? 20 : 8,
+              height: 8,
+              background: i === current ? "#dc2626" : "rgba(255,255,255,0.35)",
+            }}
+          />
+        ))}
       </div>
     </div>
   );
