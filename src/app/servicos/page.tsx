@@ -225,7 +225,7 @@ const Servicos = () => {
                   </div>
                 ))}
                 <img
-                  src="/WhatsApp Image 2026-04-04 at 11.53.55.jpeg"
+                  src="/servicos-reforma-manutencao.jpeg"
                   alt="Reforma e manutenção"
                   className="w-full h-32 object-cover rounded-xl mt-2"
                 />
@@ -286,7 +286,7 @@ const Servicos = () => {
                   </div>
                 ))}
                 <img
-                  src="/WhatsApp Image 2026-04-04 at 15.51.43.jpeg"
+                  src="/servicos-treinamentos.jpeg"
                   alt="Treinamentos especializados"
                   className="w-full h-32 object-cover object-[center_20%] rounded-xl mt-2"
                 />

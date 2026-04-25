@@ -22,9 +22,9 @@ const PORTRAIT_IMGS = [
   "/produtos/flow-pack/ROLO DE SELAGEM RECARTILHADO.png",
   "/produtos/flow-pack/FACA DENTADA.png",
   "/produtos/flow-pack/mordente-selagem-01.png",
-  "/fotos/novas/WhatsApp Image 2026-04-24 at 16.35.40.jpeg",
-  "/fotos/novas/WhatsApp Image 2026-04-24 at 16.40.14.jpeg",
-  "/fotos/novas/WhatsApp Image 2026-04-24 at 16.41.27.jpeg",
+  "/fotos/novas/hero-produto-01.jpeg",
+  "/fotos/novas/hero-produto-02.jpeg",
+  "/fotos/novas/hero-produto-03.jpeg",
 ];
 
 const CAROUSEL_MS = 4000;
@@ -275,7 +275,7 @@ const handleSolutionSelect = (solution: Solution) => {
                 {/* Card 1: Selagem */}
                 <StaggerItem>
                   <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300" onClick={() => handleSolutionSelect("selagem")}>
-                    <img src="/fotos/novas/WhatsApp Image 2026-04-22 at 08.28.32.jpeg" alt="Soluções de Selagem" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <img src="/fotos/novas/card-selagem.jpeg" alt="Soluções de Selagem" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                       <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300">
@@ -289,7 +289,7 @@ const handleSolutionSelect = (solution: Solution) => {
                 {/* Card 2: Corte */}
                 <StaggerItem>
                   <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300" onClick={() => handleSolutionSelect("corte")}>
-                    <img src="/fotos/novas/WhatsApp Image 2026-04-22 at 08.28.332211.jpeg" alt="Soluções de Corte" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <img src="/fotos/novas/card-corte.jpeg" alt="Soluções de Corte" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                       <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300 mx-0 px-0 pr-0 pl-0 mr-[19px]">
@@ -304,7 +304,7 @@ const handleSolutionSelect = (solution: Solution) => {
                 <StaggerItem>
                   <Link href="/componentes">
                   <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
-                    <img src="/fotos/novas/WhatsApp Image 2026-04-22 at 08.28.3312.jpeg" alt="Componentes e Acessórios" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <img src="/fotos/novas/card-componentes.jpeg" alt="Componentes e Acessórios" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-all duration-300"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
                       <span className="font-semibold text-lg text-white group-hover:translate-x-1 transition-transform duration-300">

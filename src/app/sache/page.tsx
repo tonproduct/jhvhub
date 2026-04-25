@@ -54,11 +54,11 @@ const Sache = () => {
 
   // Imagens do carrossel de Corte
   const sacheCuttingImages = [
-    '/fotos/cortes/WhatsApp Image 2026-04-24 at 16.50.20.jpeg',
-    '/fotos/cortes/WhatsApp Image 2026-04-24 at 16.50.2011.jpeg',
-    '/fotos/cortes/WhatsApp Image 2026-04-24 at 16.50.20113.jpeg',
-    '/fotos/cortes/WhatsApp Image 2026-04-24 at 16.50.20xx.jpeg',
-    '/fotos/cortes/WhatsApp Image 2026-04-24 at 16.50.21.jpeg',
+    '/fotos/cortes/faca-sache-01.jpeg',
+    '/fotos/cortes/faca-sache-02.jpeg',
+    '/fotos/cortes/faca-sache-03.jpeg',
+    '/fotos/cortes/faca-sache-04.jpeg',
+    '/fotos/cortes/faca-sache-05.jpeg',
   ];
 
   // Auto-play do carrossel de Corte

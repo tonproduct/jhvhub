@@ -170,8 +170,8 @@ export const flowPackSealingProducts: Product[] = [
     shortDescription: 'Cabeçotes completos fabricados com tecnologias e padrões internacionais de qualidade',
     fullDescription: 'Fabricação de cabeçotes completos de selagem e corte utilizando tecnologias internacionais, garantindo os mais altos padrões de qualidade e performance.',
     images: [
-      '/fotos/novas/WhatsApp Image 2026-04-24 at 16.24.27.jpeg',
-      '/fotos/novas/WhatsApp Image 2026-04-24 at 16.24.48.jpeg',
+      '/fotos/novas/cabecote-completo-01.jpeg',
+      '/fotos/novas/cabecote-completo-02.jpeg',
     ],
     specifications: {
       material: 'Aço temperado premium',
