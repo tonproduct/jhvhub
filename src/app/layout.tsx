@@ -25,9 +25,6 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "JHV Pack Tools — Ferramentas para Máquinas de Embalagem",
   description: "Fabricação nacional de ferramentas de selagem e corte para embaladoras Flow Pack, Verticais e Sachê. Qualidade com padrões internacionais.",
-  icons: {
-    icon: "/logo.png",
-  },
 };
 
 export default function RootLayout({
