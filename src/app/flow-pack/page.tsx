@@ -141,8 +141,7 @@ const FlowPack = () => {
             <FadeIn variant="left">
               <Badge className="bg-blue-50 text-blue-700 px-4 py-2 text-sm font-medium mb-6">Sobre a Tecnologia</Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">O Que oferecemos de soluções a cliente de Flow pack?</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-4" style={{ lineHeight: "1.8" }}>Atuamos focados em 100% dos caso na melhoria do equipamento Flow Pack como um todo com soluções inteligentes que melhoram a performance da maquina e assim garantimos uma boa selagem uniforme sem excessos de pressão / tempos e temperaturas, com isso garantimos os bons resultados e produtos Herméticos </p>
-              <p className="text-lg text-muted-foreground leading-relaxed" style={{ lineHeight: "1.8" }}></p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-4" style={{ lineHeight: "1.8" }}>Atuamos focados em 100% dos casos na melhoria do equipamento flow pack como um todo, com soluções inteligentes que aumentam a performance da máquina. Assim, garantimos uma selagem uniforme, sem excessos de pressão, tempo ou temperatura, assegurando bons resultados e produtos herméticos.</p>
             </FadeIn>
 
             <FadeIn variant="right" delay={0.2}>

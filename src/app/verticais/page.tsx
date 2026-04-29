@@ -154,12 +154,15 @@ const VFFS = () => {
 
               <p className="text-lg text-muted-foreground leading-relaxed mb-4 font-normal" style={{
               lineHeight: "1.8"
-            }}>Temos soluções e produtos de alta qualidade unidos a projetos voltados para cada seguimento e clientes onde atuamos na melhora da selagem aspecto do pacote melhorias dos frisos e perfil de selagem, com sistemas de troca rápida que são mais eficientes no dia a dia de grandes empresas. Trabalhamos com vária soluções para embalagens (filmes) 100% reciclável / pet / Bopp / metalizado/ Papel e outros. Temos matérias e revestimentos próprios para cada aplicação assim garantimos produtos hermético e vedados com embalagens perfeitas e apresentáveis. É um sistema de embalagem vertical que forma, enche e sela produtos automaticamente. O filme é puxado verticalmente, formado em tubo, preenchido com o produto e selado em sachês ou embalagens tipo pillow.</p>
+            }}>Temos soluções e produtos de alta qualidade, aliados a projetos personalizados para cada segmento e cliente em que atuamos. Nosso foco está na melhoria da selagem, no aspecto final da embalagem, no aperfeiçoamento dos frisos e no perfil de selagem, oferecendo sistemas de troca rápida que proporcionam mais eficiência no dia a dia de grandes empresas.</p>
+
+              <p className="text-lg text-muted-foreground leading-relaxed mb-4 font-normal" style={{
+              lineHeight: "1.8"
+            }}>Trabalhamos com diversas soluções para embalagens, incluindo filmes 100% recicláveis, PET, BOPP, metalizados, papel, entre outros materiais. Contamos com matérias-primas e revestimentos específicos para cada aplicação, garantindo embalagens herméticas, bem vedadas, com excelente acabamento e apresentação.</p>
 
               <p className="text-lg text-muted-foreground leading-relaxed" style={{
               lineHeight: "1.8"
-            }}>
-            </p>
+            }}>Nosso sistema de embalagem vertical forma, enche e sela produtos automaticamente. O filme é conduzido verticalmente, moldado em formato tubular, preenchido com o produto e selado, resultando em sachês ou embalagens do tipo pillow com alta qualidade e eficiência.</p>
             </FadeIn>
 
             <FadeIn variant="right" delay={0.2}>
